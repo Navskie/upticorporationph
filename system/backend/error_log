@@ -1,0 +1,226 @@
+[10-Mar-2022 13:59:37 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 34
+[10-Mar-2022 13:59:37 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 35
+[10-Mar-2022 13:59:37 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 37
+[10-Mar-2022 13:59:37 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 45
+[10-Mar-2022 13:59:37 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 71
+[10-Mar-2022 14:01:18 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-rts-process.php on line 19
+[10-Mar-2022 14:01:18 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-rts-process.php on line 24
+[10-Mar-2022 14:01:18 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-rts-process.php on line 33
+[10-Mar-2022 14:16:17 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 34
+[10-Mar-2022 14:16:17 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 35
+[10-Mar-2022 14:16:17 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 37
+[10-Mar-2022 14:16:17 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 45
+[10-Mar-2022 14:16:17 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 71
+[13-Mar-2022 23:14:14 UTC] PHP Warning:  move_uploaded_file(../images/withdraw/W-622e7ac6ad2f43.66606503.png): failed to open stream: No such file or directory in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/withdraw-check-process.php on line 23
+[13-Mar-2022 23:14:14 UTC] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpBR0wSa' to '../images/withdraw/W-622e7ac6ad2f43.66606503.png' in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/withdraw-check-process.php on line 23
+[13-Mar-2022 23:22:53 UTC] PHP Warning:  move_uploaded_file(../images/withdraw/W-622e7ccd1adad1.88106834.png): failed to open stream: No such file or directory in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/withdraw-check-process.php on line 23
+[13-Mar-2022 23:22:53 UTC] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpE0BRBC' to '../images/withdraw/W-622e7ccd1adad1.88106834.png' in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/withdraw-check-process.php on line 23
+[15-Mar-2022 06:29:02 UTC] PHP Warning:  move_uploaded_file(../images/withdraw/W-6230322e387068.97024745.jpg): failed to open stream: No such file or directory in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/withdraw-check-process.php on line 23
+[15-Mar-2022 06:29:02 UTC] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpd0sg1o' to '../images/withdraw/W-6230322e387068.97024745.jpg' in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/withdraw-check-process.php on line 23
+[15-Mar-2022 06:30:40 UTC] PHP Warning:  move_uploaded_file(../images/withdraw/W-62303290473197.30962395.jpg): failed to open stream: No such file or directory in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/withdraw-check-process.php on line 23
+[15-Mar-2022 06:30:40 UTC] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpfNq0xs' to '../images/withdraw/W-62303290473197.30962395.jpg' in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/withdraw-check-process.php on line 23
+[15-Mar-2022 06:48:52 UTC] PHP Warning:  move_uploaded_file(../images/withdraw/W-623036d410c322.61430407.jpg): failed to open stream: No such file or directory in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/withdraw-check-process.php on line 23
+[15-Mar-2022 06:48:52 UTC] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpWLiGEH' to '../images/withdraw/W-623036d410c322.61430407.jpg' in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/withdraw-check-process.php on line 23
+[15-Mar-2022 14:01:34 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 53
+[17-Mar-2022 20:35:47 UTC] PHP Notice:  Undefined variable: getnamex_query in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-on-process-process.php on line 17
+[17-Mar-2022 20:35:47 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-on-process-process.php on line 17
+[17-Mar-2022 20:35:47 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-on-process-process.php on line 19
+[17-Mar-2022 20:36:48 UTC] PHP Notice:  Undefined variable: getnamex_query in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-in-transit-process.php on line 17
+[17-Mar-2022 20:36:48 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-in-transit-process.php on line 17
+[17-Mar-2022 20:36:48 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-in-transit-process.php on line 19
+[17-Mar-2022 20:37:00 UTC] PHP Notice:  Undefined index: name in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 5
+[17-Mar-2022 20:37:09 UTC] PHP Notice:  Undefined variable: getnamex_query in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-rts-process.php on line 11
+[17-Mar-2022 20:37:09 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-rts-process.php on line 11
+[17-Mar-2022 20:37:09 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-rts-process.php on line 13
+[17-Mar-2022 20:41:05 UTC] PHP Notice:  Undefined variable: getnamex_query in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-on-process-process.php on line 17
+[17-Mar-2022 20:41:05 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-on-process-process.php on line 17
+[17-Mar-2022 20:41:05 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-on-process-process.php on line 19
+[17-Mar-2022 20:43:15 UTC] PHP Notice:  Undefined variable: getnamex_query in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-on-process-process.php on line 17
+[17-Mar-2022 20:43:15 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-on-process-process.php on line 17
+[17-Mar-2022 20:43:15 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-on-process-process.php on line 19
+[17-Mar-2022 20:44:43 UTC] PHP Notice:  Undefined variable: getnamex_query in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-on-process-process.php on line 17
+[17-Mar-2022 20:44:43 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-on-process-process.php on line 17
+[17-Mar-2022 20:44:43 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-on-process-process.php on line 19
+[18-Mar-2022 16:57:00 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[18-Mar-2022 17:37:28 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[18-Mar-2022 18:22:17 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[18-Mar-2022 19:45:37 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[18-Mar-2022 19:45:50 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[18-Mar-2022 19:46:03 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[19-Mar-2022 10:22:31 UTC] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 227
+[19-Mar-2022 19:04:34 Asia/Manila] PHP Notice:  Undefined variable: reseller_codex in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 97
+[19-Mar-2022 19:06:22 Asia/Manila] PHP Notice:  Undefined variable: reseller_codex in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 97
+[19-Mar-2022 19:18:54 Asia/Manila] PHP Notice:  Undefined variable: get_creator in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 52
+[19-Mar-2022 19:18:54 Asia/Manila] PHP Warning:  mysqli_query(): Empty query in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 52
+[19-Mar-2022 19:18:54 Asia/Manila] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 53
+[19-Mar-2022 19:18:54 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 55
+[19-Mar-2022 19:20:59 Asia/Manila] PHP Notice:  Undefined variable: get_creator in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 52
+[19-Mar-2022 19:20:59 Asia/Manila] PHP Warning:  mysqli_query(): Empty query in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 52
+[19-Mar-2022 19:20:59 Asia/Manila] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 53
+[19-Mar-2022 19:20:59 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 55
+[19-Mar-2022 19:47:46 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 55
+[19-Mar-2022 19:47:46 Asia/Manila] PHP Notice:  Undefined variable: reseller_codex in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 149
+[19-Mar-2022 19:54:55 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 55
+[19-Mar-2022 19:54:55 Asia/Manila] PHP Notice:  Undefined variable: reseller_codex in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 149
+[19-Mar-2022 19:57:32 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 55
+[19-Mar-2022 19:57:32 Asia/Manila] PHP Notice:  Undefined variable: reseller_codex in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 149
+[19-Mar-2022 20:00:13 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 55
+[19-Mar-2022 20:00:13 Asia/Manila] PHP Notice:  Undefined variable: reseller_codex in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 149
+[19-Mar-2022 20:03:01 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 55
+[19-Mar-2022 20:03:01 Asia/Manila] PHP Notice:  Undefined variable: reseller_codex in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 149
+[19-Mar-2022 20:05:54 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 55
+[19-Mar-2022 20:05:54 Asia/Manila] PHP Notice:  Undefined variable: reseller_codex in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 149
+[19-Mar-2022 20:14:41 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 55
+[19-Mar-2022 20:14:41 Asia/Manila] PHP Notice:  Undefined variable: reseller_codex in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 149
+[19-Mar-2022 20:53:00 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 71
+[19-Mar-2022 20:56:02 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 71
+[19-Mar-2022 20:59:32 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 71
+[21-Mar-2022 09:12:45 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 71
+[21-Mar-2022 10:45:22 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[21-Mar-2022 10:45:46 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[21-Mar-2022 16:40:53 Asia/Manila] PHP Notice:  Undefined variable: maycode in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 188
+[21-Mar-2022 16:41:05 Asia/Manila] PHP Notice:  Undefined variable: maycode in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 188
+[21-Mar-2022 16:52:32 Asia/Manila] PHP Notice:  Undefined variable: maycode in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 188
+[21-Mar-2022 17:01:10 Asia/Manila] PHP Notice:  Undefined variable: maycode in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 188
+[21-Mar-2022 17:01:20 Asia/Manila] PHP Notice:  Undefined variable: maycode in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 188
+[21-Mar-2022 17:10:17 Asia/Manila] PHP Notice:  Undefined variable: maycode in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 188
+[21-Mar-2022 17:26:48 Asia/Manila] PHP Notice:  Undefined variable: maycode in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 188
+[21-Mar-2022 17:27:50 Asia/Manila] PHP Notice:  Undefined variable: maycode in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 188
+[21-Mar-2022 17:28:19 Asia/Manila] PHP Notice:  Undefined variable: maycode in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 188
+[21-Mar-2022 17:28:36 Asia/Manila] PHP Notice:  Undefined variable: maycode in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 188
+[21-Mar-2022 17:28:49 Asia/Manila] PHP Notice:  Undefined variable: maycode in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 188
+[21-Mar-2022 17:46:03 Asia/Manila] PHP Notice:  Undefined variable: maycode in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 188
+[21-Mar-2022 17:53:29 Asia/Manila] PHP Notice:  Undefined variable: maycode in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 188
+[21-Mar-2022 17:53:58 Asia/Manila] PHP Notice:  Undefined variable: maycode in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 188
+[21-Mar-2022 17:54:26 Asia/Manila] PHP Notice:  Undefined variable: maycode in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 188
+[22-Mar-2022 09:00:16 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 55
+[22-Mar-2022 16:07:21 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 55
+[23-Mar-2022 16:24:50 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[23-Mar-2022 16:26:56 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[23-Mar-2022 16:27:31 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[23-Mar-2022 16:28:04 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[23-Mar-2022 16:28:40 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[23-Mar-2022 16:31:55 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[23-Mar-2022 16:32:32 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[23-Mar-2022 16:33:27 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[23-Mar-2022 16:34:06 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[23-Mar-2022 16:35:25 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[23-Mar-2022 16:37:04 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[23-Mar-2022 16:51:37 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[23-Mar-2022 16:52:00 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[23-Mar-2022 16:52:44 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[23-Mar-2022 16:53:06 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[23-Mar-2022 16:53:58 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[23-Mar-2022 16:54:19 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[23-Mar-2022 17:13:17 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[23-Mar-2022 17:13:56 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[23-Mar-2022 17:34:23 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[24-Mar-2022 07:29:41 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[24-Mar-2022 07:31:33 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[24-Mar-2022 07:32:29 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[24-Mar-2022 07:37:44 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[24-Mar-2022 07:37:44 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 47
+[24-Mar-2022 07:37:44 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 48
+[24-Mar-2022 07:37:44 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 54
+[24-Mar-2022 02:54:02 UTC] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/order-cancel-process.php on line 37
+[24-Mar-2022 02:55:01 UTC] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/order-cancel-process.php on line 37
+[24-Mar-2022 11:00:37 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[24-Mar-2022 13:50:52 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[24-Mar-2022 13:51:22 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[24-Mar-2022 13:55:02 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[24-Mar-2022 13:59:30 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[24-Mar-2022 13:59:57 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[24-Mar-2022 14:58:30 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[24-Mar-2022 14:58:50 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[24-Mar-2022 14:59:30 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[24-Mar-2022 14:59:51 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[24-Mar-2022 15:00:08 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[24-Mar-2022 15:00:26 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[24-Mar-2022 15:00:42 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[24-Mar-2022 15:11:04 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[24-Mar-2022 15:11:22 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[24-Mar-2022 15:11:38 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[24-Mar-2022 15:11:57 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/admin-order-delivered-process.php on line 44
+[24-Mar-2022 20:39:38 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[26-Mar-2022 10:41:02 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[26-Mar-2022 10:41:25 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[26-Mar-2022 10:41:42 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[26-Mar-2022 10:42:44 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[26-Mar-2022 10:43:02 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[26-Mar-2022 10:43:18 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[26-Mar-2022 10:43:40 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[26-Mar-2022 10:44:19 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[26-Mar-2022 10:44:37 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[26-Mar-2022 10:45:45 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[26-Mar-2022 11:15:14 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[26-Mar-2022 11:17:15 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[26-Mar-2022 11:17:33 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[26-Mar-2022 11:17:58 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[26-Mar-2022 11:18:56 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[26-Mar-2022 11:19:20 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[26-Mar-2022 11:19:40 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[28-Mar-2022 07:01:40 UTC] PHP Notice:  Undefined index: uid in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/order-cancel-process.php on line 9
+[28-Mar-2022 15:01:40 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/order-cancel-process.php on line 24
+[28-Mar-2022 16:15:04 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[28-Mar-2022 16:15:27 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[28-Mar-2022 16:15:49 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[28-Mar-2022 16:16:24 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[31-Mar-2022 10:15:43 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[31-Mar-2022 12:14:14 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[01-Apr-2022 22:22:25 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[02-Apr-2022 09:28:11 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[08-Apr-2022 06:34:00 UTC] PHP Notice:  Undefined index: uid in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/order-cancel-process.php on line 9
+[08-Apr-2022 14:34:00 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/order-cancel-process.php on line 24
+[08-Apr-2022 06:34:01 UTC] PHP Notice:  Undefined index: uid in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/order-cancel-process.php on line 9
+[08-Apr-2022 14:34:01 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/order-cancel-process.php on line 24
+[08-Apr-2022 06:34:01 UTC] PHP Notice:  Undefined index: uid in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/order-cancel-process.php on line 9
+[08-Apr-2022 14:34:01 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/order-cancel-process.php on line 24
+[11-Apr-2022 01:37:01 UTC] PHP Notice:  Undefined index: uid in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/order-cancel-process.php on line 9
+[11-Apr-2022 09:37:01 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/order-cancel-process.php on line 24
+[15-Apr-2022 21:42:00 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 21:42:47 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 21:43:31 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 21:44:19 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 21:44:53 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 21:45:29 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 21:45:59 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 21:47:03 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 21:47:45 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 21:50:43 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 21:51:19 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 21:51:57 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 21:52:55 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 21:53:39 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 21:54:34 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 21:54:56 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 21:56:13 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 21:56:41 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 21:57:12 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 21:57:36 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 21:58:14 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 21:58:55 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 21:59:56 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 22:01:48 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 22:02:23 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 22:03:52 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 22:04:59 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 22:05:43 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 22:06:16 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 22:06:51 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 22:07:11 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 22:08:15 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 22:08:52 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 22:09:26 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 22:10:34 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[15-Apr-2022 22:11:18 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[20-Apr-2022 11:57:02 Asia/Manila] PHP Notice:  Undefined index: stats in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/country-edit-process.php on line 25
+[21-Apr-2022 05:37:21 UTC] PHP Notice:  Undefined index: uid in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/order-cancel-process.php on line 9
+[21-Apr-2022 13:37:21 Asia/Manila] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/order-cancel-process.php on line 24
+[22-Apr-2022 12:46:10 UTC] PHP Notice:  Undefined index: wfile in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/withdraw-check-process.php on line 11
+[22-Apr-2022 12:46:10 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/withdraw-check-process.php on line 11
+[22-Apr-2022 12:46:10 UTC] PHP Notice:  Undefined index: wfile in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/withdraw-check-process.php on line 12
+[22-Apr-2022 12:46:10 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/withdraw-check-process.php on line 12
+[22-Apr-2022 12:46:10 UTC] PHP Notice:  Undefined index: wfile in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/withdraw-check-process.php on line 13
+[22-Apr-2022 12:46:10 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/withdraw-check-process.php on line 13
+[27-May-2022 07:20:27 UTC] PHP Warning:  move_uploaded_file(../images/stockist/PO-S111020221.jpg): failed to open stream: No such file or directory in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/po-upload-file-process.php on line 19
+[27-May-2022 07:20:27 UTC] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/php1uD2aB' to '../images/stockist/PO-S111020221.jpg' in /home/dosllllt07wn/public_html/shop.uptimisedph.com/backend/po-upload-file-process.php on line 19
