@@ -731,220 +731,220 @@
             }
         }
 
-        // // INVENTORY HISTORY
-        // $inv_history = "UPDATE stockist_history SET history_status = 'Delivered' WHERE history_poid = '$poid'";
-        // $inv_history_qry = mysqli_query($connect, $inv_history);
+        // INVENTORY HISTORY
+        $inv_history = "UPDATE stockist_history SET history_status = 'Delivered' WHERE history_poid = '$poid'";
+        $inv_history_qry = mysqli_query($connect, $inv_history);
         
-        // // INVENTORY REPORT
-        // $inv_report = "UPDATE stockist_report SET rp_status = 'Delivered' WHERE rp_poid = '$poid'";
-        // $inv_report_qry = mysqli_query($connect, $inv_report);
+        // INVENTORY REPORT
+        $inv_report = "UPDATE stockist_report SET rp_status = 'Delivered' WHERE rp_poid = '$poid'";
+        $inv_report_qry = mysqli_query($connect, $inv_report);
 
-        // $epayment_process = "UPDATE upti_transaction SET trans_status = 'Delivered' WHERE id = '$id'";
-        // $epayment_process_qry = mysqli_query($connect, $epayment_process);
+        $epayment_process = "UPDATE upti_transaction SET trans_status = 'Delivered' WHERE id = '$id'";
+        $epayment_process_qry = mysqli_query($connect, $epayment_process);
         
-        // $ol_sql = "UPDATE upti_order_list SET ol_status = 'Delivered' WHERE ol_poid = '$poid'";
-        // $ol_qry = mysqli_query($connect, $ol_sql);
+        $ol_sql = "UPDATE upti_order_list SET ol_status = 'Delivered' WHERE ol_poid = '$poid'";
+        $ol_qry = mysqli_query($connect, $ol_sql);
         
-        // // stockist commision
+        // stockist commision
         
-        // $order_list = mysqli_query($connect, "SELECT * FROM upti_order_list WHERE ol_poid = '$poid'");
-        // while ($order = mysqli_fetch_array($order_list)) {
-        //   $item_code = $order['ol_code'];
-        //   $item_qty = $order['ol_qty'];
-        //   $item_php = $order['ol_php'];
-        //   $subtotal = $order['ol_subtotal'];
+        $order_list = mysqli_query($connect, "SELECT * FROM upti_order_list WHERE ol_poid = '$poid'");
+        while ($order = mysqli_fetch_array($order_list)) {
+          $item_code = $order['ol_code'];
+          $item_qty = $order['ol_qty'];
+          $item_php = $order['ol_php'];
+          $subtotal = $order['ol_subtotal'];
 
-        //   $pack_stmt = mysqli_query($connect, "SELECT * FROM upti_package WHERE package_code = '$item_code'");
-        //   $pack = mysqli_fetch_array($pack_stmt);
-        //   if (mysqli_num_rows($pack_stmt) > 0) {
-        //     // package 1
-        //     $_c1 = $pack['package_one_code'];
-        //     $_q1 = $pack['package_one_qty'];
-        //     // echo '<br>';
-        //       // price
-        //       $price_stmt = mysqli_query($connect, "SELECT * FROM upti_country WHERE country_name = '$country' AND country_code = '$_c1'");
-        //       $price_f = mysqli_fetch_array($price_stmt);
-        //       $stockist_price = $price_f['country_stockist'];
+          $pack_stmt = mysqli_query($connect, "SELECT * FROM upti_package WHERE package_code = '$item_code'");
+          $pack = mysqli_fetch_array($pack_stmt);
+          if (mysqli_num_rows($pack_stmt) > 0) {
+            // package 1
+            $_c1 = $pack['package_one_code'];
+            $_q1 = $pack['package_one_qty'];
+            // echo '<br>';
+              // price
+              $price_stmt = mysqli_query($connect, "SELECT * FROM upti_country WHERE country_name = '$country' AND country_code = '$_c1'");
+              $price_f = mysqli_fetch_array($price_stmt);
+              $stockist_price = $price_f['country_stockist'];
 
-        //     // package 2
-        //     $_c2 = $pack['package_two_code'];
-        //     $_q2 = $pack['package_two_qty'];
+            // package 2
+            $_c2 = $pack['package_two_code'];
+            $_q2 = $pack['package_two_qty'];
 
-        //       // price
-        //       $price_stmt2 = mysqli_query($connect, "SELECT * FROM upti_country WHERE country_name = '$country' AND country_code = '$_c2'");
-        //       $price_f2 = mysqli_fetch_array($price_stmt2);
-        //       $stockist_price2 = $price_f2['country_stockist'];
+              // price
+              $price_stmt2 = mysqli_query($connect, "SELECT * FROM upti_country WHERE country_name = '$country' AND country_code = '$_c2'");
+              $price_f2 = mysqli_fetch_array($price_stmt2);
+              $stockist_price2 = $price_f2['country_stockist'];
 
-        //     // package 3
-        //     $_c3 = $pack['package_three_code'];
-        //     $_q3 = $pack['package_three_qty'];
+            // package 3
+            $_c3 = $pack['package_three_code'];
+            $_q3 = $pack['package_three_qty'];
 
-        //       // price
-        //       $price_stmt3 = mysqli_query($connect, "SELECT * FROM upti_country WHERE country_name = '$country' AND country_code = '$_c3'");
-        //       $price_f3 = mysqli_fetch_array($price_stmt3);
-        //       $stockist_price3 = $price_f3['country_stockist'];
+              // price
+              $price_stmt3 = mysqli_query($connect, "SELECT * FROM upti_country WHERE country_name = '$country' AND country_code = '$_c3'");
+              $price_f3 = mysqli_fetch_array($price_stmt3);
+              $stockist_price3 = $price_f3['country_stockist'];
 
-        //     // package 4
-        //     $_c4 = $pack['package_four_code'];
-        //     $_q4 = $pack['package_four_qty'];
+            // package 4
+            $_c4 = $pack['package_four_code'];
+            $_q4 = $pack['package_four_qty'];
 
-        //       // price
-        //       $price_stmt4 = mysqli_query($connect, "SELECT * FROM upti_country WHERE country_name = '$country' AND country_code = '$_c4'");
-        //       $price_f4 = mysqli_fetch_array($price_stmt4);
-        //       $stockist_price4 = $price_f4['country_stockist'];
+              // price
+              $price_stmt4 = mysqli_query($connect, "SELECT * FROM upti_country WHERE country_name = '$country' AND country_code = '$_c4'");
+              $price_f4 = mysqli_fetch_array($price_stmt4);
+              $stockist_price4 = $price_f4['country_stockist'];
 
-        //     // package 5
-        //     $_c5 = $pack['package_five_code'];
-        //     $_q5 = $pack['package_five_qty'];
+            // package 5
+            $_c5 = $pack['package_five_code'];
+            $_q5 = $pack['package_five_qty'];
 
-        //       // price
-        //       $price_stmt5 = mysqli_query($connect, "SELECT * FROM upti_country WHERE country_name = '$country' AND country_code = '$_c5'");
-        //       $price_f5 = mysqli_fetch_array($price_stmt5);
-        //       $stockist_price5 = $price_f5['country_stockist'];
+              // price
+              $price_stmt5 = mysqli_query($connect, "SELECT * FROM upti_country WHERE country_name = '$country' AND country_code = '$_c5'");
+              $price_f5 = mysqli_fetch_array($price_stmt5);
+              $stockist_price5 = $price_f5['country_stockist'];
 
-        //       $n_q1 = $_q1 * $item_qty;
-        //       $n_q2 = $_q2 * $item_qty;
-        //       $n_q3 = $_q3 * $item_qty;
-        //       $n_q4 = $_q4 * $item_qty;
-        //       $n_q5 = $_q5 * $item_qty;
+              $n_q1 = $_q1 * $item_qty;
+              $n_q2 = $_q2 * $item_qty;
+              $n_q3 = $_q3 * $item_qty;
+              $n_q4 = $_q4 * $item_qty;
+              $n_q5 = $_q5 * $item_qty;
 
-        //     $buy = ($stockist_price * $n_q1) + ($stockist_price2 * $n_q2) + ($stockist_price3 * $n_q3) + ($stockist_price4 * $n_q4) + ($stockist_price5 * $n_q5);
+            $buy = ($stockist_price * $n_q1) + ($stockist_price2 * $n_q2) + ($stockist_price3 * $n_q3) + ($stockist_price4 * $n_q4) + ($stockist_price5 * $n_q5);
 
-        //     $refund = $buy - $item_php;
-        //     // echo '<br>';
+            $refund = $buy - $item_php;
+            // echo '<br>';
 
-        //     if ($_q1 > 0) {
-        //       $desc1 = $_c1.' ['.$_q1.'] <br>';
-        //     } else {
-        //       $desc1 = '';
-        //     }
+            if ($_q1 > 0) {
+              $desc1 = $_c1.' ['.$_q1.'] <br>';
+            } else {
+              $desc1 = '';
+            }
 
-        //     if ($_q2 > 0) {
-        //       $desc2 = $_c2.' ['.$_q2.'] <br>';
-        //     } else {
-        //       $desc2 = '';
-        //     }
+            if ($_q2 > 0) {
+              $desc2 = $_c2.' ['.$_q2.'] <br>';
+            } else {
+              $desc2 = '';
+            }
 
-        //     if ($_q3 > 0) {
-        //       $desc3 = $_c3.' ['.$_q3.'] <br>';
-        //     } else {
-        //       $desc3 = '';
-        //     }
+            if ($_q3 > 0) {
+              $desc3 = $_c3.' ['.$_q3.'] <br>';
+            } else {
+              $desc3 = '';
+            }
 
-        //     if ($_q4 > 0) {
-        //       $desc4 = $_c4.' ['.$_q4.'] <br>';
-        //     } else {
-        //       $desc4 = '';
-        //     }
+            if ($_q4 > 0) {
+              $desc4 = $_c4.' ['.$_q4.'] <br>';
+            } else {
+              $desc4 = '';
+            }
 
-        //     if ($_q5 > 0) {
-        //       $desc5 = $_c5.' ['.$_q5.']';
-        //     } else {
-        //       $desc5 = '';
-        //     }
+            if ($_q5 > 0) {
+              $desc5 = $_c5.' ['.$_q5.']';
+            } else {
+              $desc5 = '';
+            }
 
-        //     $desc = $desc1.$desc2.$desc3.$desc4.$desc5;
+            $desc = $desc1.$desc2.$desc3.$desc4.$desc5;
 
-        //     $earning_list = mysqli_query($connect, "INSERT INTO stockist_earning (
-        //       e_id,
-        //       e_poid,
-        //       e_code,
-        //       e_desc,
-        //       e_country,
-        //       e_qty,
-        //       e_price,
-        //       e_subtotal,
-        //       e_refund,
-        //       e_date,
-        //       e_time
-        //     ) VALUES (
-        //       '$stockist',
-        //       '$poid',
-        //       '$item_code',
-        //       '$desc',
-        //       '$country',
-        //       '$item_qty',
-        //       '$item_php',
-        //       '$buy',
-        //       '$refund',
-        //       '$datenow',
-        //       '$time'
-        //     )");
+            $earning_list = mysqli_query($connect, "INSERT INTO stockist_earning (
+              e_id,
+              e_poid,
+              e_code,
+              e_desc,
+              e_country,
+              e_qty,
+              e_price,
+              e_subtotal,
+              e_refund,
+              e_date,
+              e_time
+            ) VALUES (
+              '$stockist',
+              '$poid',
+              '$item_code',
+              '$desc',
+              '$country',
+              '$item_qty',
+              '$item_php',
+              '$buy',
+              '$refund',
+              '$datenow',
+              '$time'
+            )");
 
-        //     $stockist_w_stmt = mysqli_query($connect, "SELECT * FROM stockist_wallet WHERE w_id = '$stockist'");
-        //     $stockist_w_f = mysqli_fetch_array($stockist_w_stmt);
+            $stockist_w_stmt = mysqli_query($connect, "SELECT * FROM stockist_wallet WHERE w_id = '$stockist'");
+            $stockist_w_f = mysqli_fetch_array($stockist_w_stmt);
 
-        //     $stockist_wallet = $stockist_w_f['w_earning'] + $refund;
+            $stockist_wallet = $stockist_w_f['w_earning'] + $refund;
 
-        //     $stockist_w = mysqli_query($connect, "UPDATE stockist_wallet SET w_earning = '$stockist_wallet' WHERE w_id = '$stockist'");
+            $stockist_w = mysqli_query($connect, "UPDATE stockist_wallet SET w_earning = '$stockist_wallet' WHERE w_id = '$stockist'");
 
-        //   } else {
-        //     $single_stmt = mysqli_query($connect, "SELECT * FROM upti_code WHERE code_name = '$item_code'");
-        //     $single_f = mysqli_fetch_array($single_stmt);
+          } else {
+            $single_stmt = mysqli_query($connect, "SELECT * FROM upti_code WHERE code_name = '$item_code'");
+            $single_f = mysqli_fetch_array($single_stmt);
 
-        //     $single_code = $single_f['code_main'];
-        //     $category = $single_f['code_category'];
+            $single_code = $single_f['code_main'];
+            $category = $single_f['code_category'];
             
-        //     // price
-        //     $single_qry = mysqli_query($connect, "SELECT * FROM upti_country WHERE country_name = '$country' AND country_code = '$single_code'");
-        //     $single_f = mysqli_fetch_array($single_qry);
+            // price
+            $single_qry = mysqli_query($connect, "SELECT * FROM upti_country WHERE country_name = '$country' AND country_code = '$single_code'");
+            $single_f = mysqli_fetch_array($single_qry);
 
-        //     if ($category == 'NON-REBATABLE') {
-        //       $stockist_price = $single_f['country_total_php'];
+            if ($category == 'NON-REBATABLE') {
+              $stockist_price = $single_f['country_total_php'];
 
-        //       $single_qry2 = mysqli_query($connect, "SELECT * FROM upti_country WHERE country_name = 'PHILIPPINES' AND country_code = '$item_code'");
-        //       $single_f2 = mysqli_fetch_array($single_qry2);
+              $single_qry2 = mysqli_query($connect, "SELECT * FROM upti_country WHERE country_name = 'PHILIPPINES' AND country_code = '$item_code'");
+              $single_f2 = mysqli_fetch_array($single_qry2);
 
-        //       $item_php = $single_f2['country_price'] * $item_qty;
-        //     }
+              $item_php = $single_f2['country_price'] * $item_qty;
+            }
             
-        //     $stockist_price = $single_f['country_total_php'];
+            $stockist_price = $single_f['country_total_php'];
 
-        //     $buy = $stockist_price * $item_qty;
+            $buy = $stockist_price * $item_qty;
 
-        //     $refund = $buy - $item_php;
+            $refund = $buy - $item_php;
 
-        //     // echo '<br>';
+            // echo '<br>';
 
-        //     $earning_list = mysqli_query($connect, "INSERT INTO stockist_earning (
-        //       e_id,
-        //       e_poid,
-        //       e_code,
-        //       e_desc,
-        //       e_country,
-        //       e_qty,
-        //       e_price,
-        //       e_subtotal,
-        //       e_refund,
-        //       e_date,
-        //       e_time
-        //     ) VALUES (
-        //       '$stockist',
-        //       '$poid',
-        //       '$item_code',
-        //       '$single_code',
-        //       '$country',
-        //       '$item_qty',
-        //       '$item_php',
-        //       '$buy',
-        //       '$refund',
-        //       '$datenow',
-        //       '$time'
-        //     )");
+            $earning_list = mysqli_query($connect, "INSERT INTO stockist_earning (
+              e_id,
+              e_poid,
+              e_code,
+              e_desc,
+              e_country,
+              e_qty,
+              e_price,
+              e_subtotal,
+              e_refund,
+              e_date,
+              e_time
+            ) VALUES (
+              '$stockist',
+              '$poid',
+              '$item_code',
+              '$single_code',
+              '$country',
+              '$item_qty',
+              '$item_php',
+              '$buy',
+              '$refund',
+              '$datenow',
+              '$time'
+            )");
 
-        //     $stockist_w_stmt = mysqli_query($connect, "SELECT * FROM stockist_wallet WHERE w_id = '$stockist'");
-        //     $stockist_w_f = mysqli_fetch_array($stockist_w_stmt);
+            $stockist_w_stmt = mysqli_query($connect, "SELECT * FROM stockist_wallet WHERE w_id = '$stockist'");
+            $stockist_w_f = mysqli_fetch_array($stockist_w_stmt);
 
-        //     $stockist_wallet = $stockist_w_f['w_earning'] + $refund;
+            $stockist_wallet = $stockist_w_f['w_earning'] + $refund;
 
-        //     $stockist_w = mysqli_query($connect, "UPDATE stockist_wallet SET w_earning = '$stockist_wallet' WHERE w_id = '$stockist'");
-        //   }
-        // }
+            $stockist_w = mysqli_query($connect, "UPDATE stockist_wallet SET w_earning = '$stockist_wallet' WHERE w_id = '$stockist'");
+          }
+        }
 
 
-        // // stockist end
+        // stockist end
 ?>
-    <!-- <script>alert('Order Status has been changed to Delivered Successfully');window.location.href = '../poid-list.php?id=<?php //echo $id ?>';</script> -->
+    <script>alert('Order Status has been changed to Delivered Successfully');window.location.href = '../poid-list.php?id=<?php echo $id ?>';</script>
 <?php
     }
 ?>

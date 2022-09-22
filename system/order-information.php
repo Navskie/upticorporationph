@@ -45,9 +45,7 @@
         $phone = $_POST['phone'];
         $country = $_POST['country'];
         $states = $_POST['state'];
-        if ($states == 'ALBERTA') {
-          $states = 'ALBERTA CANADA';
-        } elseif ($states == '') {
+        if ($states == '') {
           $states = 'ALL';
         }
         $state = strtoupper($states);

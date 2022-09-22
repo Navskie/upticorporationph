@@ -50,8 +50,8 @@
       if ($state != 'ALBERTA') {
         $c_state = 'ALL';
       } else {
-        // $c_state = $get_country_fetch['trans_state'];
-        $c_state = 'ALL';
+        $c_state = $get_country_fetch['trans_state'];
+        // $c_state = 'ALL';
       }
     } else {
       $c_state = 'ALL';
@@ -252,7 +252,7 @@
                             $new_item_code = $get_new_code_fetch['code_main'];
 
                             // Single Item Check
-                            echo $check_stock = "SELECT * FROM stockist_inventory WHERE si_item_code = '$new_item_code' AND si_item_country = '$c_country' AND si_item_state = '$c_state'";
+                            $check_stock = "SELECT * FROM stockist_inventory WHERE si_item_code = '$new_item_code' AND si_item_country = '$c_country' AND si_item_state = '$c_state'";
                             $check_stock_qry = mysqli_query($connect, $check_stock);
                             $check_stock_fetch = mysqli_fetch_array($check_stock_qry);
                             $check_stock_num = mysqli_num_rows($check_stock_qry);
