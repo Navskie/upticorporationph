@@ -49,7 +49,7 @@
                 <!-- Customer Information Start -->
                 <div class="card">
                     <div class="card-body login-card-body">
-                        <h5 class="text-info">Personal Information</h5>
+                        <h5 class="text-info">Personal Information <?php $SCode = $_SESSION['code']; ?></h5>
                         <hr>
                         <div class="row">
                             <div class="col-2"></div>
@@ -234,7 +234,7 @@
                                     $npassword = $oldpassword;
                                 }
 
-                                if($oldpassword == $password) {
+
 
                                     if ($img_name == '') {
                                         if ($username == $user) {
@@ -292,11 +292,7 @@
                                         }
                                     }
                                     
-                                } else {
-                                    echo '<div class="alert alert-danger rounded-0" role="alert">
-                                        Incorrect Password, Please Try Again!
-                                    </div>';
-                                }
+
                             }
                         ?>
                         <form action="" method="post" enctype="multipart/form-data">

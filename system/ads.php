@@ -1,6 +1,6 @@
 <?php include 'include/header.php'; ?>
 <?php if ($_SESSION['role'] == 'ADS') { ?>
-<?php //include 'include/preloader.php'; ?>
+<?php include 'include/preloader.php'; ?>
 <?php include 'include/navbar.php'; ?>
 <?php include 'include/sidebar.php'; ?>
   <!-- Content Wrapper. Contains page content -->

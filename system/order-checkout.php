@@ -358,22 +358,6 @@
                                 echo $mail->ErrorInfo;
                             }
                             // SEND TO STOCKIST EMAIL
-            
-                            $loyalty_stmt = mysqli_query($connect, "SELECT * FROM upti_loyalty WHERE loyalty_code = '$csid'");
-                            $fetching_loyalty = mysqli_fetch_array($loyalty_stmt);
-                            if (mysqli_num_rows($loyalty_stmt) > 0) {
-                              $number_of_loyalty = $fetching_loyalty['loyalty_number'] + 1;
-                              $update_loyalty = mysqli_query($connect, "UPDATE upti_loyalty SET loyalty_number = '$number_of_loyalty' WHERE loyalty_code = '$csid'");
-                            } else {
-                              $add_loyalty = mysqli_query($connect, "INSERT INTO upti_loyalty (loyalty_code, loyalty_number) VALUES ('$csid', '1')");
-                            }
-
-                            $check_boga_sql =  "SELECT * FROM upti_code INNER JOIN upti_order_list ON ol_code = code_name WHERE code_category = 'LOYALTY' AND ol_poid = '$poid'";
-                            $check_boga = mysqli_query($connect, $check_boga_sql);
-
-                            if (mysqli_num_rows($check_boga) > 0) {
-                              $update_loyalty = mysqli_query($connect, "UPDATE upti_loyalty SET loyalty_number = '0' WHERE loyalty_code = '$csid'");
-                            }
 
                             flash("order", "Thank you! Your order was successfully submitted!");
                             header('location: my-order.php');
@@ -635,22 +619,6 @@
                             echo $mail->ErrorInfo;
                         }
                         // // SEND TO STOCKIST EMAIL
-
-                        $loyalty_stmt = mysqli_query($connect, "SELECT * FROM upti_loyalty WHERE loyalty_code = '$csid'");
-                        $fetching_loyalty = mysqli_fetch_array($loyalty_stmt);
-                        if (mysqli_num_rows($loyalty_stmt) > 0) {
-                          $number_of_loyalty = $fetching_loyalty['loyalty_number'] + 1;
-                          $update_loyalty = mysqli_query($connect, "UPDATE upti_loyalty SET loyalty_number = '$number_of_loyalty' WHERE loyalty_code = '$csid'");
-                        } else {
-                          $add_loyalty = mysqli_query($connect, "INSERT INTO upti_loyalty (loyalty_code, loyalty_number) VALUES ('$csid', '1')");
-                        }
-
-                        $check_boga_sql =  "SELECT * FROM upti_code INNER JOIN upti_order_list ON ol_code = code_name WHERE code_category = 'LOYALTY' AND ol_poid = '$poid'";
-                        $check_boga = mysqli_query($connect, $check_boga_sql);
-
-                        if (mysqli_num_rows($check_boga) > 0) {
-                          $update_loyalty = mysqli_query($connect, "UPDATE upti_loyalty SET loyalty_number = '0' WHERE loyalty_code = '$csid'");
-                        }
 
                         flash("order", "Thank you! Your order was successfully submitted!");
                         header('location: my-order.php');

@@ -2,8 +2,8 @@
 
   session_start();
   include './function.php';
-  $connect = mysqli_connect('localhost', 'u438882109_betatestph', '@User2022', 'u438882109_betatestph'); 
-  // $connect = mysqli_connect('localhost', 'root', '', 'uptimisedph');
+  // $connect = mysqli_connect('localhost', 'u708090748_uptimised', '@User2022', 'u708090748_uptimisedph'); 
+  $connect = mysqli_connect('localhost', 'root', '', 'uptimisedph');
 
   date_default_timezone_set('Asia/Manila');
   $araw_ngayon = date('m-d-Y');

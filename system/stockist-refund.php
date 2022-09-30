@@ -50,7 +50,7 @@
     <!-- START HERE -->
     <section class="content">
       <div class="container-fluid">
-        <h5>Stockist Percentage</h5>
+      <h5>Stockist Refund</h5>
         <div class="row">
           <div class="col-12">
           <div class="card">
@@ -104,9 +104,12 @@
                       <tr>
                         <th class="text-center">Date</th>
                         <th class="text-center">Poid</th>
-                        <th class="text-center">Amount</th>
-                        <th class="text-center">Remarks</th>
-                        <th class="text-center">Status</th>
+                        <th class="text-center">Code</th>
+                        <th class="text-center">Description</th>
+                        <th class="text-center">Qty</th>
+                        <th class="text-center">Subtotal</th>
+                        <th class="text-center">Stockist Total</th>
+                        <th class="text-center">Refund</th>
                       </tr>
                       </thead>
                       <?php
@@ -120,6 +123,9 @@
                         <td class="text-center"><?php echo $wallet['e_code'] ?></td>
                         <td class="text-center"><?php echo $wallet['e_desc'] ?></td>
                         <td class="text-center"><?php echo $wallet['e_qty'] ?></td>
+                        <td class="text-center"><?php echo $wallet['e_price'] ?></td>
+                        <td class="text-center"><?php echo $wallet['e_subtotal'] ?></td>
+                        <td class="text-center"><?php echo $wallet['e_refund'] ?></td>
                       </tr>
                       <?php } ?>                  
                     </table>

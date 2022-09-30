@@ -25,6 +25,8 @@
             <th>CUSTOMER NAME</th>
             <th>AMOUNT</th>
             <th>PESO</th>
+            <th>QTY</th>
+            <th>CODE</th>
             <th>STATUS</th>
         <tr>
         ';
@@ -37,7 +39,7 @@
             while($row = mysqli_fetch_array($export_qry)) {    
                 $code = $row['users_code'];
                 
-                $get_trans = mysqli_query($connect, "SELECT trans_subtotal, trans_poid, trans_country, trans_date, trans_fname, trans_status FROM upti_transaction WHERE trans_seller = '$code' AND trans_date BETWEEN '$date1' AND '$date2'");
+                $get_trans = mysqli_query($connect, "SELECT ol_qty, trans_state, trans_subtotal, trans_poid, trans_country, trans_date, trans_fname, trans_status, ol_php, ol_code FROM upti_transaction INNER JOIN upti_order_list ON ol_poid = trans_poid INNER JOIN upti_activities ON activities_poid = trans_poid WHERE trans_seller = '$code' AND activities_caption = 'Order Delivered' AND activities_date BETWEEN '$date1' AND '$date2'");
 
                 while ($sales = mysqli_fetch_array($get_trans)) {
                     $output .='
@@ -45,9 +47,13 @@
                         <td>'.$row['users_name'].'</td>
                         <td>'.$sales['trans_poid'].'</td>
                         <td>'.$sales['trans_country'].'</td>
+                        <td>'.$sales['trans_state'].'</td>
                         <td>'.$sales['trans_date'].'</td>
                         <td>'.$sales['trans_fname'].'</td>
                         <td>'.$sales['trans_subtotal'].'</td>
+                        <td>'.$sales['ol_php'].'</td>
+                        <td>'.$sales['ol_qty'].'</td>
+                        <td>'.$sales['ol_code'].'</td>
                         <td>'.$sales['trans_status'].'</td>
                     </tr>
                     ';

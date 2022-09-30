@@ -30,10 +30,10 @@
     }
 
     // loyalty free
-    $remove_free = mysqli_query($connect, "SELECT * FROM upti_code INNER JOIN upti_order_list ON upti_code.code_name = upti_order_list.ol_code WHERE code_category = 'LOYALTY' AND ol_poid = '$ol_poid' AND code_name = '$ol_code'");
-    if(mysqli_num_rows($remove_free) > 0) {
-        $removefreelist = mysqli_query($connect, "UPDATE upti_loyalty SET loyalty_number = '6' WHERE loyalty_code = '$csid'");
-    }
+    // $remove_free = mysqli_query($connect, "SELECT * FROM upti_code INNER JOIN upti_order_list ON upti_code.code_name = upti_order_list.ol_code WHERE code_category = 'LOYALTY' AND ol_poid = '$ol_poid' AND code_name = '$ol_code'");
+    // if(mysqli_num_rows($remove_free) > 0) {
+    //     $removefreelist = mysqli_query($connect, "UPDATE upti_loyalty SET loyalty_number = '6' WHERE loyalty_code = '$csid'");
+    // }
 
     // remove free
     $free2 = mysqli_query($connect, "SELECT * FROM upti_code INNER JOIN upti_order_list ON upti_code.code_name = upti_order_list.ol_code WHERE code_category = 'FREE TWO' AND ol_poid = '$ol_poid' AND code_name = '$ol_code'");

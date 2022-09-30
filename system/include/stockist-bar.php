@@ -165,14 +165,47 @@
             </a>
           </li>
           <?php } ?>
-          <li class="nav-item">
-            <a href="stockist-wallet.php" class="nav-link">
-              <i class="nav-icon uil uil-wallet"></i>
+          <!-- <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="uil uil-wallet nav-icon"></i>
               <p>
                 Stockist Wallet
+                <i class="uil uil-arrows-shrink-v right"></i>
               </p>
             </a>
-          </li>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="stockist-wallet.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Stockist Balance</p>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="stockist-refund.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Stockist Refund</p>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="stockist-percentage.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Stockist Percentage</p>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="stockist-withdraw.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Stockist Withdrawal</p>
+                </a>
+              </li>
+            </ul>
+          </li> -->
           <!-- END -->
         </ul>
       </nav>

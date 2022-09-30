@@ -50,7 +50,7 @@
     <!-- START HERE -->
     <section class="content">
       <div class="container-fluid">
-        <h5>Stockist Percentage</h5>
+      <h5>Stockist Withdraw</h5>
         <div class="row">
           <div class="col-12">
           <div class="card">
@@ -68,45 +68,20 @@
               ?>
               <div class="card-body">
                 <div class="row">
-                  <div class="col-lg-3 col-md-12 col-sm-12 pr-2">
-                    <div class="border border-info p-4 h-100">
-                      <h5 class="text-center">Wallet Withdraw</h5>
-                      <p class="text-center text-danger">minimum of 500.00</p>
-                      <form action="" method="post">
-                        <div class="form-group">
-                          <label for="">Bank</label>
-                          <input type="text" class="form-control" required autocomplete="off">
-                        </div>
-                        <div class="form-group">
-                          <label for="">Name</label>
-                          <input type="text" class="form-control" required autocomplete="off">
-                        </div>
-                        <div class="form-group">
-                          <label for="">Amount</label>
-                          <input type="text" class="form-control" required autocomplete="off">
-                        </div>
-                        <div class="form-group">
-                          <hr>
-                          <p class="text-center text-danger">Available Monday - Wednesday</p>
-                          <?php if ($days != 'Monday' || $days != 'Tuesday' || $days != 'Wednesday') { ?>
-                            <button class="btn btn-success form-control rounded-0">Submit</button>
-                          <?php } else { ?>
-                            <button class="btn btn-success form-control rounded-0" disabled>Submit</button>
-                          <?php } ?>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
 
-                  <div class="col-lg-9 col-md-12 col-sm-12 pl-2">
+                  <div class="col-lg-12 col-md-12 col-sm-12 pl-2">
                     <table id="example1" class="table table-bordered table-hover">
                       <thead>
                       <tr>
                         <th class="text-center">Date</th>
                         <th class="text-center">Poid</th>
+                        <th class="text-center">Bank Name</th>
+                        <th class="text-center">Account Name</th>
+                        <th class="text-center">Account Number</th>
                         <th class="text-center">Amount</th>
                         <th class="text-center">Remarks</th>
                         <th class="text-center">Status</th>
+                        <th class="text-center">Action</th>
                       </tr>
                       </thead>
                       <?php
@@ -120,6 +95,10 @@
                         <td class="text-center"><?php echo $wallet['e_code'] ?></td>
                         <td class="text-center"><?php echo $wallet['e_desc'] ?></td>
                         <td class="text-center"><?php echo $wallet['e_qty'] ?></td>
+                        <td class="text-center"><?php echo $wallet['e_price'] ?></td>
+                        <td class="text-center"><?php echo $wallet['e_subtotal'] ?></td>
+                        <td class="text-center"><?php echo $wallet['e_subtotal'] ?></td>
+                        <td class="text-center"><?php echo $wallet['e_refund'] ?></td>
                       </tr>
                       <?php } ?>                  
                     </table>

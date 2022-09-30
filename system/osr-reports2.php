@@ -390,7 +390,10 @@
                                 <select class="form-control select2bs4" style="width: 100%;" name="osr">
                                     <option value="">Select OSR</option>
                                     <?php
-                                    $product_sql = "SELECT * FROM upti_users WHERE users_main = '$mycode' AND users_role = 'UPTIOSR'";
+                                    $product_sql = "SELECT * FROM upti_users WHERE 
+                                    users_role = 'UPTIOSR' AND users_status = 'Active' AND users_position = 'ELLAN' OR
+                                    users_role = 'UPTIOSR' AND users_status = 'Active' AND users_position = 'CHRIS'
+                                    ";
                                     $product_qry = mysqli_query($connect, $product_sql);
                                     while ($product = mysqli_fetch_array($product_qry)) {
                                     ?>
@@ -453,7 +456,7 @@
                         $number =1;
                         while ($order = mysqli_fetch_array($order_qry)) {
                             $total = $order['ol_php'];
-                            $statuss = $order['trans_status'];
+                            $statuss = $order['ol_status'];
                             $poids = $order['ol_poid'];
 
                             if ($statuss == 'Delivered') {

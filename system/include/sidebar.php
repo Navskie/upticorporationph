@@ -48,6 +48,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="s_ph.php" class="nav-link">
+              <i class="nav-icon uil uil-globe"></i>
+              <p>
+                Stocks
+              </p>
+            </a>
+          </li>
           <li class="nav-header">Manage Accounts</li>
           <li class="nav-item"> 
             <a href="stock-branch.php" class="nav-link">
@@ -338,6 +346,14 @@
             <i class="nav-icon uil uil-dashboard"></i>
               <p>
                 Dashboard
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="s_ph.php" class="nav-link">
+              <i class="nav-icon uil uil-globe"></i>
+              <p>
+                Stocks
               </p>
             </a>
           </li>
@@ -697,6 +713,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="s_ph.php" class="nav-link">
+              <i class="nav-icon uil uil-globe"></i>
+              <p>
+                Stocks
+              </p>
+            </a>
+          </li>
           <li class="nav-header">Manage OSR</li>
           <li class="nav-item"> 
             <a href="Osrlist.php" class="nav-link">
@@ -1015,6 +1039,14 @@
               </p>
             </a>
           </li>
+          <!-- <li class="nav-item">
+            <a href="s_ph.php" class="nav-link">
+              <i class="nav-icon uil uil-globe"></i>
+              <p>
+                Stocks
+              </p>
+            </a>
+          </li> -->
           <!-- EXCLUSIVE -->
           <?php
             $code_reseller = $_SESSION['code'];
@@ -1417,11 +1449,27 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
+          <li class="nav-item">
             <a href="osr.php" class="nav-link">
               <i class="nav-icon uil uil-create-dashboard"></i>
               <p>
                 Dashboard
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="osr-fb.php" class="nav-link">
+              <i class="nav-icon uil uil-facebook-f"></i>
+              <p>
+                Facebook Page
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="osr-wallet.php" class="nav-link">
+              <i class="nav-icon uil uil-wallet"></i>
+              <p>
+                Wallet
               </p>
             </a>
           </li>
@@ -1461,7 +1509,7 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item menu-open">
+          <li class="nav-item">
             <a href="my-reseller.php" class="nav-link">
               <i class="nav-icon uil uil-users-alt"></i>
               <p>
@@ -1501,6 +1549,14 @@
               </p>
             </a>
           </li>
+          <!-- <li class="nav-item">
+            <a href="s_ph.php" class="nav-link">
+              <i class="nav-icon uil uil-globe"></i>
+              <p>
+                Stocks
+              </p>
+            </a>
+          </li> -->
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -2069,6 +2125,12 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="osc-wallet-list.php" class="nav-link">
+              <i class="nav-icon fas fa-wallet"></i>
+              <p>Add Token</p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-dollar-sign"></i>
               <p>
@@ -2191,14 +2253,28 @@
 
     <!-- Sidebar -->
     <div class="sidebar" style="background: #b0e0e6 !important;">
-    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-      <li class="nav-item">
-        <a href="logout.php" class="nav-link">
-          <i class="nav-icon fas fa-list-ol"></i>
-          <p>Logout</p>
-        </a>
-      </li>
-    </ul>
+    <br>
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <li class="nav-item">
+          <a href="fb-page.php" class="nav-link">
+            <i class="nav-icon uil uil-browser"></i>
+            <p>FB Page</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="ads.php" class="nav-link">
+            <i class="nav-icon uil uil-tag-alt"></i>
+            <p>EOD</p>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="logout.php" class="nav-link">
+            <i class="nav-icon uil uil-sign-out-alt"></i>
+            <p>Logout</p>
+          </a>
+        </li>
+      </ul>
     </div>
     <!-- /.sidebar -->
   </aside>

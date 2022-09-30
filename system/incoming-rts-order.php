@@ -29,6 +29,7 @@
                             <table id="example1" class="table table-sm table-striped table-hover border border-info">
                                 <thead>
                                     <tr>
+                                      <th class="text-center">#</th>
                                       <th class="text-center">Poid</th>
                                       <th class="text-center">Reseller</th>
                                       <th class="text-center">Country</th>
@@ -49,7 +50,7 @@
                                     } elseif ($state == 'ALL' && $country == 'CANADA') {
                                         $order_sql = "SELECT * FROM upti_transaction WHERE trans_status= 'RTS' AND trans_country = '$country' AND trans_state != 'ALBERTA' ORDER BY trans_date ASC";
                                     } else {
-                                        $order_sql = "SELECT * FROM upti_transaction WHERE trans_status= 'RTS' AND trans_country = '$country' ORDER BY trans_date ASC";
+                                        $order_sql = "SELECT * FROM upti_transaction WHERE trans_status= 'RTS' AND trans_country = '$country' ORDER BY trans_date DESC";
                                     }
                                     $order_qry = mysqli_query($connect, $order_sql);
                                     $number =1;
@@ -80,6 +81,7 @@
                                         }
                                 ?>
                                 <tr>
+                                  <td class="text-center"><?php echo $number ?></td>
                                   <td class="text-center"><a class="btn-sm rounded-0 btn btn-dark" href="poid-list.php?id=<?php echo $order['id']; ?>" target="_blank"><?php echo $order['trans_poid']; ?></a></td>
                                   <td class="text-center">
                                       <?php echo $fullname; ?>

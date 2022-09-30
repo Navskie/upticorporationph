@@ -425,12 +425,13 @@
                     <th>Item Description</th>
                     <th>Quantity</th>
                     <th>Price</th>
+                    <th>Peso</th>
                     <th>Status</th>
                 <tr>
             ';
 
             // Fetch Records From Database
-            $export_sql = "SELECT ol_price, trans_date, trans_poid, ol_code, ol_desc, ol_qty, trans_country, trans_status, trans_seller FROM upti_transaction INNER JOIN upti_order_list ON upti_transaction.trans_poid = upti_order_list.ol_poid WHERE upti_transaction.trans_status != 'On Order' AND upti_transaction.trans_date BETWEEN '$date1' AND '$date2' ORDER BY upti_transaction.trans_date ASC";
+            $export_sql = "SELECT ol_php, ol_price, trans_date, trans_poid, ol_code, ol_desc, ol_qty, trans_country, trans_status, trans_seller FROM upti_transaction INNER JOIN upti_order_list ON upti_transaction.trans_poid = upti_order_list.ol_poid WHERE upti_transaction.trans_status != 'On Order' AND upti_transaction.trans_date BETWEEN '$date1' AND '$date2' ORDER BY upti_transaction.trans_date ASC";
             // $export_sql = "SELECT * FROM upti_transaction";
             // echo '<br>';
             $export_qry = mysqli_query($connect, $export_sql);
@@ -469,6 +470,7 @@
                         <td>'.$row['ol_desc'].'</td>
                         <td>'.$row['ol_qty'].'</td>
                         <td>'.$row['ol_price'].'</td>
+                        <td>'.$row['ol_php'].'</td>
                         <td>'.$caption.'</td>
                     </tr>
                     ';
@@ -502,6 +504,7 @@
                     <th>Item Code</th>
                     <th>Item Description</th>
                     <th>Quantity</th>
+                    <th>peso</th>
                     <th>Status</th>
                 <tr>
             ';
@@ -530,6 +533,7 @@
                             <td>'.$row['ol_code'].'</td>
                             <td>'.$row['ol_desc'].'</td>
                             <td>'.$row['ol_qty'].'</td>
+                            <td>'.$row['ol_php'].'</td>
                             <td>'.$row['ol_status'].'</td>
                         </tr>
                     ';
@@ -1179,7 +1183,7 @@
         // $excelData = implode('\t', array_values($fields)).'\n';
 
         // Fetch Records From Database
-        $export_sql = "SELECT upti_users.users_name ,COUNT(upti_reseller.reseller_main) AS reseller_count FROM upti_users INNER JOIN upti_reseller ON upti_users.users_code = upti_reseller.reseller_main WHERE upti_users.users_role = 'UPTIRESELLER' AND upti_users.users_position = '' AND upti_reseller.reseller_date BETWEEN '$date1' AND '$date2' GROUP BY upti_users.users_code ORDER BY reseller_count DESC LIMIT 15";
+        $export_sql = "SELECT upti_users.users_name ,COUNT(upti_reseller.reseller_main) AS reseller_count FROM upti_users INNER JOIN upti_reseller ON upti_users.users_code = upti_reseller.reseller_main WHERE upti_users.users_role = 'UPTIRESELLER' AND upti_reseller.reseller_date BETWEEN '$date1' AND '$date2' GROUP BY upti_users.users_code ORDER BY reseller_count DESC";
         // echo '<br>';
         $export_qry = mysqli_query($connect, $export_sql);
         $export_num = mysqli_num_rows($export_qry);
