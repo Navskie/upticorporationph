@@ -1,0 +1,1 @@
+replicate <?php echo $_GET['id'] ?>

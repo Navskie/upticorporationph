@@ -13,7 +13,7 @@
         </div><!-- /.row --> 
         <?php
           $months = date('m'); 
-          $year = date('Y');
+          $year = date('Y');    
           $date1 = $months.'-01-'.$year;
           $date2 = date('m-d-Y');
           $month = date("F", mktime(0, 0, 0, $months, 10));
@@ -35,7 +35,7 @@
               <div class="info">
                 <h6>OSR Seller Code</h6>
                 <h2><b><?php echo $osrID ?></b></h2>
-                <p class="text-danger pt-2">https://system.uptimised-hris.com/system/replicate.php?id=<?php echo $_SESSION['code'] ?></p>
+                <p class="text-danger pt-2">https://system.uptimised-hris.com/replicate.php?id=<?php echo $_SESSION['code'] ?></p>
               </div>
             </div>
             <br>
