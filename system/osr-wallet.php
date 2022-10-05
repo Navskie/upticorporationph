@@ -73,7 +73,7 @@
                     $get_pending_qry = mysqli_query($connect, $get_pending);
                     $get_pending_num = mysqli_num_rows($get_pending_qry);
 
-                    if ($days == 'Friday' && $get_pending_num == 0 || $days == 'Tuesday' && $get_pending_num == 0 || $days == 'Wednesday' && $get_pending_num == 0) {
+                    if ($days == 'Monday' && $get_pending_num == 0 || $days == 'Tuesday' && $get_pending_num == 0 || $days == 'Wednesday' && $get_pending_num == 0) {
                 ?>
                 <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#earning">
                   Withdraw Earning

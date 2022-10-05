@@ -17,9 +17,9 @@
                         <select class="form-control select2bs4" style="width: 100%;" name="bansa">
                             <option value="">Country</option>
                             <option value="KOREA">KOREA</option>
-                            <option value="TAIWAN">PHILIPPINES</option>
+                            <option value="TAIWAN">TAIWAN</option>
                             <option value="PHILIPPINES">PHILIPPINES</option>
-                            <option value="CND Transfer">CANADA STOCK TRANSFER</option>
+                            <!-- <option value="CND Transfer">CANADA STOCK TRANSFER</option> -->
                         </select>
                     </div>
                 </div>

@@ -89,7 +89,7 @@
                           <hr>
                           <p class="text-center text-danger">Available Monday - Wednesday</p>
                           <?php if ($days != 'Monday' || $days != 'Tuesday' || $days != 'Wednesday') { ?>
-                            <button class="btn btn-success form-control rounded-0">Submit</button>
+                            <button class="btn btn-success form-control rounded-0" disabled>Submit</button>
                           <?php } else { ?>
                             <button class="btn btn-success form-control rounded-0" disabled>Submit</button>
                           <?php } ?>

@@ -1,6 +1,6 @@
 <?php
     
-    $connect = mysqli_connect('localhost', 'u438882109_betatestph', '@User2022', 'u438882109_betatestph'); 
+    $connect = mysqli_connect('localhost', 'u438882109_betatestph', '@User2022', 'u438882109_betatestph');  
     // $connect = mysqli_connect('localhost', 'root', '', 'uptimisedph');
 
     
@@ -69,12 +69,13 @@
     return $output;
 }
 
-$customer_country = ip_info("Visitor", "Country"); // India
-// $customer_country = 'KOREA';
+// $customer_country = ip_info("Visitor", "Country"); // India
+// // $customer_country = 'KOREA';
 
-if ($customer_country == 'South Korea') {
-    $customer_country = 'KOREA';
-}
+// if ($customer_country == 'South Korea') {
+//     $customer_country = 'KOREA';
+// }
+$customer_country = 'PHILIPPINES';
 
 $c_code = mysqli_query($connect, "SELECT * FROM upti_country_currency WHERE cc_country = '$customer_country'");
 $cc_fetch = mysqli_fetch_array($c_code);
@@ -82,7 +83,7 @@ $cc_fetch = mysqli_fetch_array($c_code);
 $country_code = $cc_fetch['cc_sign'];
 
 date_default_timezone_set('Asia/Manila');
-$today = date("m-d-Y");
+$date = date("m-d-Y");
 $time = date('h:i:sa');
 
 ?>

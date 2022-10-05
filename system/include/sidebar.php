@@ -1717,7 +1717,7 @@
               </p>
             </a>
           </li>
-
+          
           <li class="nav-header">Customer Order</li>
           <li class="nav-item">
             <a href="search04292022.php" class="nav-link">
@@ -2122,6 +2122,14 @@
             <a href="accounting.php" class="nav-link">
               <i class="nav-icon fas fa-home"></i>
               <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="search04062022.php" class="nav-link">
+              <i class="nav-icon uil uil-search-alt"></i>
+              <p>
+                Search Poid
+              </p>
             </a>
           </li>
           <li class="nav-item">

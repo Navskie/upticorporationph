@@ -186,27 +186,44 @@
                     $surcharge = 0;
                 }
 
-                // Total Amount
-                $total_amount = $subtotal + $surcharge + $shipping - $less_shipping_fee;
+                
 
-                $trans_stmt = mysqli_query($connect, "UPDATE web_transaction SET 
-                    trans_upline = '$reseller_id',
-                    trans_shipping = '$shipping',
-                    trans_surcharge = '$surcharge',
-                    trans_less_shipping = '$less_shipping_fee',
-                    trans_subtotal = '$total_amount',
-                    trans_date = '$date',
-                    trans_address = '$address',
-                    trans_status = 'Pending'
-                WHERE trans_ref = '$ref'");
+                if ($user_count < 1) {
+                  $discount = $subtotal * 0.05;
+                  // Total Amount
+                  $total_amount = $subtotal + $surcharge + $shipping - $less_shipping_fee;
+                  $new_total = $total_amount - $discount;
+                } else {
+                  $discount = '';
+                  // Total Amount
+                  $total_amount = $subtotal + $surcharge + $shipping - $less_shipping_fee;
+                  $new_total = $total_amount - $discount;
+                }
+
+                $trans_stmt = "UPDATE web_transaction SET 
+                  trans_upline = '$reseller_id',
+                  trans_shipping = '$shipping',
+                  trans_surcharge = '$surcharge',
+                  trans_less_shipping = '$less_shipping_fee',
+                  trans_subtotal = '$new_total',
+                  trans_discount = '$discount',
+                  trans_date = '$date',
+                  trans_time = '$time',
+                  trans_address = '$address',
+                  trans_status = 'Pending'
+                WHERE trans_ref = '$ref'";
+                $trans_stmt_qry = mysqli_query($connect, $trans_stmt);
 
                 $user_count_update = $user_count + 1;
                 $increment = mysqli_query($connect, "UPDATE upti_users SET users_count = '$user_count_update' WHERE users_id = '$id'");
 
                 $cart_status = mysqli_query($connect, "UPDATE web_cart SET cart_status = 'Pending' WHERE cart_ref = '$ref'");
 
+                unset($_SESSION['repli_code']);
+
                 flash("success", "Order has been submitted successfully");
                 header('location: ../checkout-list.php');
+                
             } else {
                 flash("warn", "Please attach your receipt");
                 header('location: ../cart.php');

@@ -1,5 +1,15 @@
 <?php include 'include/header.php' ?>
+<style>
+  span.money p {
+    color: #fff !important;
+  }
+</style>
     <?php 
+        $id = $_SESSION['uid'];
+        $user_info = mysqli_query($connect, "SELECT * FROM upti_users WHERE users_id = '$id'");
+        $fetch_count = mysqli_fetch_array($user_info);
+        $user_count = $fetch_count['users_count'];
+
         $transaction = mysqli_query($connect, "SELECT trans_mop, trans_office, trans_office_status FROM web_transaction WHERE trans_id = '$profile' AND trans_ref = '$ref'");
         $trans_fetch = mysqli_fetch_array($transaction);
         if (mysqli_num_rows($transaction) > 0) {
@@ -61,8 +71,8 @@
                                             Item Code: <?php echo $cart['cart_code'] ?><br>
                                         </div>
                                     </td>
-                                    <td class="cart__price-wrapper cart-flex-item">
-                                        <span class="money"><?php echo $cart['cart_price'] ?></span>
+                                    <td class="cart__price-wrapper cart-flex-item text-center">
+                                      <span class="money"><?php echo $country_code ?> <?php echo $cart['cart_subtotal'] ?></span>
                                     </td>
                                     <td class="cart__update-wrapper cart-flex-item text-right">
                                         <form action="backend/update-cart.php?id=<?php echo $cart['id'] ?>" method="post">
@@ -75,7 +85,7 @@
                                         </div>
                                     </td>
                                     <td class="text-right small--hide cart-price">
-                                        <div><span class="money"><?php echo $country_code ?> <?php echo $cart['cart_subtotal'] ?></span></div>
+                                      <div><span class="money"><?php echo $country_code ?> <?php echo $cart['cart_subtotal'] ?></span></div>
                                     </td>
                                     <td class="text-center small--hide">
                                         <button class="btn btn--secondary cart__remove" title="Remove Item" name="delete_item"><i class="uil uil-trash"></i></button>
@@ -103,17 +113,38 @@
                                     <input type="text" class="form-control rounded-0" name="barangay">
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-4">
                                 <div class="form-group">
                                     <label>City</label>
                                     <input type="text" class="form-control rounded-0" name="city">
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-4">
                                 <div class="form-group">
                                     <label>Province</label>
                                     <input type="text" class="form-control rounded-0" name="province">
                                 </div>
+                            </div>
+                            <div class="col-4">
+                                <?php if ($customer_country == 'CANADA' || $customer_country == 'canada') { ?>
+                                <div class="form-group">
+                                  <label>State</label>
+                                  <select name="state" id="" class="form-control">
+                                    <option value="">Select State</option>
+                                    <?php
+                                      $state_stmt = mysqli_query($connect, "SELECT * FROM upti_state");
+                                      foreach ($state_stmt as $state) {
+                                    ?>
+                                      <option value="<?php echo $state['state_name'] ?>"><?php echo $state['state_name'] ?></option>
+                                    <?php } ?>
+                                  </select>
+                                </div>
+                                <?php } else { ?>
+                                <div class="form-group">
+                                    <label>State</label>
+                                    <input type="text" class="form-control rounded-0" name="state">
+                                </div>
+                                <?php } ?>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
@@ -384,7 +415,7 @@
                       	<span class="col-12 col-sm-6 cart__subtotal-title"><strong>Email</strong></span>
                         <span class="col-12 col-sm-6 text-right"><span class="money"><?php echo  $info_fetch['cs_email'] ?></span></span>
                       </div>
-                      <div class="row">
+                      <div class="row"> 
                       	<span class="col-12 col-sm-6 cart__subtotal-title"><strong>Address</strong></span>
                         <?php
                             if (mysqli_num_rows($address_stmt) > 0) {
@@ -437,18 +468,25 @@
                       <?php } ?>
                     </div>
 
-                    <form action="backend/checkout.php" method="post">
+                      <form action="discount.php" method="post">
                         <div class="solid-border">
                             <div class="row">
-                                <div class="col-12">
+                                <div class="col-8">
+                                  <br>
                                     <div class="form-group">
-                                        <label>Reseller ID (Optional)</label>
-                                        <input type="text" class="form-control rounded-0" name="reseller">
+                                        <input type="text" class="form-control rounded-0" name="reseller" placeholder="Discount Code">
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                  <br>
+                                    <div class="form-group">
+                                        <button class="btn btn-danger form-control w-100" name="discount">Apply</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
+                      </form>
+                      <form action="backend/checkout.php" method="post">
                         <?php
                             if ($office == 'Direct Mail Box' && $customer_country == 'CANADA') {
                         ?>
@@ -475,6 +513,25 @@
                       	<span class="col-12 col-sm-6"><strong>Payment Summary</strong></span>
                       </div>
                     <br>
+                      <?php if ($user_count < 1) { 
+                        $discount = $subtotal * 0.05;  
+                      ?>
+                      <div class="row">
+                      	<span class="col-12 col-sm-6 cart__subtotal-title text-danger"><strong>Discount</strong></span>
+                        <span class="col-12 col-sm-6 cart__subtotal-title cart__subtotal text-right text-danger"><span class="money"><?php echo $country_code ?> <?php echo number_format($discount, '2') ?></span></span>
+                      </div>
+                      <?php } 
+                            else
+                            {
+                              $discount = 0;
+                      ?>
+                      <div class="row">
+                      	<span class="col-12 col-sm-6 cart__subtotal-title"><strong>Discount</strong></span>
+                        <span class="col-12 col-sm-6 cart__subtotal-title cart__subtotal text-right"><span class="money"><?php echo $country_code ?> <p><?php echo number_format($discount, '2') ?></p></span></span>
+                      </div>
+                      <?php
+                            }
+                      ?>
                       <div class="row">
                       	<span class="col-12 col-sm-6 cart__subtotal-title"><strong>Surcharge</strong></span>
                         <span class="col-12 col-sm-6 cart__subtotal-title cart__subtotal text-right"><span class="money"><?php echo $country_code ?> <?php echo number_format($surcharge, '2') ?></span></span>
@@ -487,10 +544,15 @@
                       	<span class="col-12 col-sm-6 cart__subtotal-title"><strong>Less Shipping Fee</strong></span>
                         <span class="col-12 col-sm-6 cart__subtotal-title cart__subtotal text-right"><span class="money"><?php echo $country_code ?> <?php echo number_format($less_shipping_fee, '2') ?></span></span>
                       </div>
+                      <div class="row">
+                      	<span class="col-12 col-sm-6 cart__subtotal-title"><strong>Subtotal</strong></span>
+                        <span class="col-12 col-sm-6 cart__subtotal-title cart__subtotal text-right"><span class="money"><?php echo $country_code ?> <?php echo number_format($subtotal, '2') ?></span></span>
+                      </div>
                       <hr>
                       <div class="row">
+                        <?php $new_total = $total_amount - $discount ?>
                       	<span class="col-12 col-sm-6 cart__subtotal-title"><strong>Total Amount</strong></span>
-                        <span class="col-12 col-sm-6 cart__subtotal-title cart__subtotal text-right"><span class="money"><?php echo $country_code ?> <?php echo number_format($total_amount, '2') ?></span></span>
+                        <span class="col-12 col-sm-6 cart__subtotal-title cart__subtotal text-right"><span class="money"><?php echo $country_code ?> <?php echo number_format($new_total, '2') ?></span></span>
                       </div>
                       <br><br>
                       <!-- <div class="cart__shipping">Shipping &amp; taxes calculated at checkout</div> -->

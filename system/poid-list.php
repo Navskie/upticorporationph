@@ -19,6 +19,7 @@
     $order = mysqli_fetch_array($order_qry);
     
     $myid = $_SESSION['uid'];
+    $phpprice = $order['ol_php'];
 
     $get_country_sql = "SELECT * FROM upti_users WHERE users_id = '$myid'";
     $get_country_qrys = mysqli_query($connect, $get_country_sql);
@@ -167,6 +168,33 @@
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <p class="text-right"><?php echo $transact['trans_subtotal'] ?></p>
                                     </div>
+                                    <?php if ($_SESSION['uid'] == '774') { ?>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <b>Peso Kier:</b>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <!-- <p class="text-right"><?php //echo $phpprice ?></p> -->
+                                        <?php 
+                                          $ph_price = mysqli_query($connect, "SELECT * FROM upti_order_list WHERE ol_poid = '$mypoid'");
+                                          echo '<p class="text-right">';  
+                                          echo '=';
+                                          foreach ($ph_price as $data) {
+                                            
+                                            $codedata =  $data['ol_code'];
+                                            $codeqty =  $data['ol_qty'];
+                                            // echo ' ';
+                                            $sum_price = mysqli_query($connect, "SELECT * FROM upti_country WHERE country_code = '$codedata' AND country_name = 'PHILIPPINES'");
+                                            $sum_fetch = mysqli_fetch_array($sum_price);
+                                            $php = $sum_fetch['country_price'] * $codeqty;
+                                            echo $php.'+';
+                                            // echo '<br>';
+                                            // $total = 
+                                          }
+                                          echo '</p>';
+                                          // echo $php;
+                                        ?>
+                                    </div>
+                                    <?php } ?>
                                     <div class="col-12">
                                         <span>Order Status:</span>
                                         <br><br>

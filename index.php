@@ -43,7 +43,7 @@
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <div class="section-header text-center">
-                        <i style="font-size: 33px !important">Bestselling Beauty</i>
+                        <i style="font-size: 33px !important">Bestselling Beauty <?php echo $_SESSION['repli_code'] ?></i>
                         <!-- <p>Our most popular products based on sales</p> -->
                     </div>
                     <div class="productSlider grid-products">

@@ -103,6 +103,12 @@
                                         <p><?php echo $transact['trans_address'] ?></p>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <b>Country State:</b>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <p><?php echo $transact['trans_state'] ?></p>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
                                         <b>Delivery Options:</b>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12">
@@ -149,6 +155,12 @@
                                         <p class="text-right"><?php $surcharge = $order['cart_subtotal'] * 0.025 ; echo number_format($surcharge) ?></p>
                                     </div>
                                     <?php } ?>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <b>Discount :</b>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <p class="text-right"><?php $less = $transact['trans_discount']; echo number_format($less) ?></p>
+                                    </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <b>Less Shipping Fee:</b>
                                     </div>

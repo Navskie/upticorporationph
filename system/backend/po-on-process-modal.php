@@ -42,11 +42,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <?php if ($account_fetch['req_state'] == 'ALL') { ?>
-                <button class="float-right btn btn-primary" style="border-radius: 0px !important;" name="submit">Proceed</button>
-                <?php } else { ?>
-                <button class="float-right btn btn-primary" style="border-radius: 0px !important;" name="transfer">Proceed</button>
-                <?php } ?>
+                  <button class="float-right btn btn-primary" style="border-radius: 0px !important;" name="submit">Proceed</button>
                 </form>
             </div>
         </div>

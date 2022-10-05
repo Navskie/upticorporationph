@@ -164,8 +164,12 @@
               </p>
             </a>
           </li>
-          <?php } ?>
-          <!-- <li class="nav-item">
+          <?php
+            }
+            
+            if ($_SESSION['uid'] == '1010') {
+          ?>
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="uil uil-wallet nav-icon"></i>
               <p>
@@ -205,7 +209,8 @@
                 </a>
               </li>
             </ul>
-          </li> -->
+          </li>
+          <?php } ?>
           <!-- END -->
         </ul>
       </nav>
