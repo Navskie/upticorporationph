@@ -6,7 +6,6 @@
     $date = date('m-d-Y');
 
     $id = $_SESSION['uid'];
-    $replicate_code = $_SESSION['replicate_code'];
 
     $user_info = mysqli_query($connect, "SELECT * FROM upti_users WHERE users_id = '$id'");
     $fetch_count = mysqli_fetch_array($user_info);

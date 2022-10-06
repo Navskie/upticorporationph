@@ -4,7 +4,6 @@
     include '../include/db.php';
 
     $id = $_SESSION['uid'];
-    $replicate_code = $_SESSION['replicate_code'];
 
     $user_info = mysqli_query($connect, "SELECT * FROM upti_users WHERE users_id = '$id'");
     $fetch_count = mysqli_fetch_array($user_info);
@@ -27,7 +26,7 @@
                 $check_price = mysqli_query($connect, "SELECT * FROM upti_country WHERE country_code = '$item_code' AND country_name = '$customer_country'");
                 $price_fetch = mysqli_fetch_array($check_price);
 
-                $price = $price_fetch['country_price'];
+                echo $price = $price_fetch['country_price'];
                 $earn = $price_fetch['country_total_php'];
 
                 $add_cart = mysqli_query($connect, "INSERT INTO web_cart (
@@ -71,7 +70,7 @@
                 $price = $price_fetch['country_price'];
                 $earn = $price_fetch['country_total_php'];
 
-                $add_cart = mysqli_query($connect, "INSERT INTO web_cart (
+                $add_cart = "INSERT INTO web_cart (
                     cart_id,
                     cart_ref,
                     cart_country,
@@ -95,7 +94,8 @@
                     '$earn',
                     'On Cart',
                     '$replicate_code'
-                )");
+                )";
+                $add_qry = mysqli_query($connect, $add_cart);
 
                 header('location: ../shop.php');
             }
@@ -108,7 +108,7 @@
             $new_subtotal = $real_price * $new_qty;
             $update_cart = mysqli_query($connect, "UPDATE web_cart SET cart_qty = '$new_qty', cart_subtotal = '$new_subtotal' WHERE cart_code = '$item_code' AND cart_ref = '$ref'");
 
-            header('location: ../shop.php');
+            // header('location: ../shop.php');
         }
     }
 

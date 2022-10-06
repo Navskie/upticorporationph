@@ -1,7 +1,7 @@
 <?php
     
     $connect = mysqli_connect('localhost', 'u438882109_betatestph', '@User2022', 'u438882109_betatestph');  
-    // $connect = mysqli_connect('localhost', 'root', '', 'uptimisedph');
+  // $connect = mysqli_connect('localhost', 'root', '', 'uptimisedph');
 
     
   function ip_info($ip = NULL, $purpose = "location", $deep_detect = TRUE) {
@@ -85,5 +85,12 @@ $country_code = $cc_fetch['cc_sign'];
 date_default_timezone_set('Asia/Manila');
 $date = date("m-d-Y");
 $time = date('h:i:sa');
+
+if ($_SESSION['replicate_code'] == '') {
+  $replicate_code = 'NULL';
+} else {
+  $replicate_code = $_SESSION['replicate_code'];
+}
+
 
 ?>

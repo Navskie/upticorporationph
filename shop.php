@@ -26,6 +26,7 @@
                         <button class="btn btn-dark form-control w-100" name="shop">Search</button>
                         </form>
                     </div>
+                   
                 </div>
             </div>
         </div>
