@@ -4,6 +4,8 @@
     include '../include/db.php';
 
     $id = $_SESSION['uid'];
+    $replicate_code = $_SESSION['replicate_code'];
+
     $user_info = mysqli_query($connect, "SELECT * FROM upti_users WHERE users_id = '$id'");
     $fetch_count = mysqli_fetch_array($user_info);
     $user_count = $fetch_count['users_count'];
@@ -38,7 +40,8 @@
                     cart_price,
                     cart_subtotal,
                     cart_earn,
-                    cart_status
+                    cart_status,
+                    cart_upper
                 ) VALUES (
                     '$profile',
                     '$ref',
@@ -49,7 +52,8 @@
                     '$price',
                     '$price',
                     '$earn',
-                    'On Cart'
+                    'On Cart',
+                    '$replicate_code'
                 )");
 
                 header('location: ../shop.php');
@@ -77,7 +81,8 @@
                     cart_price,
                     cart_subtotal,
                     cart_earn,
-                    cart_status
+                    cart_status,
+                    cart_upper
                 ) VALUES (
                     '$profile',
                     '$ref',
@@ -88,7 +93,8 @@
                     '$price',
                     '$price',
                     '$earn',
-                    'On Cart'
+                    'On Cart',
+                    '$replicate_code'
                 )");
 
                 header('location: ../shop.php');
