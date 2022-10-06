@@ -69,13 +69,13 @@
     return $output;
 }
 
-// $customer_country = ip_info("Visitor", "Country"); // India
-// // $customer_country = 'KOREA';
+$customer_country = ip_info("Visitor", "Country"); // India
+// $customer_country = 'KOREA';
 
-// if ($customer_country == 'South Korea') {
-//     $customer_country = 'KOREA';
-// }
-$customer_country = 'PHILIPPINES';
+if ($customer_country == 'South Korea') {
+    $customer_country = 'KOREA';
+}
+// $customer_country = 'PHILIPPINES';
 
 $c_code = mysqli_query($connect, "SELECT * FROM upti_country_currency WHERE cc_country = '$customer_country'");
 $cc_fetch = mysqli_fetch_array($c_code);

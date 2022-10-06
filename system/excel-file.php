@@ -625,6 +625,7 @@
                     <th>Item Code</th>
                     <th>Item Description</th>
                     <th>Quantity</th>
+                    <th>Peso</th>
                     <th>Status</th>
                 <tr>
             ';
@@ -655,6 +656,7 @@
                         <td>'.$row['ol_code'].'</td>
                         <td>'.$row['ol_desc'].'</td>
                         <td>'.$row['ol_qty'].'</td>
+                        <td>'.$row['ol_php'].'</td>
                         <td>'.$row['trans_status'].'</td>
                     </tr>
                     ';
@@ -737,11 +739,6 @@
         }
 
     }
-
-
-
-
-
 
 
     // Export Code
@@ -842,12 +839,12 @@
     
             // Fetch Records From Database
             $export_sql = "SELECT reseller_poid, reseller_country, reseller_code, reseller_name, SUM(upti_order_list.ol_php) AS TOTAL_SALES FROM upti_reseller
-                    INNER JOIN
-                    upti_order_list ON upti_reseller.reseller_code = upti_order_list.ol_reseller
-                    INNER JOIN
-                    upti_activities ON upti_order_list.ol_poid = upti_activities.activities_poid
-                    WHERE upti_activities.activities_caption = 'Order Delivered' AND
-                    upti_activities.activities_date BETWEEN '$date1' AND '$date2' GROUP BY upti_reseller.reseller_code ORDER BY TOTAL_SALES DESC";
+            INNER JOIN
+            upti_order_list ON upti_reseller.reseller_code = upti_order_list.ol_reseller
+            INNER JOIN
+            upti_activities ON upti_order_list.ol_poid = upti_activities.activities_poid
+            WHERE upti_activities.activities_caption = 'Order Delivered' AND
+            upti_activities.activities_date BETWEEN '$date1' AND '$date2' GROUP BY upti_reseller.reseller_code ORDER BY TOTAL_SALES DESC";
             // echo '<br>';
             $export_qry = mysqli_query($connect, $export_sql);
             $export_num = mysqli_num_rows($export_qry);
