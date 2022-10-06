@@ -6,6 +6,8 @@
     $date = date('m-d-Y');
 
     $id = $_SESSION['uid'];
+    $replicate_code = $_SESSION['replicate_code'];
+
     $user_info = mysqli_query($connect, "SELECT * FROM upti_users WHERE users_id = '$id'");
     $fetch_count = mysqli_fetch_array($user_info);
     $user_count = $fetch_count['users_count'];
@@ -210,6 +212,7 @@
                   trans_date = '$date',
                   trans_time = '$time',
                   trans_address = '$address',
+                  trans_upline = '$replicate_code',
                   trans_status = 'Pending'
                 WHERE trans_ref = '$ref'";
                 $trans_stmt_qry = mysqli_query($connect, $trans_stmt);
