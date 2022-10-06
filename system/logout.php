@@ -6,6 +6,7 @@
     unset($_SESSION['uid']);
     unset($_SESSION['role']);
     unset($_SESSION['code']);
+    unset($_SESSION['replicate_code']);
 
     header('Location: ../index.php');
 ?>

@@ -30,7 +30,7 @@
     $address = $address_fetch['add_house'] .' '. $address_fetch['add_city'] .' '. $address_fetch['add_province'] .' '. $address_fetch['add_barangay'];
 
     if (isset($_POST['checkout'])) {
-        $reseller_id = $_POST['reseller'];
+        // $reseller_id = $_POST['reseller'];
 
         $transaction_stmt = mysqli_query($connect, "SELECT * FROM web_transaction WHERE trans_id = '$profile' AND trans_ref = '$ref'");
         $transaction = mysqli_fetch_array($transaction_stmt);
@@ -201,8 +201,8 @@
                   $new_total = $total_amount - $discount;
                 }
 
-                $trans_stmt = "UPDATE web_transaction SET 
-                  trans_upline = '$reseller_id',
+                echo $trans_stmt = "UPDATE web_transaction SET 
+                  trans_upline = '$replicate_code',
                   trans_shipping = '$shipping',
                   trans_surcharge = '$surcharge',
                   trans_less_shipping = '$less_shipping_fee',
@@ -211,7 +211,6 @@
                   trans_date = '$date',
                   trans_time = '$time',
                   trans_address = '$address',
-                  trans_upline = '$replicate_code',
                   trans_status = 'Pending'
                 WHERE trans_ref = '$ref'";
                 $trans_stmt_qry = mysqli_query($connect, $trans_stmt);
@@ -221,7 +220,7 @@
 
                 $cart_status = mysqli_query($connect, "UPDATE web_cart SET cart_status = 'Pending' WHERE cart_ref = '$ref'");
 
-                unset($_SESSION['repli_code']);
+                unset($_SESSION['replicate_code']);
 
                 flash("success", "Order has been submitted successfully");
                 header('location: ../checkout-list.php');
