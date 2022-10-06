@@ -52,20 +52,20 @@
                             $d_item = "SELECT items_code, items_desc FROM upti_items INNER JOIN upti_product ON upti_items.items_code = upti_product.p_code WHERE p_tag = 'Best Seller' UNION SELECT package_code, package_desc FROM upti_package  INNER JOIN upti_product ON upti_package.package_code = upti_product.p_code WHERE p_tag = 'Best Seller' LIMIT 15";
                             $d_item_sql = mysqli_query($connect, $d_item);
                             while ($d_item_fetch = mysqli_fetch_array($d_item_sql)) {
-                                $d_item_code = $d_item_fetch['items_code'];
+                              $d_item_code = $d_item_fetch['items_code'];
 
-                                $d_item_price = "SELECT * FROM upti_country WHERE country_name = '$customer_country' AND country_code = '$d_item_code'";
-                                $d_item_price_sql = mysqli_query($connect, $d_item_price);
-                                $d_item_price_fetch = mysqli_fetch_array($d_item_price_sql);
+                              $d_item_price = "SELECT * FROM upti_country WHERE country_name = '$customer_country' AND country_code = '$d_item_code'";
+                              $d_item_price_sql = mysqli_query($connect, $d_item_price);
+                              $d_item_price_fetch = mysqli_fetch_array($d_item_price_sql);
 
-                                $prod_stmt = mysqli_query($connect, "SELECT * FROM upti_product WHERE p_code = '$d_item_code'");
-                                $get_img = mysqli_fetch_array($prod_stmt);
+                              $prod_stmt = mysqli_query($connect, "SELECT * FROM upti_product WHERE p_code = '$d_item_code'");
+                              $get_img = mysqli_fetch_array($prod_stmt);
 
-                                if (mysqli_num_rows($prod_stmt) > 0) {
-                                    $images = $get_img['p_m_img'];
-                                } else {
-                                    $images = '';
-                                }
+                              if (mysqli_num_rows($prod_stmt) > 0) {
+                                  $images = $get_img['p_m_img'];
+                              } else {
+                                  $images = '';
+                              }
 
                         ?>
                         <div class="col-12">
