@@ -5,6 +5,6 @@
 
   $_SESSION['replicate_code'] = $id;
 
-  header('location: https://system.uptimised-hris.com/shop.php');
+  header('location: http://localhost/betatest/shop.php');
 
 ?>

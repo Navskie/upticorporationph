@@ -40,6 +40,11 @@
         } else {
             $payment_stmt = mysqli_query($connect, "SELECT * FROM web_payment WHERE payment_ref = '$ref' AND payment_uid = '$profile'");
 
+          echo mysqli_num_rows($payment_stmt);
+          echo '<br>';
+          echo $transaction['trans_mop'];
+
+
             if (mysqli_num_rows($payment_stmt) > 0  && $transaction['trans_mop'] == 'Payment First' || mysqli_num_rows($payment_stmt) == 0  && $transaction['trans_mop'] != 'Payment First') {
                 // SUBTOTAL
                 $subtotal_sql = "SELECT SUM(cart_subtotal) AS subtotal FROM web_cart WHERE cart_ref = '$ref'";
@@ -226,8 +231,8 @@
                 header('location: ../checkout-list.php');
                 
             } else {
-                flash("warn", "Please attach your receipt");
-                header('location: ../cart.php');
+                // flash("warn", "Please attach your receipt");
+                // header('location: ../cart.php');
             } #payment End
         } # delivery option End
     } #isset End
