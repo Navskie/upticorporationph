@@ -825,8 +825,6 @@
             $output = '
             <table class="table" bordered="1">
             <tr>
-                <th>TEAM</th>
-                <th>SIGNED UP BY</th>
                 <th>COUNTRY/LOCATION</th>
                 <th>RESELLER ID</th>
                 <th>RESELLER NAME</th>
@@ -838,45 +836,27 @@
             // $excelData = implode('\t', array_values($fields)).'\n';
     
             // Fetch Records From Database
-            $export_sql = "SELECT reseller_poid, reseller_country, reseller_code, reseller_name, SUM(upti_order_list.ol_php) AS TOTAL_SALES FROM upti_reseller
+            $export_sql = "SELECT users_code, trans_country, users_name, SUM(upti_order_list.ol_php) AS TOTAL_SALES FROM upti_users
             INNER JOIN
-            upti_order_list ON upti_reseller.reseller_code = upti_order_list.ol_reseller
+            upti_order_list ON upti_users.users_code = upti_order_list.ol_reseller
             INNER JOIN
-            upti_activities ON upti_order_list.ol_poid = upti_activities.activities_poid
+            upti_transaction ON upti_transaction.trans_poid = upti_order_list.ol_poid
+            INNER JOIN
+            upti_activities ON upti_transaction.trans_poid = upti_activities.activities_poid
             WHERE upti_activities.activities_caption = 'Order Delivered' AND
-            upti_activities.activities_date BETWEEN '$date1' AND '$date2' GROUP BY upti_reseller.reseller_code ORDER BY TOTAL_SALES DESC";
+            upti_activities.activities_date BETWEEN '$date1' AND '$date2' GROUP BY users_code ORDER BY TOTAL_SALES DESC";
             // echo '<br>';
             $export_qry = mysqli_query($connect, $export_sql);
             $export_num = mysqli_num_rows($export_qry);
     
             while($row = mysqli_fetch_array($export_qry)) {
                     $tot_sales = $row['TOTAL_SALES'];
-                    $poid = $row['reseller_poid'];
-                    
-                    $get_reseller = "SELECT * FROM upti_transaction WHERE trans_poid = '$poid'";
-                    $get_reseller_sql = mysqli_query($connect, $get_reseller);
-                    $get_reseller_fetch = mysqli_fetch_array($get_reseller_sql);
-                    
-                    $seller = $get_reseller_fetch['trans_seller'];
-                    
-                    $get_upper = "SELECT * FROM upti_users WHERE users_code = '$seller'";
-                    $get_upper_sql = mysqli_query($connect, $get_upper);
-                    $get_upper_fetch = mysqli_fetch_array($get_upper_sql);
-                    
-                    $name_upper = $get_upper_fetch['users_name'];
-                    $upper_reseller = $get_upper_fetch['users_main'];
-                    
-                    $get_upper1 = "SELECT * FROM upti_users WHERE users_code = '$upper_reseller'";
-                    $get_upper_sql1 = mysqli_query($connect, $get_upper1);
-                    $get_upper_fetch1 = mysqli_fetch_array($get_upper_sql1);
                     
                 $output .='
                 <tr>
-                    <td>'.$get_upper_fetch1['users_name'].'</td>
-                    <td>'.$name_upper.'</td>
-                    <td>'.$row['reseller_country'].'</td>
-                    <td>'.$row['reseller_code'].'</td>
-                    <td>'.$row['reseller_name'].'</td>
+                    <td>'.$row['trans_country'].'</td>
+                    <td>'.$row['users_code'].'</td>
+                    <td>'.$row['users_name'].'</td>
                     <td>'.number_format($tot_sales).'</td>
                 </tr>
                 ';
