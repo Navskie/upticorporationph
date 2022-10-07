@@ -160,6 +160,25 @@
 
     <div class="col-lg-4 col-md-6 col-sm-12">
       <div class="course">
+        <div class="preview bg-primary">
+          <h2 class="text-center text-light"><i class="uil uil-user-exclamation"></i></h2>
+        </div>
+
+        <div class="info">
+          <h6>My Replicated Website</h6>
+          <h2><b><?php echo $_SESSION['code'] ?></b></h2>
+          <div class="copy-text">
+            <input type="text" id="myInput" value="https://system.uptimised-hris.com/replicate.php?id=<?php echo $_SESSION['code'] ?>" style="display: none">
+            <button class="btn btn-success" onclick="myFunction()"><i class="uil uil-copy"></i> Get Link</button>
+            <br><br>
+          </div>
+        </div>
+      </div>
+      <br>
+    </div>
+
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <div class="course">
         <div class="preview" style="background: #2771D0;">
           <h2 class="text-center text-light"><i class="uil uil-plane-departure"></i></h2>
         </div>
@@ -444,3 +463,17 @@
   close.addEventListener('click', () => popup.style.display = 'none');
 </script>
 <?php include 'include/footer.php'; ?>
+<script>
+function myFunction() {
+  // Get the text field
+  var copyText = document.getElementById("myInput");
+
+  // Select the text field
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+
+  // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText.value);
+  
+}
+</script>
