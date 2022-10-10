@@ -96,7 +96,7 @@
                                     <?php } ?>
                                 </td>
                                 <td class="text-center small--hide cart-price">
-                                    <div><span class="money">Php <?php echo $transaction['trans_subtotal'] ?></span></div>
+                                    <div><span class="money"><?php echo $country_code ?> <?php echo $transaction['trans_subtotal'] ?></span></div>
                                 </td>
                                 <td class="text-center small--hide">
                                     <?php if ($status == 'Pending') { ?>
