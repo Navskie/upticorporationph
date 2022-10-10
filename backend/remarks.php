@@ -32,12 +32,12 @@
                 '$profile',
                 '$stamp',
                 'Unread',
-                '$date',
+                '$today',
                 '$time'
             )");
         }
 
-        // flash("success", "Address has been added successfully");
+        flash("success", "Address has been added successfully");
         header('location: ../ref-details.php?ref='.$ref.'');
     }
 ?>
