@@ -196,13 +196,13 @@
                   $total_amount = $subtotal + $surcharge + $shipping - $less_shipping_fee;
                   $new_total = $total_amount - $discount;
                 } else {
-                  $discount = '';
+                  $discount = 0;
                   // Total Amount
                   $total_amount = $subtotal + $surcharge + $shipping - $less_shipping_fee;
                   $new_total = $total_amount - $discount;
                 }
 
-                echo $trans_stmt = "UPDATE web_transaction SET 
+                $trans_stmt = "UPDATE web_transaction SET 
                   trans_upline = '$replicate_code',
                   trans_shipping = '$shipping',
                   trans_surcharge = '$surcharge',
@@ -221,7 +221,7 @@
 
                 $cart_status = mysqli_query($connect, "UPDATE web_cart SET cart_status = 'Pending' WHERE cart_ref = '$ref'");
 
-                unset($_SESSION['replicate_code']);
+                // unset($_SESSION['replicate_code']);
 
                 flash("success", "Order has been submitted successfully");
                 header('location: ../checkout-list.php');
