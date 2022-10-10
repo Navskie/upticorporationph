@@ -22,14 +22,18 @@
                 remark_name,
                 remark_code,
                 remark_stamp,
-                remark_csr
+                remark_csr,
+                remark_date,
+                remark_time
             ) VALUES (
                 '$ref',
                 '$remarks',
                 '$name',
                 '$profile',
                 '$stamp',
-                'Unread'
+                'Unread',
+                '$date',
+                '$time'
             )");
         }
 
