@@ -93,7 +93,7 @@
                         <thead class="cart__row cart__header">
                             <tr>
                                 <th class="text-center">#</th>
-                                <th colspan="4" class="text-center">Address</th>
+                                <th colspan="5" class="text-center">Address</th>
                                 <th class="action text-center text-danger"><i class="uil uil-cog"></i></th>
                             </tr>
                         </thead>
@@ -115,6 +115,9 @@
                                 </td>
                                 <td class="cart__price-wrapper cart-flex-item text-center">
                                     <span class="money"><?php echo $address['add_city'] ?></span>
+                                </td>
+                                <td class="cart__price-wrapper cart-flex-item text-center">
+                                    <span class="money"><?php echo $address['add_state'] ?></span>
                                 </td>
                                 <td class="text-center small--hide cart-price">
                                     <div><span class="money"><?php echo $address['add_province'] ?></span></div>

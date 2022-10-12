@@ -218,7 +218,15 @@
                                     <span class="money"><?php echo $cart['cart_qty'] ?></span>
                                 </td>
                                 <td class="text-right small--hide cart-price">
-                                    <div><span class="money"><?php echo $country_code ?> <?php echo $cart['cart_subtotal'] ?></span></div>
+                                <?php
+                                    $order_country = $transaction['trans_country'];
+
+                                    $c_code2 = mysqli_query($connect, "SELECT * FROM upti_country_currency WHERE cc_country = '$order_country'");
+                                    $cc_fetch2 = mysqli_fetch_array($c_code2);
+                                    
+                                    $country_code2 = $cc_fetch2['cc_sign'];
+                                  ?>
+                                    <div><span class="money"><?php echo $country_code2 ?> <?php echo $transaction['trans_subtotal'] ?></span></div>
                                 </td>
                             </tr>
                             <?php } ?>
@@ -302,10 +310,9 @@
                     </div>
 
                     <div class="col-8">
-                        <span class="float-right"><?php echo $remarkss['remark_stamp'] ?></span>
+                        <span class="float-right"><?php echo $remarkss['remark_date'] ?> / <?php echo $remarkss['remark_time'] ?></span>
                         <br><br>
                         <p class="text-left"><?php echo $remarkss['remark_content'] ?></p>
-                        
                     </div>
                     <div class="col-12">
                         <hr>

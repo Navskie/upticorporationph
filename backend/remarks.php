@@ -6,7 +6,7 @@
     $profile = $_SESSION['code'];
     $role = $_SESSION['role'];
     $ref = $_GET['ref'];
-    $stamp = $today.' '.$time;
+    $stamp = $date.' '.$time;
 
     if(isset($_POST['submit'])) {
         $remarks = $_POST['remarks'];
@@ -16,7 +16,7 @@
         $name = $name_fetch['users_name'];
 
         if ($role == 'Customer') {
-            $remarks = mysqli_query($connect, "INSERT INTO upti_remarks (
+            $remarks = "INSERT INTO upti_remarks (
                 remark_poid,
                 remark_content,
                 remark_name,
@@ -32,12 +32,13 @@
                 '$profile',
                 '$stamp',
                 'Unread',
-                '$today',
+                '$date',
                 '$time'
-            )");
+            )";
+            $remarks_qry = mysqli_query($connect, $remarks);
         }
 
-        flash("success", "Address has been added successfully");
+        flash("success", "Address has been added successfully");  
         header('location: ../ref-details.php?ref='.$ref.'');
     }
 ?>

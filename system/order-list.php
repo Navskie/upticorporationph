@@ -907,6 +907,8 @@
 
                                 // Total Amount
                                 $total_amount = $subtotal + $surcharge + $shipping - $less_shipping_fee ;
+
+                                echo $customer_country;
                             ?>
 
                             <!-- Subtotal -->

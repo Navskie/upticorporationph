@@ -15,6 +15,7 @@
           <form action="replicate-process.php?id=<?php echo $id ?>" method="post">
             <div class="row">
               <div class="col-12">
+                <?php echo $info_fetch['users_img'] ?>
                 <?php if ($info_fetch['users_img'] == '') { ?>
                 <img src="assets/images/main/default.jpg" alt="" class="image-responsive w-100">
                 <?php } else { ?>

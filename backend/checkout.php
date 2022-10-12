@@ -28,6 +28,7 @@
     $address_fetch = mysqli_fetch_array($address_stmt);
 
     $address = $address_fetch['add_house'] .' '. $address_fetch['add_city'] .' '. $address_fetch['add_province'] .' '. $address_fetch['add_barangay'];
+    $state = $address_fetch['add_state'];
 
     if (isset($_POST['checkout'])) {
         // $reseller_id = $_POST['reseller'];
@@ -212,6 +213,7 @@
                   trans_date = '$date',
                   trans_time = '$time',
                   trans_address = '$address',
+                  trans_state = '$state',
                   trans_status = 'Pending'
                 WHERE trans_ref = '$ref'";
                 $trans_stmt_qry = mysqli_query($connect, $trans_stmt);

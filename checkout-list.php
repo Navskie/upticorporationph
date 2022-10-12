@@ -96,7 +96,15 @@
                                     <?php } ?>
                                 </td>
                                 <td class="text-center small--hide cart-price">
-                                    <div><span class="money"><?php echo $country_code ?> <?php echo $transaction['trans_subtotal'] ?></span></div>
+                                    <?php
+                                    $order_country = $transaction['trans_country'];
+
+                                    $c_code2 = mysqli_query($connect, "SELECT * FROM upti_country_currency WHERE cc_country = '$order_country'");
+                                    $cc_fetch2 = mysqli_fetch_array($c_code2);
+                                    
+                                    $country_code2 = $cc_fetch2['cc_sign'];
+                                  ?>
+                                    <div><span class="money"><?php echo $country_code2 ?> <?php echo $transaction['trans_subtotal'] ?></span></div>
                                 </td>
                                 <td class="text-center small--hide">
                                     <?php if ($status == 'Pending') { ?>

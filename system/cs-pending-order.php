@@ -18,7 +18,9 @@
   $get_country_qry = mysqli_query($connect, $get_country_sql);
   $get_country_fetch = mysqli_fetch_array($get_country_qry);
 
-  $employee = $get_country_fetch['stockist_country'];
+  echo $employee = $get_country_fetch['stockist_country'];
+  echo $state = $get_country_fetch['stockist_state'];
+
 ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" style="background: #f8f8f8 !important">
@@ -81,10 +83,20 @@
                                     </tr>
                                 </thead>
                                 <?php
-                                    if($employee == 'UNITED ARAB EMIRATES') {
-                                        $order_sql = "SELECT * FROM web_transaction WHERE trans_status= 'Pending' AND trans_country = '$employee' OR trans_status= 'Pending' AND trans_country = 'OMAN' OR trans_status= 'Pending' AND trans_country = 'KUWAIT' OR trans_status= 'Pending' AND trans_country = 'BAHRAIN' OR trans_status= 'Pending' AND trans_country = 'QATAR' ORDER BY trans_date ASC";
-                                    } else {
-                                        $order_sql = "SELECT * FROM web_transaction WHERE trans_status= 'Pending' AND trans_country = '$employee' ORDER BY trans_date ASC";
+                                    if ($employee == 'CANADA') {
+                                      if ($state != 'ALBERTA') {
+                                        echo $order_sql = "SELECT * FROM web_transaction WHERE trans_status = 'Pending' AND trans_state != 'ALBERTA' AND trans_country = '$employee' ORDER BY trans_date ASC";
+                                      } else {
+                                        echo  $order_sql = "SELECT * FROM web_transaction WHERE trans_status = 'Pending' AND trans_state = '$state' AND trans_country = '$employee' ORDER BY trans_date ASC";
+                                      }
+                                    }
+                                    else 
+                                    {
+                                      if($employee == 'UNITED ARAB EMIRATES') {
+                                        echo $order_sql = "SELECT * FROM web_transaction WHERE trans_status= 'Pending' AND trans_country = '$employee' OR trans_status= 'Pending' AND trans_country = 'OMAN' OR trans_status= 'Pending' AND trans_country = 'KUWAIT' OR trans_status= 'Pending' AND trans_country = 'BAHRAIN' OR trans_status= 'Pending' AND trans_country = 'QATAR' ORDER BY trans_date ASC";
+                                      } else {
+                                          echo $order_sql = "SELECT * FROM web_transaction WHERE trans_status= 'Pending' AND trans_country = '$employee' ORDER BY trans_date ASC";
+                                      }
                                     }
                                     $order_qry = mysqli_query($connect, $order_sql);
                                     $number =1;

@@ -27,6 +27,22 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
+                                    <label>State</label>
+                                    <select name="state" id="" class="form-control">
+                                      <option value="<?php echo $address['add_state'] ?>"><?php echo $address['add_state'] ?></option>
+                                      <?php
+                                        $state_stmt = mysqli_query($connect, "SELECT * FROM upti_state WHERE state_country = '$customer_country'");
+                                        foreach ($state_stmt as $data) {
+                                      ?>
+                                        <option value="<?php echo $data['state_name'] ?>"><?php echo $data['state_name'] ?></option>
+                                      <?php
+                                        }
+                                      ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
                                     <label>Province</label>
                                     <input type="text" class="form-control" name="province" value="<?php echo $address['add_province'] ?>">
                                 </div>

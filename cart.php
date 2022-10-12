@@ -126,7 +126,7 @@
                                 </div>
                             </div>
                             <div class="col-4">
-                                <?php if ($customer_country == 'CANADA' || $customer_country == 'canada') { ?>
+                                <?php if ($customer_country == 'CANADA' || $customer_country == 'Canada') { ?>
                                 <div class="form-group">
                                   <label>State</label>
                                   <select name="state" id="" class="form-control">
