@@ -18,8 +18,8 @@
   $get_country_qry = mysqli_query($connect, $get_country_sql);
   $get_country_fetch = mysqli_fetch_array($get_country_qry);
 
-  echo $employee = $get_country_fetch['stockist_country'];
-  echo $state = $get_country_fetch['stockist_state'];
+  $employee = $get_country_fetch['stockist_country'];
+  $state = $get_country_fetch['stockist_state'];
 
 ?>
   <!-- Content Wrapper. Contains page content -->
