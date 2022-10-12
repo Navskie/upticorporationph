@@ -85,9 +85,9 @@
                                 <?php
                                     if ($employee == 'CANADA') {
                                       if ($state != 'ALBERTA') {
-                                        echo $order_sql = "SELECT * FROM web_transaction WHERE trans_status = 'Pending' AND trans_state != 'ALBERTA' AND trans_country = '$employee' ORDER BY trans_date ASC";
+                                        $order_sql = "SELECT * FROM web_transaction WHERE trans_status = 'Pending' AND trans_state != 'ALBERTA' AND trans_country = '$employee' ORDER BY trans_date ASC";
                                       } else {
-                                        echo  $order_sql = "SELECT * FROM web_transaction WHERE trans_status = 'Pending' AND trans_state = '$state' AND trans_country = '$employee' ORDER BY trans_date ASC";
+                                        $order_sql = "SELECT * FROM web_transaction WHERE trans_status = 'Pending' AND trans_state = '$state' AND trans_country = '$employee' ORDER BY trans_date ASC";
                                       }
                                     }
                                     else 
