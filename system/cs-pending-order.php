@@ -83,7 +83,7 @@
                                     </tr>
                                 </thead>
                                 <?php
-                                    if ($employee == 'CANADA') {
+                                    if ($employee == 'CANADA' || $employee == 'Canada') {
                                       if ($state != 'ALBERTA') {
                                         $order_sql = "SELECT * FROM web_transaction WHERE trans_status = 'Pending' AND trans_state != 'ALBERTA' AND trans_country = '$employee' ORDER BY trans_date ASC";
                                       } else {
