@@ -200,7 +200,7 @@
       <div class="contain">
         <div class="forms">
           <div class="form login">
-            <span class="title">Uptimised Corporation</span>
+            <span class="title">Uptimised Corporations</span>
             <form action="login-process.php" method="post">
               <div class="input-field">
                 <input type="text" name="us" placeholder="Input your username" required autocomplete="off">
