@@ -37,37 +37,40 @@
         ?>
         <div class="row">
         <?php
-        $rpp = 20;
 
-        if(isset($_GET['page'])) {
-            $page = $_GET['page'];
-        } else {
-            $page = 1;
-        }
+          $rpp = 20;
 
-        $start_from = ($page-1)*$rpp;
+          if(isset($_GET['page'])) {
+              $page = $_GET['page'];
+          } else {
+              $page = 1;
+          }
 
-        $d_item = "
-        SELECT items_code FROM upti_items
-        INNER JOIN upti_code ON items_code = code_name
-        WHERE
-        items_status = 'Active' AND code_category = 'PROMO' AND items_code LIKE '%$item_code%'
-        UNION
-        SELECT package_code FROM upti_package
-        INNER JOIN upti_code ON package_code = code_name
-        WHERE
-        package_status = 'Active' AND code_category = 'PROMO' AND package_code LIKE '%$item_code%'
-        LIMIT $start_from, $rpp";
-        $d_item_sql = mysqli_query($connect, $d_item);
-        mysqli_num_rows($d_item_sql);
-        if (mysqli_num_rows($d_item_sql) > 0) {
-            ?>
+          $start_from = ($page-1)*$rpp;
+
+          $d_item = "
+          SELECT items_created, code_name, items_desc, items_status FROM upti_items
+          INNER JOIN upti_code ON items_code = code_name
+          WHERE
+          items_status = 'Active' AND code_category = 'PROMO' AND items_code LIKE '%$item_code%'
+          UNION
+          SELECT package_stamp, code_name, package_desc, package_status FROM upti_package
+          INNER JOIN upti_code ON package_code = code_name
+          WHERE
+          package_status = 'Active' AND code_category = 'PROMO' AND package_code LIKE '%$item_code%'
+          LIMIT $start_from, $rpp";
+          $d_item_sql = mysqli_query($connect, $d_item);
+          mysqli_num_rows($d_item_sql);
+          if (mysqli_num_rows($d_item_sql) > 0) {
+
+        ?>
             <div class="col-12">
                 <br>
             <p class="text-center">Showing Result for <b><?php echo $item_code ?></b></p>
             </div>
             <?php
-            while ($d_item_fetch = mysqli_fetch_array($d_item_sql)) {
+              while ($d_item_fetch = mysqli_fetch_array($d_item_sql)) {
+                
                 $d_item_code = $d_item_fetch['code_name'];
 
                 $d_item_price = "SELECT * FROM upti_country WHERE country_name = '$customer_country' AND country_code = '$d_item_code'";
