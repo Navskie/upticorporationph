@@ -12,6 +12,7 @@
 
         $transaction = mysqli_query($connect, "SELECT trans_mop, trans_office, trans_office_status FROM web_transaction WHERE trans_id = '$profile' AND trans_ref = '$ref'");
         $trans_fetch = mysqli_fetch_array($transaction);
+
         if (mysqli_num_rows($transaction) > 0) {
             $mode_of_payment = $trans_fetch['trans_mop'];
             $office = $trans_fetch['trans_office'];
@@ -30,8 +31,8 @@
     	<!--Page Title-->
     	<div class="page section-header text-center">
 			<div class="page-title">
-        		<div class="wrapper"><h1 class="page-width">Your cart</h1></div>
-      		</div>
+        <div class="wrapper"><h1 class="page-width">Your cart</h1></div>
+      </div>
 		</div>
         <!--End Page Title-->
         <br>
@@ -513,25 +514,7 @@
                       	<span class="col-12 col-sm-6"><strong>Payment Summary</strong></span>
                       </div>
                     <br>
-                      <?php if ($user_count < 1) { 
-                        $discount = $subtotal * 0.05;  
-                      ?>
-                      <div class="row">
-                      	<span class="col-12 col-sm-6 cart__subtotal-title text-danger"><strong>Discount</strong></span>
-                        <span class="col-12 col-sm-6 cart__subtotal-title cart__subtotal text-right text-danger"><span class="money"><?php echo $country_code ?> <?php echo number_format($discount, '2') ?></span></span>
-                      </div>
-                      <?php } 
-                            else
-                            {
-                              $discount = 0;
-                      ?>
-                      <div class="row">
-                      	<span class="col-12 col-sm-6 cart__subtotal-title"><strong>Discount</strong></span>
-                        <span class="col-12 col-sm-6 cart__subtotal-title cart__subtotal text-right"><span class="money"><?php echo $country_code ?> <p><?php echo number_format($discount, '2') ?></p></span></span>
-                      </div>
-                      <?php
-                            }
-                      ?>
+                            
                       <div class="row">
                       	<span class="col-12 col-sm-6 cart__subtotal-title"><strong>Surcharge</strong></span>
                         <span class="col-12 col-sm-6 cart__subtotal-title cart__subtotal text-right"><span class="money"><?php echo $country_code ?> <?php echo number_format($surcharge, '2') ?></span></span>
@@ -550,9 +533,8 @@
                       </div>
                       <hr>
                       <div class="row">
-                        <?php $new_total = $total_amount - $discount ?>
                       	<span class="col-12 col-sm-6 cart__subtotal-title"><strong>Total Amount</strong></span>
-                        <span class="col-12 col-sm-6 cart__subtotal-title cart__subtotal text-right"><span class="money"><?php echo $country_code ?> <?php echo number_format($new_total, '2') ?></span></span>
+                        <span class="col-12 col-sm-6 cart__subtotal-title cart__subtotal text-right"><span class="money"><?php echo $country_code ?> <?php echo number_format($total_amount, '2') ?></span></span>
                       </div>
                       <br><br>
                       <!-- <div class="cart__shipping">Shipping &amp; taxes calculated at checkout</div> -->

@@ -37,24 +37,29 @@
         ?>
         <div class="row">
         <?php
-        $d_item = "SELECT items_created, code_name, items_desc, items_status FROM upti_code 
-        INNER JOIN upti_items ON upti_code.code_name = upti_items.items_code 
-        WHERE code_category = 'PROMO' AND items_status = 'Active' AND items_desc LIKE '%".$item_code."%' OR 
-        code_category = 'REBATABLE' AND items_status = 'Active' AND items_desc LIKE '%".$item_code."%' OR
-        code_category = 'RESELLER' AND items_status = 'Active' AND items_desc LIKE '%".$item_code."%' OR
-        code_category = 'BUY ONE GET ANY' AND items_status = 'Active' AND items_desc LIKE '%".$item_code."%' OR
-        code_category = 'BUY ONE GET TWO' AND items_status = 'Active' AND items_desc LIKE '%".$item_code."%' 
-        UNION 
-        SELECT package_stamp, code_name, package_desc, package_status FROM upti_code 
-        INNER JOIN upti_package ON upti_code.code_name = upti_package.package_code 
-        WHERE code_category = 'PROMO' AND package_status = 'Active' AND package_desc LIKE '%".$item_code."%' OR
-        code_category = 'REBATABLE' AND package_status = 'Active' AND package_desc LIKE '%".$item_code."%' OR
-        code_category = 'RESELLER' AND package_status = 'Active' AND package_desc LIKE '%".$item_code."%' OR
-        code_category = 'BUY ONE GET ANY' AND package_status = 'Active' AND package_desc LIKE '%".$item_code."%' OR
-        code_category = 'BUY ONE GET TWO' AND package_status = 'Active' AND package_desc LIKE '%".$item_code."%'
-        ORDER BY items_desc, package_desc DESC
+        $rpp = 20;
+
+        if(isset($_GET['page'])) {
+            $page = $_GET['page'];
+        } else {
+            $page = 1;
+        }
+
+        $start_from = ($page-1)*$rpp;
+
+        $d_item = "
+        SELECT items_code FROM upti_items
+        INNER JOIN upti_code ON items_code = code_name
+        WHERE
+        items_status = 'Active' AND code_category = 'PROMO' AND items_code LIKE '%$item_code%'
+        UNION
+        SELECT package_code FROM upti_package
+        INNER JOIN upti_code ON package_code = code_name
+        WHERE
+        package_status = 'Active' AND code_category = 'PROMO' AND package_code LIKE '%$item_code%'
         LIMIT $start_from, $rpp";
         $d_item_sql = mysqli_query($connect, $d_item);
+        mysqli_num_rows($d_item_sql);
         if (mysqli_num_rows($d_item_sql) > 0) {
             ?>
             <div class="col-12">
