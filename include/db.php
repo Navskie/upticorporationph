@@ -1,7 +1,7 @@
 <?php
     
-  // $connect = mysqli_connect('localhost', 'u438882109_betatestph', '@User2022', 'u438882109_betatestph');  
-  $connect = mysqli_connect('localhost', 'root', '', 'uptimisedph');
+  $connect = mysqli_connect('localhost', 'u438882109_betatestph', '@User2022', 'u438882109_betatestph');  
+  // $connect = mysqli_connect('localhost', 'root', '', 'uptimisedph');
 
     
   function ip_info($ip = NULL, $purpose = "location", $deep_detect = TRUE) {
@@ -69,13 +69,13 @@
     return $output;
 }
 
-// $customer_country = ip_info("Visitor", "Country"); // India
-// // $customer_country = 'KOREA';
+$customer_country = ip_info("Visitor", "Country"); // India
+// $customer_country = 'KOREA';
 
-// if ($customer_country == 'South Korea') {
-//     $customer_country = 'KOREA';
-// }
-$customer_country = 'Canada';
+if ($customer_country == 'South Korea') {
+    $customer_country = 'KOREA';
+}
+// $customer_country = 'Canada';
 
 $c_code = mysqli_query($connect, "SELECT * FROM upti_country_currency WHERE cc_country = '$customer_country'");
 $cc_fetch = mysqli_fetch_array($c_code);
