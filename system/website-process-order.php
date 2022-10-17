@@ -1,9 +1,4 @@
 <?php include 'include/header.php'; ?>
-<?php
-    $SCode = $_SESSION['code'];
-    
-    if ($_SESSION['role'] == 'WEBSITE') {
-?>
 <?php include 'include/preloader.php'; ?>
 <?php include 'include/stockist-navbar.php'; ?>
 <?php include 'include/stockist-bar.php'; ?>
@@ -16,7 +11,7 @@
                 <div class="card-body login-card-body text-dark">
                     <div class="row">
                         <div class="col-12">
-                            <h4 class="float-left text-info">Website Incoming On Process Orders</h4>
+                            <h4 class="float-left text-info">Website Process Orders</h4>
                              <!-- Order List Table Start -->
                             <table id="example1" class="table table-sm table-striped table-hover border border-info">
                                 <thead>
@@ -33,7 +28,7 @@
                                 </thead>
                                 <?php
                                     
-                                    $order_sql = "SELECT * FROM web_transaction WHERE trans_status= 'On Process' AND trans_upline = 'NULL' OR trans_status = 'In Transit' AND trans_upline = 'NULL' ORDER BY trans_date ASC";
+                                    $order_sql = "SELECT * FROM web_transaction WHERE trans_status= 'On Process' AND trans_upline = 'NULL' ORDER BY trans_date ASC";
                                     
                                     $order_qry = mysqli_query($connect, $order_sql);
                                     $number =1;
@@ -69,5 +64,4 @@
     </div>
     <!-- /.content-header -->
   </div>
-<?php } else { echo "<script>window.location='index.php'</script>"; } ?>
 <?php include 'include/footer.php'; ?>

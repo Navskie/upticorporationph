@@ -84,7 +84,7 @@
         header('Location: system/ads.php');
       }
       elseif ($_SESSION['status'] == 'valid' AND $_SESSION['role'] == 'WEBSITE') {
-        header('Location: system/website.php');
+        header('Location: system/cs-onprocess-order.php');
       }
       elseif ($_SESSION['status'] == 'valid' AND $_SESSION['role'] == 'Customer') {
         header('Location: profile.php');

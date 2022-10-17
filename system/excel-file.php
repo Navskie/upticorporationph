@@ -626,7 +626,7 @@
                     <th>Item Description</th>
                     <th>Quantity</th>
                     <th>Peso</th>
-                    <th>Status</th>
+                    <th>Status</th> 
                 <tr>
             ';
 

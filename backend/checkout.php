@@ -189,10 +189,8 @@
                     $surcharge = 0;
                 }
 
-                
-
                 if ($user_count < 1) {
-                  $discount = $subtotal * 0.05;
+                  $discount = 0;
                   // Total Amount
                   $total_amount = $subtotal + $surcharge + $shipping - $less_shipping_fee;
                   $new_total = $total_amount - $discount;
@@ -203,18 +201,18 @@
                   $new_total = $total_amount - $discount;
                 }
 
-                $trans_stmt = "UPDATE web_transaction SET 
+                $trans_stmt = "UPDATE web_transaction SET   
                   trans_upline = '$replicate_code',
                   trans_shipping = '$shipping',
                   trans_surcharge = '$surcharge',
                   trans_less_shipping = '$less_shipping_fee',
                   trans_subtotal = '$new_total',
-                  trans_discount = '$discount',
                   trans_date = '$date',
                   trans_time = '$time',
                   trans_address = '$address',
                   trans_state = '$state',
                   trans_status = 'Pending'
+
                 WHERE trans_ref = '$ref'";
                 $trans_stmt_qry = mysqli_query($connect, $trans_stmt);
 

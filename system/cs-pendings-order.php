@@ -33,7 +33,7 @@
                                 </thead>
                                 <?php
                                     
-                                    $order_sql = "SELECT * FROM web_transaction WHERE trans_status= 'Pending' ORDER BY trans_date ASC";
+                                    $order_sql = "SELECT * FROM web_transaction WHERE trans_status= 'Pending' AND trans_upline = 'NULL' ORDER BY trans_date ASC";
                                     
                                     $order_qry = mysqli_query($connect, $order_sql);
                                     $number =1;

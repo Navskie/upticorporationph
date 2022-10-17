@@ -12,12 +12,14 @@
         $barangay = $_POST['barangay'];
         $city = $_POST['city'];
         $province = $_POST['province'];
+        $state = $_POST['state'];
 
         $trans_cancel_stmt = mysqli_query($connect, "UPDATE web_address SET 
             add_house = '$house',
             add_barangay = '$barangay',
             add_city = '$city',
-            add_province = '$province'
+            add_province = '$province',
+            add_state = '$state'
         WHERE id = '$id'");
 
         flash("success", "Address has been updated successfully");

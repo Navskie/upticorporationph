@@ -24,6 +24,7 @@
     $customer_address = $poid_info_fetch['trans_address'];
     $customer_office = $poid_info_fetch['trans_office'];
     $customer_country = $poid_info_fetch['trans_country'];
+    $state = $poid_info_fetch['trans_state'];
 
     if ($customer_country == 'SOUTH KOREA') {
         $customer_country == 'KOREA';
@@ -155,7 +156,11 @@
     } elseif ($customer_country == 'SINGAPORE') {
         $bank = 'KAA-MILL ENTERPRISE PTE. LTD.';
     } elseif ($customer_country == 'CANADA') {
-        $bank = 'D&J Go Glow Inc.';
+        if ($state != 'ALBERTA') {
+          $bank = 'D&J Go Glow Inc.';
+        } else {
+          $bank = 'MY ALL TIME SHOP';
+        }
     } elseif ($customer_country == 'HONGKONG') {
         $bank = 'Ads Konnect / Alipay HK';
     } elseif ($customer_country == 'UNITED ARAB EMIRATES' || $customer_country == 'OMAN' || $customer_country == 'BAHRAIN' || $customer_country == 'QATAR' || $customer_country == 'KUWAIT') {

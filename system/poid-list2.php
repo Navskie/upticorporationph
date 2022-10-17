@@ -260,7 +260,7 @@
                                         <td class="text-center"><?php echo $items['cart_qty'] ?></td>
                                         <td class="text-center"><?php echo number_format($buo, '2', '.', ',') ?></td>
                                     </tr>
-                                    <?php include 'backend/poid-pack-modal.php'; } ?>
+                                    <?php include 'backend/poid-pack-modal2.php'; } ?>
                                 </table>
                             </div>
                         </div>
@@ -271,22 +271,23 @@
                                 
                                     <span class="float-right">
                                         <?php
-                                            if ($cc == 'OMAN') {
-                                                $cc = 'UNITED ARAB EMIRATES';
-                                            } elseif ($cc == 'KUWAIT') {
-                                                $cc = 'UNITED ARAB EMIRATES';
-                                            } elseif ($cc == 'QATAR') {
-                                                $cc = 'UNITED ARAB EMIRATES';
-                                            } elseif ($cc == 'BAHRAIN') {
-                                                $cc = 'UNITED ARAB EMIRATES';
-                                            }
-                                            $stock_pending = mysqli_query($connect, "SELECT * FROM stockist WHERE stockist_code = '$usercode' AND stockist_country = '$cc'");
-                                            $counts = mysqli_num_rows($stock_pending);
+                                          if ($cc == 'OMAN') {
+                                              $cc = 'UNITED ARAB EMIRATES';
+                                          } elseif ($cc == 'KUWAIT') {
+                                              $cc = 'UNITED ARAB EMIRATES';
+                                          } elseif ($cc == 'QATAR') {
+                                              $cc = 'UNITED ARAB EMIRATES';
+                                          } elseif ($cc == 'BAHRAIN') {
+                                              $cc = 'UNITED ARAB EMIRATES';
+                                          }
+                                          $stock_pending = mysqli_query($connect, "SELECT * FROM stockist WHERE stockist_code = '$usercode' AND stockist_country = '$cc'");
+                                          $counts = mysqli_num_rows($stock_pending);
                                         ?>
                                         <?php if ($status == 'Pending' && $counts > 0 || $role == 'WEBSITE' && $cc == 'Philippines' && $status == 'Pending' || $role == 'WEBSITE' && $cc == 'PHILIPPINES' && $status == 'Pending') { ?>
 
                                         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#onprocess<?php echo $id; ?>" title="On Process">On Process</button>
-
+                                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#cancel<?php echo $id; ?>" title="Cancel">Cancel</button>
+                                        
                                         <?php } elseif ($status == 'On Process' && $counts > 0 || $role == 'WEBSITE' && $cc == 'PHILIPPINES' && $status == 'On Process' || $role == 'WEBSITE' && $cc == 'Philippines' && $status == 'On Process') { ?>
 
                                         <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#intransit<?php echo $id; ?>" title="In Transit">In Transit</button>
@@ -294,7 +295,7 @@
 
                                         <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#delivered<?php echo $id; ?>" title="Delivered">Delivered</button>
                                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#rts<?php echo $id; ?>" title="RTS">RTS</button>
-                                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#cancel<?php echo $id; ?>" title="Cancel">Cancel</button>
+                                        
 
                                         <?php } elseif ($status == 'Delivered' && $role == 'WEBSITE') { ?>
                                             <span class="badge badge-success">Delivered Order</span>
@@ -323,7 +324,6 @@
                                         ?>
                                             <script>window.location='poid-list2.php?id=<?php echo $id; ?>'</script>";
                                         <?php
-
                                     }
                                 ?>
                                 <form action="" method="post">

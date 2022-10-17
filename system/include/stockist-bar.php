@@ -79,9 +79,27 @@
             $country = $check_stockist_fetch['stockist_country'];
             $state = $check_stockist_fetch['stockist_state'];
 
-            $get_sum_data = "SELECT COUNT(*) AS bilang FROM upti_transaction WHERE trans_country = '$country' AND trans_status = 'Pending' AND trans_state = '$state'";
-            $get_sum_data_qry = mysqli_query($connect, $get_sum_data);
-            $get_sum_data_fetch = mysqli_fetch_array($get_sum_data_qry);
+            if ($country == 'Canada' || $country == 'CANADA') {
+              if ($state != 'ALBERTA') {
+                $state == 'ALBERTA';
+
+                $get_sum_data = "SELECT COUNT(*) AS bilang FROM upti_transaction WHERE trans_country = '$country' AND trans_status = 'Pending' AND trans_state != '$state' OR trans_country = '$country' AND trans_status = 'Pending' AND trans_state = ' '";
+                $get_sum_data_qry = mysqli_query($connect, $get_sum_data);
+                $get_sum_data_fetch = mysqli_fetch_array($get_sum_data_qry);
+              } else {
+                $state == 'ALBERTA';
+
+                $get_sum_data = "SELECT COUNT(*) AS bilang FROM upti_transaction WHERE trans_country = '$country' AND trans_status = 'Pending' AND trans_state = '$state'";
+                $get_sum_data_qry = mysqli_query($connect, $get_sum_data);
+                $get_sum_data_fetch = mysqli_fetch_array($get_sum_data_qry);
+              }
+            } else {
+              $state == 'ALL';
+
+              $get_sum_data = "SELECT COUNT(*) AS bilang FROM upti_transaction WHERE trans_country = '$country' AND trans_status = 'Pending' AND trans_state = '$state'";
+              $get_sum_data_qry = mysqli_query($connect, $get_sum_data);
+              $get_sum_data_fetch = mysqli_fetch_array($get_sum_data_qry);
+            }
           ?>
           <li class="nav-item">
             <a href="incoming-pending-order.php" class="nav-link">
@@ -130,6 +148,36 @@
             $get_sum_data = "SELECT COUNT(*) AS bilang FROM web_transaction WHERE trans_country = '$country' AND trans_status = 'Pending' AND trans_state = '$state'";
             $get_sum_data_qry = mysqli_query($connect, $get_sum_data);
             $get_sum_data_fetch = mysqli_fetch_array($get_sum_data_qry);
+
+            $get_sum_data = "SELECT * FROM stockist WHERE stockist_code = '$code_reseller'";
+            $get_sum_data_qry = mysqli_query($connect, $check_stockist);
+            $get_sum_data_fetch = mysqli_fetch_array($check_stockist_qry);
+            $check_stockist_num = mysqli_num_rows($check_stockist_qry);
+
+            $country = $check_stockist_fetch['stockist_country'];
+            $state = $check_stockist_fetch['stockist_state'];
+
+            if ($country == 'Canada' || $country == 'CANADA') {
+              if ($state != 'ALBERTA') {
+                $state == 'ALBERTA';
+
+                $get_sum_data = "SELECT COUNT(*) AS bilang FROM upti_transaction WHERE trans_country = '$country' AND trans_status = 'Pending' AND trans_state != '$state' OR trans_country = '$country' AND trans_status = 'Pending' AND trans_state = ' '";
+                $get_sum_data_qry = mysqli_query($connect, $get_sum_data);
+                $get_sum_data_fetch = mysqli_fetch_array($get_sum_data_qry);
+              } else {
+                $state == 'ALBERTA';
+
+                $get_sum_data = "SELECT COUNT(*) AS bilang FROM upti_transaction WHERE trans_country = '$country' AND trans_status = 'Pending' AND trans_state = '$state'";
+                $get_sum_data_qry = mysqli_query($connect, $get_sum_data);
+                $get_sum_data_fetch = mysqli_fetch_array($get_sum_data_qry);
+              }
+            } else {
+              $state == 'ALL';
+
+              $get_sum_data = "SELECT COUNT(*) AS bilang FROM upti_transaction WHERE trans_country = '$country' AND trans_status = 'Pending' AND trans_state = '$state'";
+              $get_sum_data_qry = mysqli_query($connect, $get_sum_data);
+              $get_sum_data_fetch = mysqli_fetch_array($get_sum_data_qry);
+            }
           ?>
           <li class="nav-item">
             <a href="cs-pending-order.php" class="nav-link">
@@ -139,6 +187,39 @@
                 <span class="badge badge-info right"><?php echo $get_sum_data_fetch['bilang']; ?></span>
               </p>
             </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="uil uil-list-ol nav-icon"></i>
+              <p>
+                Website Order List
+                <i class="uil uil-arrows-shrink-v right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="website-process-order.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Processed Orders</p>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="website-delivered.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Delivered Orders</p>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="website-cancel.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Cancelled Orders</p>
+                </a>
+              </li>
+            </ul>
           </li>
           <?php
             if ($check_stockist_num > 0) {
@@ -249,30 +330,30 @@
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
+            <!-- <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="cs-pendings-order.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Pending Orders</p>
                 </a>
               </li>
-            </ul>
+            </ul> -->
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="cs-onprocess-order.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>On Process Orders</p>
+                  <p>Process Orders</p>
                 </a>
               </li>
             </ul>
-            <ul class="nav nav-treeview">
+            <!-- <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="cs-intransit-order.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>In Transit Orders</p>
                 </a>
               </li>
-            </ul>
+            </ul> -->
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="cs-delivered-order.php" class="nav-link">

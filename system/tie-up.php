@@ -28,11 +28,21 @@
         $code = $_POST['item_code'];
         $qty = $_POST['qty'];
 
-        $get_package_info = mysqli_query($connect, "SELECT * FROM upti_items WHERE items_code = '$code'");
-        $packfetch = mysqli_fetch_array($get_package_info);
+        $get_package_info = "SELECT * FROM upti_items WHERE items_code = '$code'";
+        $get_package_info_qry = mysqli_query($connect, $get_package_info);
+        $packfetch = mysqli_fetch_array($get_package_info_qry);
 
-        $pack_desc = $packfetch['items_desc'];
-        $pack_points = $packfetch['items_points'];
+        if (mysqli_num_rows($get_package_info_qry) > 0) {
+          $pack_desc = $packfetch['items_desc'];
+          $pack_points = $packfetch['items_points'];
+        } else {
+          $get_package_info = "SELECT * FROM upti_package WHERE package_code = '$code'";
+          $get_package_info_qry = mysqli_query($connect, $get_package_info);
+          $packfetch = mysqli_fetch_array($get_package_info_qry);
+
+          $pack_desc = $packfetch['package_desc'];
+          $pack_points = $packfetch['package_points'];
+        }
 
         $price_stmt = mysqli_query($connect, "SELECT * FROM upti_country WHERE country_code = '$code' AND country_name = '$country'");
         $price_fetch = mysqli_fetch_array($price_stmt);
