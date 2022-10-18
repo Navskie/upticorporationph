@@ -103,9 +103,12 @@
             if ($get_num_rebatable > 0 && $check_n_r > 0 || $get_num_rebatable > 0 && $check_n_r == 0) {
                 
                 // CHECK REBATABLE
-                if ($check_n_r == 0) {
+
+                $check_regular = mysqli_query($connect, "SELECT * FROM upti_order_list INNER JOIN upti_code ON code_name = ol_code WHERE code_category = 'PROMO'");
+
+                if ($check_n_r == 0 || $check_regular == 0) {
                     // echo "<script>alert('Please Add More Product!');window.location='order-list.php'</script>";
-                    flash("warning", "This code is not availble for the single SKU, please add JN promo!");
+                    flash("warning", "This promo code needs a tie-up promo. Please add now!");
                     header('location: order-list.php');
                 } else {
                 // CHECK REBATABLE
