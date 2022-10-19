@@ -65,14 +65,16 @@
                 trans_contact,
                 trans_email,
                 trans_address,
-                trans_country
+                trans_country,
+                trans_state
             ) VALUES (
                 '$poid',
                 '$fname',
                 '$mobile',
                 '$email',
                 '$address',
-                '$country'
+                '$country',
+                '$state'
             )
         ");
 
@@ -86,11 +88,13 @@
         $mobile = $_POST['mobile'];
         $address = $_POST['address'];
         $country = $_POST['country'];
+        $state = $_POST['state'];
 
         $info = mysqli_query($connect, "UPDATE upti_transaction SET
                 trans_fname = '$fname',
                 trans_contact ='$mobile',
                 trans_email = '$email',
+                trans_state = '$state',
                 trans_address = '$address',
                 trans_country = '$country'
             WHERE trans_poid = '$poid'

@@ -39,7 +39,9 @@
     $mobile = $transaction['trans_contact'];
     $address = $transaction['trans_address'];
     $mode_of_payment = $transaction['trans_mop'];
+    $state = $transaction['trans_state'];
   } else {
+    $state = '';
     $country = '';
     $fname = '';
     $email = '';
@@ -92,6 +94,20 @@
                     <div class="col-sm-12 col-md-12 col-lg-12">
                       <div class="form-group">
                         <textarea id="" cols="30" name="address" rows="2" class="form-control" style="border-radius: 0 !important" placeholder="Complete Address"></textarea>
+                      </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                      <div class="form-group">
+                        <select class="form-control select2bs4" style="width: 100%;" name="state">
+                        <option  value="">Select State</option>
+                        <?php
+                            $lugar = "SELECT * FROM upti_state";
+                            $lugar_qry = mysqli_query($connect, $lugar);
+                            while ($lugar_fetch = mysqli_fetch_array($lugar_qry)) {
+                        ?>
+                        <option value="<?php echo $lugar_fetch['state_name'] ?>"><?php echo $lugar_fetch['state_name'] ?></option>
+                        <?php } ?>
+                        </select>
                       </div>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12">
@@ -151,6 +167,20 @@
                     <div class="col-sm-12 col-md-12 col-lg-12">
                       <div class="form-group">
                         <textarea id="" cols="30" name="address" rows="2" class="form-control" style="border-radius: 0 !important" placeholder="Complete Address"><?php echo $address ?></textarea>
+                      </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                      <div class="form-group">
+                        <select class="form-control select2bs4" style="width: 100%;" name="state">
+                        <option value="<?php echo $state ?>"><?php echo $state ?></option>
+                        <?php
+                            $lugar = "SELECT * FROM upti_state";
+                            $lugar_qry = mysqli_query($connect, $lugar);
+                            while ($lugar_fetch = mysqli_fetch_array($lugar_qry)) {
+                        ?>
+                        <option value="<?php echo $lugar_fetch['state_name'] ?>"><?php echo $lugar_fetch['state_name'] ?></option>
+                        <?php } ?>
+                        </select>
                       </div>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12">
