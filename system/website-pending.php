@@ -9,7 +9,13 @@
     $get_country_qry = mysqli_query($connect, $get_country_sql);
     $get_country_fetch = mysqli_fetch_array($get_country_qry);
 
-    $employee = $get_country_fetch['users_employee'];
+    $employees = $get_country_fetch['users_employee'];
+
+    if ($employees == 'Canada') {
+      $employee = 'CANADA';
+    } else {
+      $employee = $employees;
+    }
 ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
