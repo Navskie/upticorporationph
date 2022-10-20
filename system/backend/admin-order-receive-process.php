@@ -9,22 +9,38 @@
     $id = $_GET['id'];
 
     if (isset($_POST['receive'])) {
-        $get_order_list = "SELECT * FROM upti_order_list WHERE ol_poid = '$id'";
+        $get_order_list = "SELECT * FROM upti_order_list INNER JOIN upti_transaction ON ol_poid = trans_poid WHERE ol_poid = '$id'";
         $get_order_list_sql = mysqli_query($connect, $get_order_list);
         while ($get_order_list_fetch = mysqli_fetch_array($get_order_list_sql)) {
             $code = $get_order_list_fetch['ol_code'];
             $qty = $get_order_list_fetch['ol_qty'];
             $country = $get_order_list_fetch['ol_country'];
             $date_order = $get_order_list_fetch['ol_date'];
+            $state = $get_order_list_fetch['trans_state'];
 
-            $check_package = mysqli_query($connect, "SELECT * FROM upti_package WHERE package_code = '$code'");
-            $pack_fetch = mysqli_fetch_array($check_package);
-            $check_package_sql = mysqli_num_rows($check_package);
+            if ($state != 'ALL' && $country != 'CANADA') {
+              $state = 'ALL';
+            } else {
+              if ($state != 'ALBERTA') {
+                $state = 'ALL';
+              } else {
+                $state = 'ALBERTA';
+              }
+            }
+
+            // echo $state;
+
+            $check_package = "SELECT * FROM upti_package WHERE package_code = '$code'";
+            $check_package_qry = mysqli_query($connect, $check_package);
+            $pack_fetch = mysqli_fetch_array($check_package_qry);
+            $check_package_sql = mysqli_num_rows($check_package_qry);
+
+            // echo $c1 = $pack_fetch['package_one_code'];
             
-            if ($date_order > '07-03-2022') {
+            // if ($date_order > '07-03-2022') {
                 if ($check_package_sql == 0) {
                     // echo '<br>';
-                    $get_remain_sql = "SELECT * FROM stockist_inventory WHERE si_item_code = '$code' AND si_item_country = '$country'";
+                    $get_remain_sql = "SELECT * FROM stockist_inventory WHERE si_item_code = '$code' AND si_item_country = '$country' AND si_item_state = '$state'";
                     $get_remain_qry = mysqli_query($connect, $get_remain_sql);
                     $get_remain_fetch = mysqli_fetch_array($get_remain_qry);
                     
@@ -34,9 +50,16 @@
                     
                     $new_stocks = $remain_stock_qty + $qty;
                     
-                    $receive_sql = "UPDATE stockist_inventory SET si_item_stock = '$new_stocks' WHERE si_item_code = '$code' AND si_item_country = '$country'";
+                    $receive_sql = "UPDATE stockist_inventory SET si_item_stock = '$new_stocks' WHERE si_item_code = '$code' AND si_item_country = '$country' AND si_item_state = '$state'";
                     $receive_qry = mysqli_query($connect, $receive_sql);
+
+                    $re_sql = "INSERT INTO stockist_return (re_poid, re_code, re_qty, re_date, re_status) VALUES ('$id', '$remain_stock_code', '$qty', '$date', 'Received')";
+                    $re_qry = mysqli_query($connect, $re_sql);
+                      // }
+                    $change_status = "UPDATE upti_transaction SET trans_stockist = 'Received' WHERE trans_poid = '$id'";
+                    $change_status_qry = mysqli_query($connect, $change_status);
                 } else {
+
                     $q1 = $pack_fetch['package_one_qty'] * $qty;
                     $c1 = $pack_fetch['package_one_code'];
 
@@ -54,21 +77,22 @@
 
                     // 1
 
-                    $get_remain_sql1 = "SELECT * FROM stockist_inventory WHERE si_item_code = '$c1' AND si_item_country = '$country'";
+                    $get_remain_sql1 = "SELECT * FROM stockist_inventory WHERE si_item_code = '$c1' AND si_item_country = '$country' AND si_item_state = '$state'";
                     $get_remain_qry1 = mysqli_query($connect, $get_remain_sql1);
                     $get_remain_fetch1 = mysqli_fetch_array($get_remain_qry1);
                     
-                    $remain_stock_qty1 = $get_remain_fetch1['si_item_stock'];
+                    $remain_stock_code = $get_remain_fetch1['si_item_code'];
+                    $remain_stock_qty = $get_remain_fetch1['si_item_stock'];
                     // echo '<br>';
                     
-                    $new_stocks1 = $remain_stock_qty1 + $q1;
+                    $new_stocks1 = $remain_stock_qty + $q1;
                     
-                    $receive_sql1 = "UPDATE stockist_inventory SET si_item_stock = '$new_stocks1' WHERE si_item_code = '$c1' AND si_item_country = '$country'";
+                    $receive_sql1 = "UPDATE stockist_inventory SET si_item_stock = '$new_stocks1' WHERE si_item_code = '$c1' AND si_item_country = '$country' AND si_item_state = '$state'";
                     $receive_qry1 = mysqli_query($connect, $receive_sql1);
 
                     // 2
 
-                    $get_remain_sql2 = "SELECT * FROM stockist_inventory WHERE si_item_code = '$c2' AND si_item_country = '$country'";
+                    $get_remain_sql2 = "SELECT * FROM stockist_inventory WHERE si_item_code = '$c2' AND si_item_country = '$country' AND si_item_state = '$state'";
                     $get_remain_qry2 = mysqli_query($connect, $get_remain_sql2);
                     $get_remain_fetch2 = mysqli_fetch_array($get_remain_qry2);
                     
@@ -77,12 +101,12 @@
                     
                     $new_stocks2 = $remain_stock_qty2 + $q2;
                     
-                    $receive_sql2 = "UPDATE stockist_inventory SET si_item_stock = '$new_stocks2' WHERE si_item_code = '$c2' AND si_item_country = '$country'";
+                    $receive_sql2 = "UPDATE stockist_inventory SET si_item_stock = '$new_stocks2' WHERE si_item_code = '$c2' AND si_item_country = '$country' AND si_item_state = '$state'";
                     $receive_qry2 = mysqli_query($connect, $receive_sql2);
 
                     // // 3
 
-                    $get_remain_sql3 = "SELECT * FROM stockist_inventory WHERE si_item_code = '$c3' AND si_item_country = '$country'";
+                    $get_remain_sql3 = "SELECT * FROM stockist_inventory WHERE si_item_code = '$c3' AND si_item_country = '$country' AND si_item_state = '$state'";
                     $get_remain_qry3 = mysqli_query($connect, $get_remain_sql3);
                     $get_remain_fetch3 = mysqli_fetch_array($get_remain_qry3);
                     
@@ -91,12 +115,12 @@
                     
                     $new_stocks3 = $remain_stock_qty3 + $q3;
                     
-                    $receive_sql3 = "UPDATE stockist_inventory SET si_item_stock = '$new_stocks3' WHERE si_item_code = '$c3' AND si_item_country = '$country'";
+                    $receive_sql3 = "UPDATE stockist_inventory SET si_item_stock = '$new_stocks3' WHERE si_item_code = '$c3' AND si_item_country = '$country' AND si_item_state = '$state'";
                     $receive_qry3 = mysqli_query($connect, $receive_sql3);
 
                     // 4
 
-                    $get_remain_sql4 = "SELECT * FROM stockist_inventory WHERE si_item_code = '$c4' AND si_item_country = '$country'";
+                    $get_remain_sql4 = "SELECT * FROM stockist_inventory WHERE si_item_code = '$c4' AND si_item_country = '$country' AND si_item_state = '$state'";
                     $get_remain_qry4 = mysqli_query($connect, $get_remain_sql4);
                     $get_remain_fetch4 = mysqli_fetch_array($get_remain_qry4);
                     
@@ -105,12 +129,12 @@
                     
                     $new_stocks4 = $remain_stock_qty4 + $q4;
                     
-                    $receive_sql4 = "UPDATE stockist_inventory SET si_item_stock = '$new_stocks4' WHERE si_item_code = '$c4' AND si_item_country = '$country'";
+                    $receive_sql4 = "UPDATE stockist_inventory SET si_item_stock = '$new_stocks4' WHERE si_item_code = '$c4' AND si_item_country = '$country' AND si_item_state = '$state'";
                     $receive_qry4 = mysqli_query($connect, $receive_sql4);
 
                     // 5
 
-                    $get_remain_sql5 = "SELECT * FROM stockist_inventory WHERE si_item_code = '$c5' AND si_item_country = '$country'";
+                    $get_remain_sql5 = "SELECT * FROM stockist_inventory WHERE si_item_code = '$c5' AND si_item_country = '$country' AND si_item_state = '$state'";
                     $get_remain_qry5 = mysqli_query($connect, $get_remain_sql5);
                     $get_remain_fetch5 = mysqli_fetch_array($get_remain_qry5);
                     
@@ -121,13 +145,14 @@
                     
                     $receive_sql5 = "UPDATE stockist_inventory SET si_item_stock = '$new_stocks5' WHERE si_item_code = '$c5' AND si_item_country = '$country'";
                     $receive_qry5 = mysqli_query($connect, $receive_sql5);
+
+                    $re_sql = "INSERT INTO stockist_return (re_poid, re_code, re_qty, re_date, re_status) VALUES ('$id', '$remain_stock_code', '$qty', '$date', 'Received')";
+                    $re_qry = mysqli_query($connect, $re_sql);
+                      // }
+                    $change_status = "UPDATE upti_transaction SET trans_stockist = 'Received' WHERE trans_poid = '$id'";
+                    $change_status_qry = mysqli_query($connect, $change_status);
                 }
-            }
-            $re_sql = "INSERT INTO stockist_return (re_poid, re_code, re_qty, re_date, re_status) VALUES ('$id', '$remain_stock_code', '$qty', '$date', 'Received')";
-            $re_qry = mysqli_query($connect, $re_sql);
-            
-            $change_status = "UPDATE upti_transaction SET trans_stockist = 'Received' WHERE trans_poid = '$id'";
-            $change_status_qry = mysqli_query($connect, $change_status);
+            // }
         }
     
         if ($_SESSION['role'] != 'LOGISTIC') {

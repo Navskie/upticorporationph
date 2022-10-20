@@ -54,42 +54,48 @@
             
             header('location: order-list.php');
         } else {
-            $save_sql = "INSERT INTO upti_transaction (
-                trans_poid,
-                trans_date, 
-                trans_fname, 
-                trans_address, 
-                trans_email, 
-                trans_contact, 
-                trans_country,
-                trans_seller,
-                trans_my_reseller,
-                trans_status,
-                trans_admin,
-                trans_office,
-                trans_state,
-                trans_csid
-            ) VALUES (
-                '$poid',
-                '$date_today',
-                '$fullname',
-                '$address',
-                '$email',
-                '$phone',
-                '$country',
-                '$Ucode',
-                '$Ureseller',
-                'On Order',
-                'UPTIMAIN',
-                '$office',
-                '$state',
-                '$csid'
-            )";
-            $save_qry = mysqli_query($connect, $save_sql);
-
-            flash("save_info", "Customer Information has been Save Successfully");
+            if ($state == '' && $country == 'CANADA') {
+              flash("warning", "Please Add State");
             
-            header('location: order-list.php');
+              header('location: order-list.php');
+            } else {
+              $save_sql = "INSERT INTO upti_transaction (
+                  trans_poid,
+                  trans_date, 
+                  trans_fname, 
+                  trans_address, 
+                  trans_email, 
+                  trans_contact, 
+                  trans_country,
+                  trans_seller,
+                  trans_my_reseller,
+                  trans_status,
+                  trans_admin,
+                  trans_office,
+                  trans_state,
+                  trans_csid
+              ) VALUES (
+                  '$poid',
+                  '$date_today',
+                  '$fullname',
+                  '$address',
+                  '$email',
+                  '$phone',
+                  '$country',
+                  '$Ucode',
+                  '$Ureseller',
+                  'On Order',
+                  'UPTIMAIN',
+                  '$office',
+                  '$state',
+                  '$csid'
+              )";
+              $save_qry = mysqli_query($connect, $save_sql);
+
+              flash("save_info", "Customer Information has been Save Successfully");
+              
+              header('location: order-list.php');
+            }
         }
     }
 
@@ -118,27 +124,32 @@
         $office = strtoupper($offices);
         $states = $_POST['state'];
 
-        if ($states == '') {
+        if ($states == '' && $country != 'CANADA') {
           $states = 'ALL';
         }
 
         $state = strtoupper($states);
         
-
-        $update_sql = "UPDATE upti_transaction SET
-            trans_fname = '$fullname', 
-            trans_address = '$address', 
-            trans_email = '$email', 
-            trans_contact = '$phone', 
-            trans_country = '$country',
-            trans_office = '$office',
-            trans_state = '$state'
-        WHERE trans_poid = '$poid'";
-        $update_qry = mysqli_query($connect, $update_sql);
-
-        // echo "<script>alert('Customer Information has been Updated Successfully');window.location='order-list.php'</script>";
-        flash("save_info", "Customer Information has been Updated Successfully");
+        if ($state == '' && $country == 'CANADA') {
+          flash("warning", "Please Add State");
         
-        header('location: order-list.php');
+          header('location: order-list.php');
+        } else {
+          $update_sql = "UPDATE upti_transaction SET
+              trans_fname = '$fullname', 
+              trans_address = '$address', 
+              trans_email = '$email', 
+              trans_contact = '$phone', 
+              trans_country = '$country',
+              trans_office = '$office',
+              trans_state = '$state'
+          WHERE trans_poid = '$poid'";
+          $update_qry = mysqli_query($connect, $update_sql);
+
+          // echo "<script>alert('Customer Information has been Updated Successfully');window.location='order-list.php'</script>";
+          flash("save_info", "Customer Information has been Updated Successfully");
+          
+          header('location: order-list.php');
+        }
     }
 ?>

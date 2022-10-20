@@ -891,7 +891,7 @@
             // $excelData = implode('\t', array_values($fields)).'\n';
     
             // Fetch Records From Database
-            $export_sql = "SELECT *, SUM(upti_order_list.ol_php) AS TOTAL_SALES FROM upti_reseller
+            $export_sql = "SELECT reseller_country, reseller_code, reseller_name, SUM(upti_order_list.ol_php) AS TOTAL_SALES FROM upti_reseller
                     INNER JOIN
                     upti_order_list ON upti_reseller.reseller_code = upti_order_list.ol_reseller
                     INNER JOIN
