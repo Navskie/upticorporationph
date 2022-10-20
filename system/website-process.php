@@ -9,7 +9,13 @@
     $get_country_qry = mysqli_query($connect, $get_country_sql);
     $get_country_fetch = mysqli_fetch_array($get_country_qry);
 
-    $employee = $get_country_fetch['users_employee'];
+    $employees = $get_country_fetch['users_employee'];
+
+    if ($employees == 'Canada') {
+      $employee = 'CANADA';
+    } else {
+      $employee = $employees;
+    }
 ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -47,12 +53,10 @@
                         <tr>
                             <th>#</th>
                             <th>Poid</th>
-                            <th>Reseller</th>
                             <th>Country</th>
                             <th>Name</th>
                             <th>Date & Time</th>
                             <th>Mode of Payment</th>
-                            <th>Image</th>
                             <th class="text-right">Total</th>
                             <th>Status</th>
                         </tr>
@@ -66,40 +70,16 @@
                         while ($order = mysqli_fetch_array($order_qry)) {
                             $total = $order['trans_subtotal'];
                             $status = $order['trans_status'];
-                            $reseller = $order['trans_my_reseller'];
-                            $seller = $order['trans_seller'];
-                            
-                            $get_name = "SELECT * FROM upti_users WHERE users_code = '$seller' AND users_employee = '' AND users_role = 'UPTIRESELLER'";
-                            $get_name_qry = mysqli_query($connect, $get_name);
-                            $get_num_name = mysqli_num_rows($get_name_qry);
-                            $get_name_fetch = mysqli_fetch_array($get_name_qry);
-                            
-                            if ($get_num_name >= 1) {
-                                $fullname = $get_name_fetch['users_name'];
-                            } else {
-                                if ($reseller == 'UPTIMAIN') {
-                                    $fullname = 'Uptimised Corporation';
-                                } else {
-                                    $get_name1 = "SELECT * FROM upti_users WHERE users_code = '$reseller' AND users_role = 'UPTIRESELLER'";
-                                    $get_name_qry1 = mysqli_query($connect, $get_name1);
-                                    $get_name_fetch1 = mysqli_fetch_array($get_name_qry1);
-                                    
-                                    $fullname = $get_name_fetch1['users_name'];
-                                }
-                                // $fullname = $reseller;
-                            }
+                            // $reseller = $order['trans_my_reseller'];
+                            // $seller = $order['trans_seller'];
                     ?>
                     <tr>
                         <td><?php echo $number; ?></td>
-                        <td class="text-center"><a class="btn-sm btn btn-dark" href="poid-list2.php?id=<?php echo $order['id']; ?>" target="_blank"><?php echo $order['trans_poid']; ?></a></td>
-                        <td>
-                            <?php echo $fullname; ?>
-                        </td>
+                        <td class="text-center"><a class="btn-sm btn btn-dark" href="poid-list2.php?id=<?php echo $order['id']; ?>" target="_blank"><?php echo $order['trans_ref']; ?></a></td>
                         <td><?php echo $order['trans_country']; ?></td>
-                        <td><?php echo $order['trans_fname']; ?> <?php echo $order['trans_cname']; ?> <?php echo $order['trans_lname']; ?></td>
+                        <td><?php echo $order['trans_name']; ?></td>
                         <td><?php echo $order['trans_date']; ?></td>
                         <td><?php echo $order['trans_mop']; ?></td>
-                        <td class="text-center"><button class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#image<?php echo $order['id']; ?>"><i class="fas fa-image"></i></button></td>
                         <td class="text-right"><?php echo number_format($total) ?></td>
                         <td class="text-center">
                             <?php
