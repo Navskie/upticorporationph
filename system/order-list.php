@@ -593,22 +593,20 @@
                                         </form>
                                     </div>
                                     <!-- Promo Code End -->
-
+                                    <?php
+                                      if ($customer_country != 'CANADA') {
+                                    ?>
                                     <!-- Payment Method Start -->
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <form action="order-payment.php" method="post">
                                             <h6><i class="text-danger">(Select Payment Method to Enable CHECKOUT)</i></h6>
                                            
                                             <div class="row">
-                                                 <!-- CANADA no COP -->
-                                            <?php if ($customer_country != 'CANADA') { ?>
                                                 <div class="col-6">
                                                     <div class="form-group">
                                                         <button type="submit" name="cod" class="form-control btn btn-success" style="border-radius: 0 !important">Cash On Delivery</button>
                                                     </div>
                                                 </div>
-                                                <?php } ?>
-                                            <!-- CANADA no COP END -->
                                                 <div class="col-6">
                                                     <div class="form-group">
                                                         <button type="submit" name="cop" class="form-control btn btn-success" style="border-radius: 0 !important">Cash On Pick Up</button>
@@ -625,6 +623,31 @@
                                         </form>
                                     </div>
                                     <!-- Payment Method End -->
+                                    <?php } else { ?>
+                                    <!-- Payment Method Start -->
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <h6><i class="text-danger">(Select Payment Method to Enable CHECKOUT)</i></h6>
+                                        
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <button type="submit" name="cop" class="form-control btn btn-success" style="border-radius: 0 !important">Cashs On Pick Up</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <?php if ($office_state != 'ALBERTA') { ?>
+                                        <div class="form-group">
+                                            <button type="submit" class="form-control btn btn-info" style="border-radius: 0 !important"  data-target="#canada<?php echo $get_transaction_fetch['trans_poid']; ?>" data-toggle="modal">Payments First</button>
+                                        </div>
+                                        <?php } else { ?>
+                                        <div class="form-group">
+                                            <button type="submit" class="form-control btn btn-info" style="border-radius: 0 !important" data-target="#canada<?php echo $get_transaction_fetch['trans_poid']; ?>" data-toggle="modal">Payment First</button>
+                                        </div>
+                                        <?php } ?>
+                                    </div>
+                                    <!-- Payment Method End -->
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
@@ -1015,6 +1038,7 @@
     </div>
     <!-- /.content-header -->
   </div>
+<?php include 'backend/canada-modal.php'; ?>
 <?php include 'backend/add-office-modal.php'; ?>
 <?php include 'backend/add-terms-modal.php'; ?>
 <?php include 'include/footer.php'; ?>
