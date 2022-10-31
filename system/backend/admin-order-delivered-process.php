@@ -23,6 +23,7 @@
         $seller_id = $transaction_fetch['trans_seller'];
         $poid = $transaction_fetch['trans_poid'];
         $country = $transaction_fetch['trans_country']; 
+        $state = $transaction_fetch['trans_state']; 
         $amount = $transaction_fetch['trans_subtotal'];
         $mod = $transaction_fetch['trans_mop'];
         $trans_date = $transaction_fetch['trans_date'];
@@ -188,7 +189,7 @@
                 // end earnings
 
                 // added stockist percentage
-                $percent = $tot_earn * 0.05;
+                $percent = $ol_php * 0.05;
 
                 $stockist_wallet = "SELECT * FROM stockist_wallet WHERE w_id = '$stockist'";
                 $stockist_wallet_qry = mysqli_query($connect, $stockist_wallet);
@@ -210,7 +211,7 @@
                   p_pack
                 ) VALUES (
                   '$poid',
-                  '$stockist',
+                  '$percent',
                   '$tax',
                   '$remarks_wallet',
                   '$time',
@@ -247,7 +248,7 @@
                 // echo '<br>';
 
                 // added stockist percentage
-                $percent = $tot_earn * 0.03;
+                $percent = $ol_php * 0.03;
 
                 $stockist_wallet = "SELECT * FROM stockist_wallet WHERE w_id = '$stockist'";
                 $stockist_wallet_qry = mysqli_query($connect, $stockist_wallet);
@@ -270,7 +271,7 @@
                 ) VALUES (
                   '$poid',
                   '$stockist',
-                  '$tax',
+                  '$percent',
                   '$remarks_wallet',
                   '$time',
                   '$datenow',
@@ -414,7 +415,7 @@
                 $earn_history_sql = mysqli_query($connect, $earn_history);
 
                 // added stockist percentage
-                $percent = $tot_earn * 0.05;
+                $percent = $ol_php * 0.05;
 
                 $stockist_wallet = "SELECT * FROM stockist_wallet WHERE w_id = '$stockist'";
                 $stockist_wallet_qry = mysqli_query($connect, $stockist_wallet);
@@ -437,7 +438,7 @@
                 ) VALUES (
                   '$poid',
                   '$stockist',
-                  '$tax',
+                  '$percent',
                   '$remarks_wallet',
                   '$time',
                   '$datenow',
@@ -477,7 +478,7 @@
                 $mycreator = $earning_fetch2['users_creator'];
 
                 // added stockist percentage
-                $percent = $tot_earn * 0.03;
+                $percent = $ol_php * 0.03;
 
                 $stockist_wallet = "SELECT * FROM stockist_wallet WHERE w_id = '$stockist'";
                 $stockist_wallet_qry = mysqli_query($connect, $stockist_wallet);
@@ -500,7 +501,7 @@
                 ) VALUES (
                   '$poid',
                   '$stockist',
-                  '$tax',
+                  '$percent',
                   '$remarks_wallet',
                   '$time',
                   '$datenow',
@@ -773,7 +774,8 @@
         }
         // stockist commision
         
-        $order_list = mysqli_query($connect, "SELECT * FROM upti_order_list WHERE ol_poid = '$poid'");
+        if ($country == 'CANADA' && $state == 'ALBERTA') {
+          $order_list = mysqli_query($connect, "SELECT * FROM upti_order_list WHERE ol_poid = '$poid'");
         while ($order = mysqli_fetch_array($order_list)) {
           $item_code = $order['ol_code'];
           $item_qty = $order['ol_qty'];
@@ -916,7 +918,7 @@
             $single_f = mysqli_fetch_array($single_qry);
 
             if ($category == 'NON-REBATABLE') {
-              $stockist_price = $single_f['country_total_php'];
+              $stockist_price = $single_f['country_stockist'];
 
               $single_qry2 = mysqli_query($connect, "SELECT * FROM upti_country WHERE country_name = 'PHILIPPINES' AND country_code = '$item_code'");
               $single_f2 = mysqli_fetch_array($single_qry2);
@@ -924,7 +926,7 @@
               $item_php = $single_f2['country_price'] * $item_qty;
             }
             
-            $stockist_price = $single_f['country_total_php'];
+            $stockist_price = $single_f['country_stockist'];
 
             $buy = $stockist_price * $item_qty;
 
@@ -969,6 +971,7 @@
 
 
         // stockist end
+        }
 ?>
     <script>alert('Order Status has been changed to Delivered Successfully');window.location.href = '../poid-list.php?id=<?php echo $id ?>';</script>
 <?php

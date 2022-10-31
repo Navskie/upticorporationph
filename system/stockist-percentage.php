@@ -8,7 +8,7 @@
     
     if ($check_stockist_num > 0) {
 ?>
-<?php include 'include/preloader.php'; ?>
+<?php //include 'include/preloader.php'; ?>
 <?php include 'include/navbar.php'; ?>
 <?php include 'include/stockist-bar.php'; ?>
 <?php
@@ -19,6 +19,8 @@
   $get_country_fetch = mysqli_fetch_array($get_country_qry);
 
   $employee = $get_country_fetch['stockist_country'];
+  // $employee = '';
+  $state = $get_country_fetch['stockist_state'];
 ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -110,16 +112,16 @@
                       </tr>
                       </thead>
                       <?php
-                        $wallet_sql = "SELECT * FROM stockist_earning WHERE e_id = '$reseller_id' AND e_country = '$employee' AND e_status = 'Sales' AND e_date BETWEEN '$date' AND '$today'";
+                        $wallet_sql = "SELECT * FROM stockist_percentage INNER JOIN upti_transaction ON trans_poid = p_poid WHERE p_code = '$reseller_id' AND trans_state = '$state' AND trans_country = '$employee' AND p_date BETWEEN '$date' AND '$today'";
                         $wallet_qry = mysqli_query($connect, $wallet_sql);
                         while ($wallet = mysqli_fetch_array($wallet_qry)) {
                       ?>
                       <tr>
-                        <td class="text-center"><?php echo $wallet['e_date'] ?> - <?php echo $wallet['e_time'] ?></td>
-                        <td class="text-center"><?php echo $wallet['e_poid'] ?></td>
-                        <td class="text-center"><?php echo $wallet['e_code'] ?></td>
-                        <td class="text-center"><?php echo $wallet['e_desc'] ?></td>
-                        <td class="text-center"><?php echo $wallet['e_qty'] ?></td>
+                        <td class="text-center"><?php echo $wallet['p_date'] ?> - <?php echo $wallet['p_time'] ?></td>
+                        <td class="text-center"><?php echo $wallet['p_poid'] ?></td>
+                        <td class="text-center"><?php echo $wallet['p_amount'] ?></td>
+                        <td class="text-center"><?php echo $wallet['p_desc'] ?></td>
+                        <td class="text-center"><?php echo $wallet['p_pack'] ?></td>
                       </tr>
                       <?php } ?>                  
                     </table>

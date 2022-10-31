@@ -81,6 +81,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item"> 
+            <a href="Osrlist.php" class="nav-link">
+              <i class="nav-icon uil uil-user-check"></i>
+              <p>
+                OSR Account 
+              </p>
+            </a>
+          </li>
           <li class="nav-item">
             <a href="reseller-list.php" class="nav-link">
               <i class="nav-icon uil uil-house-user"></i>
@@ -1501,12 +1509,6 @@
                   <p>My Transaction</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="website-order.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Website Transaction</p>
-                </a>
-              </li>
               <li class="nav-item"> 
                 <a href="osr-reseller.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -1774,47 +1776,6 @@
               </li>
               <li class="nav-item">
                 <a href="branch-rts-order.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>RTS Orders</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-shopping-basket"></i>
-              <p>
-                Website Order
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="website-pending.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Pending Orders</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="website-process.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Process Orders</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="website-cancel.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Cancel Orders</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="website-delivered.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Delivered Orders</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="website-rts.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>RTS Orders</p>
                 </a>
@@ -2195,6 +2156,14 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
+                <a href="osc-request.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>OSC Wallet List</p>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
                 <a href="accounting-request.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Request List</p>
@@ -2397,6 +2366,12 @@
         <a href="ph-rts-list.php" class="nav-link">
           <i class="nav-icon fas fa-list-ol"></i>
           <p>RTS List</p> 
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="accounting-inventory.php" class="nav-link">
+          <i class="nav-icon fas fa-home"></i>
+          <p>Generate Inventory</p>
         </a>
       </li>
     </ul>

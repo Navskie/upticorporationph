@@ -42,7 +42,7 @@
 
 
           ?>
-            <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="col-lg-4 col-md-6 col-sm-12">
               <div class="course">
                 <div class="preview bg-success">
                   <h2 class="text-center"><i class="uil uil-wallet"></i></h2>
@@ -55,7 +55,7 @@
               </div>
             </div>
 
-            <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="col-lg-4 col-md-6 col-sm-12">
               <div class="course">
                 <div class="preview bg-primary">
                   <h2 class="text-center"><i class="uil uil-money-withdrawal"></i></h2>
@@ -68,7 +68,7 @@
               </div>
             </div>
 
-            <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="col-lg-4 col-md-6 col-sm-12">
               <div class="course">
                 <div class="preview bg-danger">
                   <h2 class="text-center"><i class="uil uil-money-withdrawal"></i></h2>

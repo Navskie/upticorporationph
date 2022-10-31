@@ -130,7 +130,7 @@
                 <label>Export Reseller Sales</label>
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12">
-                        <form action="excel-file.php" method="post">
+                        <form action="reseller-sales-report.php" method="post">
                             <div class="row">
 
                                 <div class="col-lg-6 col-md-6 col-sm-12">
@@ -145,39 +145,26 @@
                                     </div>
                                 </div>
                                 
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <select class="form-control select2bs4" style="width: 100%;" name="res">
-                                            <option value="">Select Reseller Name</option>
-                                            <?php
-                                            $product_sql = "SELECT * FROM upti_users WHERE users_role = 'UPTIRESELLER' AND users_status = 'Active' ORDER BY users_id DESC";
-                                            $product_qry = mysqli_query($connect, $product_sql);
-                                            while ($product = mysqli_fetch_array($product_qry)) {
-                                            ?>
-                                            <option value="<?php echo $product['users_code'] ?>"><?php echo $product['users_name'] ?></option>
-                                            <?php } ?>
-                                        </select>
-                                    </div>
-                                </div>
+                                
 
-                                <div class="col-6">
+                                <div class="col-12">
                                     <div class="form-group">
                                         <select class="form-control select2bs4" style="width: 100%;" name="stats">
                                             <option value="">Select Status</option>
                                             <option value="Order Delivered">Delivered</option>
-                                            <option value="RTS">RTS</option>
+                                            <!-- <option value="RTS">RTS</option> -->
                                         </select>
                                     </div>
                                 </div>
 
-                                <div class="col-lg-6 col-md-6 col-sm-12">
-                                    <button class="btn btn-sm btn-dark form-control" name="export_reseller_sales">Export</button>
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <button class="btn btn-sm btn-dark form-control" name="export">Export</button>
                                     </form>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
-                                    <form action="excel-file.php" method="post">
+                                    <!-- <form action="excel-file.php" method="post">
                                     <button class="btn btn-sm btn-primary form-control" name="export_reseller_info">Information</button>
-                                    </form>
+                                    </form> -->
                                 </div>
                                 
                             </div>

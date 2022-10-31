@@ -9,6 +9,7 @@
   $account_f = mysqli_fetch_array($my_account);
   
   $country = $account_f['stockist_country'];
+  $state = $account_f['stockist_state'];
 
   // require 'vendor/autoload.php';
 
@@ -69,6 +70,7 @@
         <th>Reseller Name</th>
         <th>Poid</th>
         <th>Country</th>
+        <th>State</th>
         <th>$ Sales Amount</th>
         <th>Php Sales Amount</th>
         <th>Status</th>
@@ -77,9 +79,19 @@
 
 // Display Column Names as First Row
 // $excelData = implode('\t', array_values($fields)).'\n';
+if ($country == 'CANADA') {
+  if ($state == 'ALBERTA') {
+    // Fetch Records From Database
+    $export_sql = "SELECT trans_state, activities_date, ol_date, ol_seller, ol_poid, ol_country, ol_subtotal, ol_php, ol_status FROM upti_order_list INNER JOIN upti_activities ON upti_order_list.ol_poid = upti_activities.activities_poid INNER JOIN upti_transaction ON upti_transaction.trans_poid = upti_order_list.ol_poid WHERE upti_activities.activities_caption = 'Order Delivered' AND upti_order_list.ol_country = '$country' AND upti_transaction.trans_state = 'ALBERTA' AND upti_activities.activities_date BETWEEN '$date1' AND '$date2' ORDER BY upti_activities.activities_date ASC";
+  } else {
+    // Fetch Records From Database
+    $export_sql = "SELECT trans_state, activities_date, ol_date, ol_seller, ol_poid, ol_country, ol_subtotal, ol_php, ol_status FROM upti_order_list INNER JOIN upti_activities ON upti_order_list.ol_poid = upti_activities.activities_poid INNER JOIN upti_transaction ON upti_transaction.trans_poid = upti_order_list.ol_poid WHERE upti_activities.activities_caption = 'Order Delivered' AND upti_order_list.ol_country = '$country' AND upti_transaction.trans_state != 'ALBERTA' AND upti_activities.activities_date BETWEEN '$date1' AND '$date2' ORDER BY upti_activities.activities_date ASC";
+  }
+} else {
+  // Fetch Records From Database
+  $export_sql = "SELECT trans_state, activities_date, ol_date, ol_seller, ol_poid, ol_country, ol_subtotal, ol_php, ol_status FROM upti_order_list INNER JOIN upti_activities ON upti_order_list.ol_poid = upti_activities.activities_poid INNER JOIN upti_transaction ON upti_transaction.trans_poid = upti_order_list.ol_poid WHERE upti_activities.activities_caption = 'Order Delivered' AND upti_order_list.ol_country = '$country' AND upti_activities.activities_date BETWEEN '$date1' AND '$date2' ORDER BY upti_activities.activities_date ASC";
+}
 
-// Fetch Records From Database
-$export_sql = "SELECT activities_date, ol_date, ol_seller, ol_poid, ol_country, ol_subtotal, ol_php, ol_status FROM upti_order_list INNER JOIN upti_activities ON upti_order_list.ol_poid = upti_activities.activities_poid WHERE upti_activities.activities_caption = 'Order Delivered' AND upti_order_list.ol_country = '$country' AND upti_activities.activities_date BETWEEN '$date1' AND '$date2' ORDER BY upti_activities.activities_date ASC";
 // echo '<br>';
 $export_qry = mysqli_query($connect, $export_sql);
 $export_num = mysqli_num_rows($export_qry);
@@ -99,6 +111,7 @@ if($export_num > 0) {
                 <td>'.$name.'</td>
                 <td>'.$row['ol_poid'].'</td>
                 <td>'.$row['ol_country'].'</td>
+                <td>'.$row['trans_state'].'</td>
                 <td>'.$row['ol_subtotal'].'</td>
                 <td>'.$row['ol_php'].'</td>
                 <td>'.$row['ol_status'].'</td>

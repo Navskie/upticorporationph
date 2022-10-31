@@ -252,7 +252,7 @@
                             $new_item_code = $get_new_code_fetch['code_main'];
 
                             // Single Item Check
-                            echo $check_stock = "SELECT * FROM stockist_inventory WHERE si_item_code = '$new_item_code' AND si_item_country = '$c_country' AND si_item_state = '$c_state'";
+                            $check_stock = "SELECT * FROM stockist_inventory WHERE si_item_code = '$new_item_code' AND si_item_country = '$c_country' AND si_item_state = '$c_state'";
                             $check_stock_qry = mysqli_query($connect, $check_stock);
                             $check_stock_fetch = mysqli_fetch_array($check_stock_qry);
                             $check_stock_num = mysqli_num_rows($check_stock_qry);
@@ -358,23 +358,23 @@
                             // Package Check
 
                             $c1 = $get_package_fetch['package_one_code'];
-                            $oq1 = $get_package_fetch['package_one_qty'];
+                            echo $oq1 = $get_package_fetch['package_one_qty'];
                             $q1 = $item_qty * $oq1;
                 
                             $c2 = $get_package_fetch['package_two_code'];
-                            $oq2 = $get_package_fetch['package_two_qty'];
+                            echo $oq2 = $get_package_fetch['package_two_qty'];
                             $q2 = $item_qty * $oq2;
                 
                             $c3 = $get_package_fetch['package_three_code'];
-                            $oq3 = $get_package_fetch['package_three_qty'];
+                            echo $oq3 = $get_package_fetch['package_three_qty'];
                             $q3 = $item_qty * $oq3;
                 
                             $c4 = $get_package_fetch['package_four_code'];
-                            $oq4 = $get_package_fetch['package_four_qty'];
+                            echo $oq4 = $get_package_fetch['package_four_qty'];
                             $q4 = $item_qty * $oq4;
                 
                             $c5 = $get_package_fetch['package_five_code'];
-                            $oq5 = $get_package_fetch['package_five_qty'];
+                            echo $oq5 = $get_package_fetch['package_five_qty'];
                             $q5 = $item_qty * $oq5;
                             
                             // 1
@@ -528,7 +528,7 @@
                                 header('location: order-list.php');
                                 
                             } else {
-                                // echo "<script>alert('Insufficient Stocks to Process Your Order!');window.location='order-list.php'</script>";
+                                echo "<script>alert('Insufficient Stocks to Process Your Order!');window.location='order-list.php'</script>";
                                 flash("warning", "Insufficient Stocks to Process Your Order!!");
                                 header('location: order-list.php');
                             }

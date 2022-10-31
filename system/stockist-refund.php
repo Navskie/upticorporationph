@@ -18,7 +18,8 @@
   $get_country_qry = mysqli_query($connect, $get_country_sql);
   $get_country_fetch = mysqli_fetch_array($get_country_qry);
 
-  $employee = $get_country_fetch['stockist_country'];
+  $country = $get_country_fetch['stockist_country'];
+  $state = $get_country_fetch['stockist_state'];
 ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -113,7 +114,7 @@
                       </tr>
                       </thead>
                       <?php
-                        $wallet_sql = "SELECT * FROM stockist_earning WHERE e_id = '$reseller_id' AND e_country = '$employee' AND e_status = 'Sales' AND e_date BETWEEN '$date' AND '$today'";
+                        $wallet_sql = "SELECT * FROM stockist_earning INNER JOIN upti_transaction ON trans_poid = e_poid WHERE e_id = '$reseller_id' AND e_country = '$country' AND trans_state = '$state'";
                         $wallet_qry = mysqli_query($connect, $wallet_sql);
                         while ($wallet = mysqli_fetch_array($wallet_qry)) {
                       ?>

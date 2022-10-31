@@ -40,6 +40,11 @@
     $address = $transaction['trans_address'];
     $mode_of_payment = $transaction['trans_mop'];
     $state = $transaction['trans_state'];
+    if ($state == 'ALBERTA') {
+      $state = $state;
+    } else {
+      $state = 'ALL';
+    }
   } else {
     $state = '';
     $country = '';
@@ -99,7 +104,7 @@
                     <div class="col-sm-12 col-md-12 col-lg-12">
                       <div class="form-group">
                         <select class="form-control select2bs4" style="width: 100%;" name="state">
-                        <option  value="">Select State</option>
+                        <option  value="">Select States</option>
                         <?php
                             $lugar = "SELECT * FROM upti_state";
                             $lugar_qry = mysqli_query($connect, $lugar);
@@ -310,7 +315,7 @@
                         $q5 = $row['package_five_qty'];
                         
                         // 1
-                        $check_stock1 = "SELECT * FROM stockist_inventory WHERE si_item_code = '$c1' AND si_item_country = '$country'";
+                        $check_stock1 = "SELECT * FROM stockist_inventory WHERE si_item_code = '$c1' AND si_item_country = '$country' AND si_item_state = '$state'";
                         $check_stock_qry1 = mysqli_query($connect, $check_stock1);
                         $check_stock_fetch1 = mysqli_fetch_array($check_stock_qry1);
                         $check_stock_num1 = mysqli_num_rows($check_stock_qry1);
@@ -321,7 +326,7 @@
                         }
                         // echo '<br>';
                         // 2
-                        $check_stock2 = "SELECT * FROM stockist_inventory WHERE si_item_code = '$c2' AND si_item_country = '$country'";
+                        $check_stock2 = "SELECT * FROM stockist_inventory WHERE si_item_code = '$c2' AND si_item_country = '$country' AND si_item_state = '$state'";
                         $check_stock_qry2 = mysqli_query($connect, $check_stock2);
                         $check_stock_fetch2 = mysqli_fetch_array($check_stock_qry2);
                         $check_stock_num2 = mysqli_num_rows($check_stock_qry2);
@@ -332,7 +337,7 @@
                         }
                         // echo '<br>';
                         // 3
-                        $check_stock3 = "SELECT * FROM stockist_inventory WHERE si_item_code = '$c3' AND si_item_country = '$country'";
+                        $check_stock3 = "SELECT * FROM stockist_inventory WHERE si_item_code = '$c3' AND si_item_country = '$country' AND si_item_state = '$state'";
                         $check_stock_qry3 = mysqli_query($connect, $check_stock3);
                         $check_stock_fetch3 = mysqli_fetch_array($check_stock_qry3);
                         $check_stock_num3 = mysqli_num_rows($check_stock_qry3);
@@ -343,7 +348,7 @@
                         }
                         // echo '<br>';
                         // 4
-                        $check_stock4 = "SELECT * FROM stockist_inventory WHERE si_item_code = '$c4' AND si_item_country = '$country'";
+                        $check_stock4 = "SELECT * FROM stockist_inventory WHERE si_item_code = '$c4' AND si_item_country = '$country' AND si_item_state = '$state'";
                         $check_stock_qry4 = mysqli_query($connect, $check_stock4);
                         $check_stock_fetch4 = mysqli_fetch_array($check_stock_qry4);
                         $check_stock_num4 = mysqli_num_rows($check_stock_qry4);
@@ -354,7 +359,7 @@
                         }
                         // echo '<br>';
                         // 5
-                        $check_stock5 = "SELECT * FROM stockist_inventory WHERE si_item_code = '$c5' AND si_item_country = '$country'";
+                        $check_stock5 = "SELECT * FROM stockist_inventory WHERE si_item_code = '$c5' AND si_item_country = '$country' AND si_item_state = '$state'";
                         $check_stock_qry5 = mysqli_query($connect, $check_stock5);
                         $check_stock_fetch5 = mysqli_fetch_array($check_stock_qry5);
                         $check_stock_num5 = mysqli_num_rows($check_stock_qry5);

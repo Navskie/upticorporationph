@@ -35,6 +35,7 @@
         $mobile = $_POST['mobile'];
         $address = $_POST['address'];
         $country = $_POST['country'];
+        $state = $_POST['state'];
 
         $reseller_earning = mysqli_query($connect, "INSERT INTO upti_reseller (
           reseller_poid,

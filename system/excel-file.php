@@ -3,7 +3,7 @@
 
     session_start();
 
-    if(isset($_POST['export'])) {
+    if(isset($_POST['export'])) { 
         $newDate1 = $_POST['date1'];
         $date1 = date("m-d-Y", strtotime($newDate1));
         $newDate2 = $_POST['date2'];
@@ -566,6 +566,8 @@
                     <th>Item Code</th>
                     <th>Item Description</th>
                     <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Peso</th>
                     <th>Status</th>
                 <tr>
             ';
@@ -594,6 +596,8 @@
                             <td>'.$row['ol_code'].'</td>
                             <td>'.$row['ol_desc'].'</td>
                             <td>'.$row['ol_qty'].'</td>
+                            <td>'.$row['ol_price'].'</td>
+                            <td>'.$row['ol_php'].'</td>
                             <td>'.$row['ol_status'].'</td>
                         </tr>
                     ';
@@ -817,62 +821,63 @@
         $date1 = date("m-d-Y", strtotime($newDate1));
         $newDate2 = $_POST['date2'];
         $date2 = date("m-d-Y", strtotime($newDate2));
-        $res = $_POST['res'];
+        $res = $_POST['res']; 
         $stats = $_POST['stats'];
 
         if ($res == '' && $stats == 'Order Delivered') {
             // Column Name
-            $output = '
-            <table class="table" bordered="1">
-            <tr>
-                <th>COUNTRY/LOCATION</th>
-                <th>RESELLER ID</th>
-                <th>RESELLER NAME</th>
-                <th>Total Sales of '.$date1.' to '.$date2.'</th>
-            <tr>
-            ';
+            // $output = '
+            // <table class="table" bordered="1">
+            // <tr>
+            //     <th>COUNTRY/LOCATION</th>
+            //     <th>RESELLER ID</th>
+            //     <th>RESELLER NAME</th>
+            //     <th>Total Sales of '.$date1.' to '.$date2.'</th>
+            // <tr>
+            // ';
+
+            // // Display Column Names as First Row
+            // // $excelData = implode('\t', array_values($fields)).'\n';
     
-            // Display Column Names as First Row
-            // $excelData = implode('\t', array_values($fields)).'\n';
+            // // Fetch Records From Database
+            // $export_sql = "
+            // SELECT users_code, trans_country, users_name, SUM(upti_order_list.ol_php) AS TOTAL_SALES FROM upti_users
+            // INNER JOIN
+            // upti_order_list ON upti_users.users_code = upti_order_list.ol_reseller
+            // INNER JOIN
+            // upti_transaction ON upti_transaction.trans_poid = upti_order_list.ol_poid
+            // INNER JOIN
+            // upti_activities ON upti_transaction.trans_poid = upti_activities.activities_poid
+            // WHERE upti_activities.activities_caption = 'Order Delivered' AND
+            // upti_activities.activities_date BETWEEN '$date1' AND '$date2' GROUP BY users_code ORDER BY TOTAL_SALES DESC";
+            // // echo '<br>';
+            // $export_qry = mysqli_query($connect, $export_sql);
+            // $export_num = mysqli_num_rows($export_qry);
     
-            // Fetch Records From Database
-            $export_sql = "SELECT users_code, trans_country, users_name, SUM(upti_order_list.ol_php) AS TOTAL_SALES FROM upti_users
-            INNER JOIN
-            upti_order_list ON upti_users.users_code = upti_order_list.ol_reseller
-            INNER JOIN
-            upti_transaction ON upti_transaction.trans_poid = upti_order_list.ol_poid
-            INNER JOIN
-            upti_activities ON upti_transaction.trans_poid = upti_activities.activities_poid
-            WHERE upti_activities.activities_caption = 'Order Delivered' AND
-            upti_activities.activities_date BETWEEN '$date1' AND '$date2' GROUP BY users_code ORDER BY TOTAL_SALES DESC";
-            // echo '<br>';
-            $export_qry = mysqli_query($connect, $export_sql);
-            $export_num = mysqli_num_rows($export_qry);
-    
-            while($row = mysqli_fetch_array($export_qry)) {
-                    $tot_sales = $row['TOTAL_SALES'];
+            // while($row = mysqli_fetch_array($export_qry)) {
+            //         $tot_sales = $row['TOTAL_SALES'];
                     
-                $output .='
-                <tr>
-                    <td>'.$row['trans_country'].'</td>
-                    <td>'.$row['users_code'].'</td>
-                    <td>'.$row['users_name'].'</td>
-                    <td>'.number_format($tot_sales).'</td>
-                </tr>
-                ';
-            }
-            $output .= '</table>';
-            // Header for  Download
-            // if (! headers_sent()) {
-            header("Content-Type: application/xls");
-            header("Content-Disposition: attachment; filename=Reseller_Sales".$date1.'-'.$date2.".xls");
-            header("Pragma: no-cache");
-            header("Expires: 0");
+            //     $output .='
+            //     <tr>
+            //         <td>'.$row['trans_country'].'</td>
+            //         <td>'.$row['users_code'].'</td>
+            //         <td>'.$row['users_name'].'</td>
+            //         <td>'.number_format($tot_sales).'</td>
+            //     </tr>
+            //     ';
             // }
-            // Render excel data file
-            echo $output;
-            // ob_end_flush();
-            exit;
+            // $output .= '</table>';
+            // // Header for  Download
+            // // if (! headers_sent()) {
+            // header("Content-Type: application/xls");
+            // header("Content-Disposition: attachment; filename=Reseller_Sales".$date1.'-'.$date2.".xls");
+            // header("Pragma: no-cache");
+            // header("Expires: 0");
+            // // }
+            // // Render excel data file
+            // echo $output;
+            // // ob_end_flush();
+            // exit;
         } elseif ($res == '' && $stats == 'RTS') {
             // Column Name
             $output = '
@@ -891,7 +896,7 @@
             // $excelData = implode('\t', array_values($fields)).'\n';
     
             // Fetch Records From Database
-            $export_sql = "SELECT reseller_country, reseller_code, reseller_name, SUM(upti_order_list.ol_php) AS TOTAL_SALES FROM upti_reseller
+            $export_sql = "SELECT *, SUM(upti_order_list.ol_php) AS TOTAL_SALES FROM upti_reseller
                     INNER JOIN
                     upti_order_list ON upti_reseller.reseller_code = upti_order_list.ol_reseller
                     INNER JOIN
@@ -1009,7 +1014,7 @@
     
     // OSR SALES
     if (isset($_POST['osr_sales_report'])) {
-      //         $item_sql = "SELECT users_name, SUM(ol_php) AS TOTAL, SUM(ol_points) AS POINTS FROM upti_users INNER JOIN upti_order_list ON upti_users.users_code = upti_order_list.ol_seller INNER JOIN upti_activities ON upti_order_list.ol_poid = upti_activities.activities_poid WHERE upti_users.users_role = 'UPTIOSR' AND upti_users.users_main = 'RS114' AND upti_activities.activities_caption = 'Order Delivered' AND upti_activities.activities_date BETWEEN '05-01-2022' AND '05-31-2022' OR upti_users.users_role = 'UPTIOSR' AND upti_users.users_main = 'RS113' AND upti_activities.activities_caption = 'Order Delivered' AND upti_activities.activities_date BETWEEN '05-01-2022' AND '05-31-2022' OR upti_users.users_role = 'UPTIOSR' AND upti_users.users_main = 'RS112' AND upti_activities.activities_caption = 'Order Delivered' AND upti_activities.activities_date BETWEEN '05-01-2022' AND '05-31-2022' OR upti_users.users_role = 'UPTIOSR' AND upti_users.users_main = 'RS111' AND upti_activities.activities_caption = 'Order Delivered' AND upti_activities.activities_date BETWEEN '05-01-2022' AND '05-31-2022' GROUP BY upti_users.users_code ORDER BY TOTAL DESC";
+      //   $item_sql = "SELECT users_name, SUM(ol_php) AS TOTAL, SUM(ol_points) AS POINTS FROM upti_users INNER JOIN upti_order_list ON upti_users.users_code = upti_order_list.ol_seller INNER JOIN upti_activities ON upti_order_list.ol_poid = upti_activities.activities_poid WHERE upti_users.users_role = 'UPTIOSR' AND upti_users.users_main = 'RS114' AND upti_activities.activities_caption = 'Order Delivered' AND upti_activities.activities_date BETWEEN '05-01-2022' AND '05-31-2022' OR upti_users.users_role = 'UPTIOSR' AND upti_users.users_main = 'RS113' AND upti_activities.activities_caption = 'Order Delivered' AND upti_activities.activities_date BETWEEN '05-01-2022' AND '05-31-2022' OR upti_users.users_role = 'UPTIOSR' AND upti_users.users_main = 'RS112' AND upti_activities.activities_caption = 'Order Delivered' AND upti_activities.activities_date BETWEEN '05-01-2022' AND '05-31-2022' OR upti_users.users_role = 'UPTIOSR' AND upti_users.users_main = 'RS111' AND upti_activities.activities_caption = 'Order Delivered' AND upti_activities.activities_date BETWEEN '05-01-2022' AND '05-31-2022' GROUP BY upti_users.users_code ORDER BY TOTAL DESC";
       //   $item_qry = mysqli_query($connect, $item_sql);
       //   echo $check = mysqli_num_rows($item_qry);
       
