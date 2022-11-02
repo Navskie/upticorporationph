@@ -1509,6 +1509,12 @@
                   <p>My Transaction</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="website-order.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Website Transaction</p>
+                </a>
+              </li>
               <li class="nav-item"> 
                 <a href="osr-reseller.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
