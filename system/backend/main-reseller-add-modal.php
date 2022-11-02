@@ -150,11 +150,11 @@
                         <select class="form-control select2bs4" style="width: 100%;" name="country">
                             <option value="">Select Country</option>
                             <?php
-                            $category_sql = "SELECT DISTINCT country_name FROM upti_country";
+                            $category_sql = "SELECT * FROM upti_country_currency";
                             $category_qry = mysqli_query($connect, $category_sql);
                             while ($category = mysqli_fetch_array($category_qry)) {
                             ?>
-                            <option value="<?php echo $category['country_name'] ?>"><?php echo $category['country_name'] ?></option>
+                            <option value="<?php echo $category['cc_country'] ?>"><?php echo $category['cc_country'] ?></option>
                             <?php } ?>
                         </select>
                     </div>
