@@ -65,7 +65,7 @@
                     <?php
                         $mycode = $_SESSION['code'];
                         // $order_sql = "SELECT * FROM upti_transaction WHERE trans_status = 'Pending' ORDER BY trans_poid DESC";
-                        $order_sql = "SELECT * FROM web_transaction WHERE trans_status= 'Pending' AND trans_upline = '' AND trans_country = '$employee' ORDER BY id DESC";
+                        $order_sql = "SELECT * FROM web_transaction WHERE trans_status= 'Pending' AND trans_country = '$employee' ORDER BY id DESC";
                         $order_qry = mysqli_query($connect, $order_sql);
                         $number =1;
                         while ($order = mysqli_fetch_array($order_qry)) {

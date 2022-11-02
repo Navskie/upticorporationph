@@ -1900,7 +1900,7 @@
                 </li>
               </ul>
             </li>
-          <?php } elseif ($country == 'CANADA' || $country == 'PHILIPPINES') { ?>
+          <?php } elseif ($country == 'CANADA' || $country == 'PHILIPPINES' || $country == 'US') { ?>
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-globe"></i>
@@ -1920,6 +1920,12 @@
                   <a href="csr/philippines.php?country=<?php echo $csrid ?>" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>PHILIPPINES</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="csr/usa.php?country=<?php echo $csrid ?>" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>USA</p>
                   </a>
                 </li>
               </ul>

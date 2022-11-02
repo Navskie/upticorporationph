@@ -283,7 +283,7 @@
                                           $stock_pending = mysqli_query($connect, "SELECT * FROM stockist WHERE stockist_code = '$usercode' AND stockist_country = '$cc'");
                                           $counts = mysqli_num_rows($stock_pending);
                                         ?>
-                                        <?php if ($status == 'Pending' && $counts > 0 || $role == 'BRANCH' && $cc == 'Philippines' && $status == 'Pending' || $role == 'BRANCH' && $cc == 'PHILIPPINES' && $status == 'Pending') { ?>
+                                        <?php if ($status == 'Pending' && $counts > 0 || $role == 'BRANCH' && $cc == 'Philippines' && $status == 'Pending' || $role == 'BRANCH' && $cc == 'PHILIPPINES' && $status == 'Pending' || $status == 'Pending' && $counts > 0 || $role == 'BRANCH' && $cc == 'US' && $status == 'Pending' || $role == 'BRANCH' && $cc == 'US' && $status == 'Pending') { ?>
 
                                         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#onprocess<?php echo $id; ?>" title="On Process">On Process</button>
                                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#cancel<?php echo $id; ?>" title="Cancel">Cancel</button>

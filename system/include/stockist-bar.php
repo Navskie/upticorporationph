@@ -135,7 +135,7 @@
             <a href="cs-pending-order.php" class="nav-link">
               <i class="uil uil-globe nav-icon"></i>
               <p>
-                Customer Orders
+                Website Orders
                 <span class="badge badge-info right"><?php echo $get_sum_data_fetch['bilang']; ?></span>
               </p>
             </a>
