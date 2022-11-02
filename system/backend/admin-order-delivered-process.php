@@ -635,7 +635,7 @@
                     $oq1 = $check_package_fetch['package_one_qty'];
                     $q1 = $oq1 * $code_qty;
 
-                    $inv_stock = "SELECT * FROM stockist_inventory WHERE si_item_country = '$country' AND si_item_code = '$c1'";
+                    $inv_stock = "SELECT * FROM stockist_inventory WHERE si_item_country = '$country' AND si_item_code = '$c1' AND si_item_state = '$state'";
                     $inv_stock_qry = mysqli_query($connect, $inv_stock);
                     $inv_stock_fetch = mysqli_fetch_array($inv_stock_qry);
 
@@ -644,7 +644,7 @@
                     if ($total_stock != 0) {
                         $new_total_stock = $total_stock - $q1;
 
-                        $update_inventory = "UPDATE stockist_inventory SET si_item_stock = '$new_total_stock' WHERE si_item_country = '$country' AND si_item_code = '$c1'";
+                        $update_inventory = "UPDATE stockist_inventory SET si_item_stock = '$new_total_stock' WHERE si_item_country = '$country' AND si_item_code = '$c1' AND si_item_state = '$state'";
                         $update_inventory_qry = mysqli_query($connect, $update_inventory);
                     }
 
@@ -653,7 +653,7 @@
                     $oq2 = $check_package_fetch['package_two_qty'];
                     $q2 = $oq2 * $code_qty;
 
-                    $inv_stock2 = "SELECT * FROM stockist_inventory WHERE si_item_country = '$country' AND si_item_code = '$c2'";
+                    $inv_stock2 = "SELECT * FROM stockist_inventory WHERE si_item_country = '$country' AND si_item_code = '$c2' AND si_item_state = '$state'";
                     $inv_stock_qry2 = mysqli_query($connect, $inv_stock2);
                     $inv_stock_fetch2 = mysqli_fetch_array($inv_stock_qry2);
 
@@ -662,7 +662,7 @@
                     if ($total_stock2 != 0) {
                         $new_total_stock2 = $total_stock2 - $q2;
 
-                        $update_inventory2 = "UPDATE stockist_inventory SET si_item_stock = '$new_total_stock2' WHERE si_item_country = '$country' AND si_item_code = '$c2'";
+                        $update_inventory2 = "UPDATE stockist_inventory SET si_item_stock = '$new_total_stock2' WHERE si_item_country = '$country' AND si_item_code = '$c2' AND si_item_state = '$state'";
                         $update_inventory_qry2 = mysqli_query($connect, $update_inventory2);
                     }
 
@@ -671,7 +671,7 @@
                     $oq3 = $check_package_fetch['package_three_qty'];
                     $q3 = $oq3 * $code_qty;
 
-                    $inv_stock3 = "SELECT * FROM stockist_inventory WHERE si_item_country = '$country' AND si_item_code = '$c3'";
+                    $inv_stock3 = "SELECT * FROM stockist_inventory WHERE si_item_country = '$country' AND si_item_code = '$c3' AND si_item_state = '$state'";
                     $inv_stock_qry3 = mysqli_query($connect, $inv_stock3);
                     $inv_stock_fetch3 = mysqli_fetch_array($inv_stock_qry3);
 
@@ -680,7 +680,7 @@
                     if ($total_stock3 != 0) {
                         $new_total_stock3 = $total_stock3 - $q3;
 
-                        $update_inventory3 = "UPDATE stockist_inventory SET si_item_stock = '$new_total_stock3' WHERE si_item_country = '$country' AND si_item_code = '$c3'";
+                        $update_inventory3 = "UPDATE stockist_inventory SET si_item_stock = '$new_total_stock3' WHERE si_item_country = '$country' AND si_item_code = '$c3' AND si_item_state = '$state'";
                         $update_inventory_qry3 = mysqli_query($connect, $update_inventory3);
                     }
 
@@ -689,7 +689,7 @@
                     $oq4 = $check_package_fetch['package_four_qty'];
                     $q4 = $oq4 * $code_qty;
 
-                    $inv_stock4 = "SELECT * FROM stockist_inventory WHERE si_item_country = '$country' AND si_item_code = '$c4'";
+                    $inv_stock4 = "SELECT * FROM stockist_inventory WHERE si_item_country = '$country' AND si_item_code = '$c4' AND si_item_state = '$state'";
                     $inv_stock_qry4 = mysqli_query($connect, $inv_stock4);
                     $inv_stock_fetch4 = mysqli_fetch_array($inv_stock_qry4);
 
@@ -698,7 +698,7 @@
                     if ($total_stock4 != 0) {
                         $new_total_stock4 = $total_stock4 - $q4;
 
-                        $update_inventory4 = "UPDATE stockist_inventory SET si_item_stock = '$new_total_stock4' WHERE si_item_country = '$country' AND si_item_code = '$c4'";
+                        $update_inventory4 = "UPDATE stockist_inventory SET si_item_stock = '$new_total_stock4' WHERE si_item_country = '$country' AND si_item_code = '$c4' AND si_item_state = '$state'";
                         $update_inventory_qry4 = mysqli_query($connect, $update_inventory4);
                     }
 
@@ -707,7 +707,7 @@
                     $oq5 = $check_package_fetch['package_five_qty'];
                     $q5 = $oq5 * $code_qty;
 
-                    $inv_stock5 = "SELECT * FROM stockist_inventory WHERE si_item_country = '$country' AND si_item_code = '$c5'";
+                    $inv_stock5 = "SELECT * FROM stockist_inventory WHERE si_item_country = '$country' AND si_item_code = '$c5' AND si_item_state = '$state'";
                     $inv_stock_qry5 = mysqli_query($connect, $inv_stock5);
                     $inv_stock_fetch5 = mysqli_fetch_array($inv_stock_qry5);
 
@@ -716,7 +716,7 @@
                     if($total_stock5 != 0) {
                         $new_total_stock5 = $total_stock5 - $q5;
 
-                        $update_inventory5 = "UPDATE stockist_inventory SET si_item_stock = '$new_total_stock5' WHERE si_item_country = '$country' AND si_item_code = '$c5'";
+                        $update_inventory5 = "UPDATE stockist_inventory SET si_item_stock = '$new_total_stock5' WHERE si_item_country = '$country' AND si_item_code = '$c5' AND si_item_state = '$state'";
                         $update_inventory_qry5 = mysqli_query($connect, $update_inventory5);
                     }
                 } else {
@@ -727,7 +727,7 @@
 
                     $code_codes = $get_new_code_fetch['code_main'];
 
-                    $inv_stock = "SELECT * FROM stockist_inventory WHERE si_item_country = '$country' AND si_item_code = '$code_codes'";
+                    $inv_stock = "SELECT * FROM stockist_inventory WHERE si_item_country = '$country' AND si_item_code = '$code_codes' AND si_item_state = '$state'";
                     $inv_stock_qry = mysqli_query($connect, $inv_stock);
                     $inv_stock_fetch = mysqli_fetch_array($inv_stock_qry);
 
@@ -735,7 +735,7 @@
 
                     $new_total_stock = $total_stock - $code_qty;
 
-                    $update_inventory = "UPDATE stockist_inventory SET si_item_stock = '$new_total_stock' WHERE si_item_country = '$country' AND si_item_code = '$code_codes'";
+                    $update_inventory = "UPDATE stockist_inventory SET si_item_stock = '$new_total_stock' WHERE si_item_country = '$country' AND si_item_code = '$code_codes' AND si_item_state = '$state'";
                     $update_inventory_qry = mysqli_query($connect, $update_inventory);
                 }
             }

@@ -283,25 +283,25 @@
                                           $stock_pending = mysqli_query($connect, "SELECT * FROM stockist WHERE stockist_code = '$usercode' AND stockist_country = '$cc'");
                                           $counts = mysqli_num_rows($stock_pending);
                                         ?>
-                                        <?php if ($status == 'Pending' && $counts > 0 || $role == 'WEBSITE' && $cc == 'Philippines' && $status == 'Pending' || $role == 'WEBSITE' && $cc == 'PHILIPPINES' && $status == 'Pending') { ?>
+                                        <?php if ($status == 'Pending' && $counts > 0 || $role == 'BRANCH' && $cc == 'Philippines' && $status == 'Pending' || $role == 'BRANCH' && $cc == 'PHILIPPINES' && $status == 'Pending') { ?>
 
                                         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#onprocess<?php echo $id; ?>" title="On Process">On Process</button>
                                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#cancel<?php echo $id; ?>" title="Cancel">Cancel</button>
                                         
-                                        <?php } elseif ($status == 'On Process' && $counts > 0 || $role == 'WEBSITE' && $cc == 'PHILIPPINES' && $status == 'On Process' || $role == 'WEBSITE' && $cc == 'Philippines' && $status == 'On Process') { ?>
+                                        <?php } elseif ($status == 'On Process' && $counts > 0 || $role == 'BRANCH' && $cc == 'PHILIPPINES' && $status == 'On Process' || $role == 'BRANCH' && $cc == 'Philippines' && $status == 'On Process') { ?>
 
                                         <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#intransit<?php echo $id; ?>" title="In Transit">In Transit</button>
-                                        <?php } elseif ($status == 'In Transit' && $role == 'WEBSITE') { ?>
+                                        <?php } elseif ($status == 'In Transit' && $role == 'BRANCH') { ?>
 
                                         <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#delivered<?php echo $id; ?>" title="Delivered">Delivered</button>
                                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#rts<?php echo $id; ?>" title="RTS">RTS</button>
                                         
 
-                                        <?php } elseif ($status == 'Delivered' && $role == 'WEBSITE') { ?>
+                                        <?php } elseif ($status == 'Delivered' && $role == 'BRANCH') { ?>
                                             <span class="badge badge-success">Delivered Order</span>
-                                        <?php } elseif ($status == 'RTS' && $role == 'WEBSITE') { ?>
+                                        <?php } elseif ($status == 'RTS' && $role == 'BRANCH') { ?>
                                             <span class="badge badge-danger">RTS Order</span>
-                                        <?php } elseif ($status == 'Canceled' && $role == 'WEBSITE') { ?>
+                                        <?php } elseif ($status == 'Canceled' && $role == 'BRANCH') { ?>
                                             <span class="badge badge-danger">Cancel Order</span>
                                         <?php } ?>
                                     </span>

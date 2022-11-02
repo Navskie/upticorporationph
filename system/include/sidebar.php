@@ -1782,6 +1782,41 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-shopping-basket"></i>
+              <p>
+                Website Order
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="website-pending.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pending Orders</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="website-process.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Processed Orders</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="website-delivered-order.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Delivered Orders</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="website-rts.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>RTS Orders</p>
+                </a>
+              </li>
+            </ul>
+          </li>
           <?php
             $csrid = $_SESSION['uid'];
 

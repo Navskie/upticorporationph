@@ -2,7 +2,7 @@
 <?php
     $SCode = $_SESSION['code'];
     
-    if ($_SESSION['role'] == 'WEBSITE') {
+    if ($_SESSION['role'] == 'WEBSITE' || $_SESSION['role'] == 'BRANCH') {
 ?>
 <?php include 'include/preloader.php'; ?>
 <?php include 'include/stockist-navbar.php'; ?>
