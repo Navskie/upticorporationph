@@ -1,82 +1,121 @@
 <?php
-  include 'dbms/conn.php';
+    session_start();
+    include 'dbms/conn.php';
 
-  // $path = 'Code_Quantity_Report.xlsx';
-  session_start();
+    $uid = $_SESSION['code'];
 
-  require 'vendor/autoload.php';
+    $reseller_ = mysqli_query($connect, "SELECT * FROM stockist WHERE stockist_code = '$uid'");
+    $reseller__ = mysqli_fetch_array($reseller_);
 
-  use PhpOffice\PhpSpreadsheet\Spreadsheet;
-  use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+    $country = $reseller__['stockist_country'];
+    $state = $reseller__['stockist_state'];
 
-  if (isset($_POST['export'])) {
-    $newDate1 = $_POST['date1'];
-    $date1 = date("m-d-Y", strtotime($newDate1));
-    $newDate2 = $_POST['date2'];
-    $date2 = date("m-d-Y", strtotime($newDate2));
+    if (isset($_POST['export'])) {
+        $newDate1 = $_POST['date1'];
+        $date1 = date("m-d-Y", strtotime($newDate1));
+        $newDate2 = $_POST['date2'];
+        $date2 = date("m-d-Y", strtotime($newDate2));
+             
+        // Column Name
+        $output = '
+            <table class="table" border="1">
+            <tr>
+                <th>Upperline</th>
+                <th>Country</th>
+                <th>Reseller Id</th> 
+                <th>Reseller Name</th> 
+                <th>Total</th> 
+            <tr> 
+        ';
+        
+        $export_sql = "SELECT users_code, users_name, ol_seller, ol_country FROM upti_order_list
+        INNER JOIN upti_activities ON ol_poid = activities_poid
+        INNER JOIN upti_users ON users_code = ol_reseller
+        WHERE activities_caption = 'Order Delivered' AND
+        activities_date BETWEEN '$date1' AND '$date2'
+        GROUP BY users_code";
 
-    $reseller_sales = "
-    SELECT users_code, users_name, ol_reseller, SUM(ol_php) AS total_sales FROM upti_order_list
-    INNER JOIN upti_activities ON ol_poid = activities_poid
-    INNER JOIN upti_users ON users_code = ol_reseller
-    WHERE activities_caption = 'Order Delivered' AND
-    activities_date BETWEEN '$date1' AND '$date2'
-    GROUP BY users_code ORDER BY total_sales DESC
-    ";
-    $reseller_sales_qry = mysqli_query($connect, $reseller_sales);
+        // echo '<br>';
+        $export_qry = mysqli_query($connect, $export_sql);
+        $export_num = mysqli_num_rows($export_qry);
 
-    if (mysqli_num_rows($reseller_sales_qry))
-    {
-      $fileName = 'Reseller Sales Report';
-      $spreadsheet = new Spreadsheet();
-      $sheet = $spreadsheet->getActiveSheet();
-      // Column Name List
-      $sheet->setCellValue('A1', 'UPPER LINE');
-      // $sheet->setCellValue('B1', 'COUNTRY');
-      $sheet->setCellValue('B1', 'RESELLER ID');
-      $sheet->setCellValue('C1', 'RESELLER NAME');
-      $sheet->setCellValue('D1', 'TOTAL SALES');
+        if($export_num > 0) {
+            while($row = mysqli_fetch_array($export_qry)) {
+                $sellers = $row['ol_seller'];
 
-      $rowCount = 2;
-      // data loop
-      foreach ($reseller_sales_qry as $data) {
+                $get_true = mysqli_query($connect, "SELECT * FROM upti_users WHERE users_code = '$sellers' AND users_role = 'UPTIOSR'");
+                $get_true_fetch = mysqli_fetch_array($get_true);
+                if (mysqli_num_rows($get_true) > 0) {
+                    $seller = $get_true_fetch['users_main'];
+                    // echo '<br>';
 
-        $seller = $data['ol_reseller'];
+                    $get_sales = mysqli_query($connect, "
+                    SELECT SUM(ol_php) AS total_sales FROM upti_order_list 
+                    INNER JOIN upti_activities ON activities_poid = ol_poid 
+                    WHERE 
+                    activities_caption = 'Order Delivered' AND 
+                    ol_reseller = '$seller' AND 
+                    ol_seller LIKE '%OSR%' 
+                    AND activities_date BETWEEN '$date1' AND '$date2'
+                    ");
+                    $get_sales_fetch = mysqli_fetch_array($get_sales);
 
-        $check_reseller = mysqli_query($connect, "SELECT users_code, users_name, users_main FROM upti_users INNER JOIN upti_reseller  WHERE users_code = '$seller' AND users_role = 'UPTIRESELLER'");
-        $check_fetch = mysqli_fetch_array($check_reseller);
+                    $sales = $tot = $get_sales_fetch['total_sales'];
+                    // echo '<br>';
+                } else {
+                    $seller = $row['ol_seller'];
+                    // echo '<br>';
 
-        if (mysqli_num_rows($check_reseller) > 0) {
-          $main = $check_fetch['users_main'];
+                    $get_sales = mysqli_query($connect, "
+                    SELECT SUM(ol_php) AS total_sales FROM upti_order_list 
+                    INNER JOIN upti_activities ON activities_poid = ol_poid 
+                    WHERE 
+                    activities_caption = 'Order Delivered' AND 
+                    ol_reseller = '$seller' AND 
+                    ol_seller LIKE '%R%' 
+                    AND activities_date BETWEEN '$date1' AND '$date2'
+                    ");
+                    $get_sales_fetch = mysqli_fetch_array($get_sales);
 
-          $rawr = mysqli_query($connect, "SELECT users_name FROM upti_users WHERE users_code = '$main'");
+                    $sales = $tot = $get_sales_fetch['total_sales'];
+                    // echo '<br>';
+                }
 
-          $rawr_fetch = mysqli_fetch_array($rawr);
-
-          $upperline = $rawr_fetch['users_name'];
+                $check_reseller = mysqli_query($connect, "SELECT users_code, users_name, users_main, reseller_country FROM upti_users INNER JOIN upti_reseller  WHERE users_code = '$sellers' AND users_role = 'UPTIRESELLER'");
+                $data = mysqli_fetch_array($check_reseller);
+        
+                if (mysqli_num_rows($check_reseller) > 0) {
+                  $main = $data['users_main'];
+        
+                  $rawr = mysqli_query($connect, "SELECT users_name FROM upti_users WHERE users_code = '$main'");
+        
+                  $rawr_fetch = mysqli_fetch_array($rawr);
+        
+                  $upperline = $rawr_fetch['users_name'];
+                }
+                $output .='
+                    <tr>
+                        <td>'.$upperline.'</td>
+                        <td>'.$row['ol_country'].'</td>
+                        <td>'.$seller.'</td>
+                        <td>'.$row['users_name'].'</td>
+                        <td>'.$sales.'</td>
+                    </tr>
+                ';
+            }
+            $output .= '</table>';
+            // Header for  Download
+            // if (! headers_sent()) {
+            header("Content-Type: application/xls");
+            header("Content-Disposition: attachment; filename=ResellerSales".$date1.'-'.$date2.".xls");
+            header("Pragma: no-cache");
+            header("Expires: 0");
+            // }
+            // Render excel data file
+            echo $output;
+            // ob_end_flush();
+            exit;
         }
-
-        $sheet->setCellValue('A'.$rowCount, $upperline);
-        $sheet->setCellValue('B'.$rowCount, $data['ol_reseller']);
-        $sheet->setCellValue('C'.$rowCount, $data['users_name']);
-        $sheet->setCellValue('D'.$rowCount, $data['total_sales']);
-        // $sheet->setCellValue('E'.$rowCount, $data['']);
-
-        $rowCount++;
-      }
-
-      $writer = new Xlsx($spreadsheet);
-      $new_FileName = $fileName.'.xlsx';
-
-      // $writer->save($new_FileName);
-
-      header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-      header('Content-Disposition: attachment; filename="'.urlencode($new_FileName).'"');
-      $writer->save('php://output');
-    }
-    else
-    {
-      echo 'no record found.';
-    }
-  }
+    }   
+                    
 ?>

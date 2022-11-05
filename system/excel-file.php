@@ -515,6 +515,10 @@
             $export_qry = mysqli_query($connect, $export_sql);
             $export_num = mysqli_num_rows($export_qry);
 
+            // while($row = mysqli_fetch_array($export_qry)) {
+            //     echo $row['ol_poid'].'<br>';
+            // }
+
             if($export_num > 0) {
                 while($row = mysqli_fetch_array($export_qry)) {
                         $seller = $row['ol_seller'];

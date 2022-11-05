@@ -31,7 +31,7 @@
         <tr>
         ';
 
-        if ($bansa == '' && $status == 'Delivered') {
+        if ($bansa == '' && $status == '') {
             // Fetch Records From Database
             $export_sql = "SELECT users_name, users_code FROM upti_users WHERE users_role ='UPTIOSR'";
             // echo '<br>';
