@@ -144,7 +144,7 @@
             <a href="#" class="nav-link">
               <i class="uil uil-list-ol nav-icon"></i>
               <p>
-                Website Order List
+                Website Orders List
                 <i class="uil uil-arrows-shrink-v right"></i>
               </p>
             </a>

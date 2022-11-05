@@ -30,17 +30,17 @@
         $trans_state = $transaction_fetch['trans_state'];
         $csid = $transaction_fetch['trans_csid'];
 
-          // STOCKIST PERCENTAGE
-          if ($country == 'CANADA') {
-            if ($trans_state !== 'ALBERTA' || $trans_state === '') {
-              $trans_state = 'ALL';
-            }
-          } else {
+        // STOCKIST PERCENTAGE
+        if ($country == 'CANADA') {
+          if ($trans_state !== 'ALBERTA' || $trans_state === '') {
             $trans_state = 'ALL';
           }
-          $stockist_stmt = mysqli_query($connect, "SELECT * FROM stockist WHERE stockist_country = '$country' AND stockist_state = '$trans_state'");
-          $stockist_f = mysqli_fetch_array($stockist_stmt);
-          $stockist = $stockist_f['stockist_code'];
+        } else {
+          $trans_state = 'ALL';
+        }
+        $stockist_stmt = mysqli_query($connect, "SELECT * FROM stockist WHERE stockist_country = '$country' AND stockist_state = '$trans_state'");
+        $stockist_f = mysqli_fetch_array($stockist_stmt);
+        $stockist = $stockist_f['stockist_code'];
 
         $april_date = '04-11-2022';
 
