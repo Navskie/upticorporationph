@@ -26,7 +26,7 @@
           $reward_sales = $total_fetch_points_sql_0['total'];
         ?>
         <div class="row">
-          <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="col-lg-4 col-md-6 col-sm-12">
             <div class="course">
               <div class="preview bg-primary">
                 <h2 class="text-center text-light"><i class="uil uil-user-exclamation"></i></h2>
@@ -35,7 +35,11 @@
               <div class="info">
                 <h6>OSR Seller Code</h6>
                 <h2><b><?php echo $osrID ?></b></h2>
-                <p class="text-danger pt-2">Uptimised Corporation PH</p>
+                <div class="copy-text">
+                  <input type="text" id="myInput" value="https://system.uptimised-hris.com/replicate.php?id=<?php echo $_SESSION['code'] ?>" style="display: none">
+                  <button class="btn btn-success" onclick="myFunction()"><i class="uil uil-copy"></i> Get Link</button>
+                  <br><br>
+                </div>
               </div>
             </div>
             <br>
