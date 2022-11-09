@@ -67,7 +67,7 @@
                             <tr class="cart__row border-bottom line1 cart-flex border-top">
                                 <td class="cart__meta small-- text-center cart-flex-item">
                                     <div class="list-view-item__title" style="font-size: 13px !important;">
-                                        <a href="ref-details.php?ref=<?php echo $transaction['trans_ref'] ?>">Ref# <?php echo $transaction['trans_ref'] ?></a>
+                                        <a href="ref-details.php?ref=<?php echo $transaction['trans_ref'] ?>" target="_blank">Ref# <?php echo $transaction['trans_ref'] ?></a>
                                     </div>
                                     
                                     <div class="cart__meta-text">

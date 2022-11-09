@@ -523,15 +523,19 @@
                                       <th class="text-center">Number</th>
                                   </thead>
                                   <?php
-                                      if ($mode_of_payment == 'Cash On Delivery' || $mode_of_payment == 'Cash On Pick Up') {
-                                          $get_mode_of_payment = ' ';
-                                      } elseif ($mode_of_payment == 'E-Payment' || $mode_of_payment == 'Payment First') {
-                                          $get_mode_of_payment = 'epayment';
-                                      } elseif ($mode_of_payment == 'Bank') {
-                                          $get_mode_of_payment = 'bank';
-                                      }
+                                       if ($mode_of_payment == 'Cash On Delivery' || $mode_of_payment == 'Cash On Pick Up') {
+                                            $get_mode_of_payment = ' ';
+                                        } elseif ($mode_of_payment == 'E-Payment') {
+                                            $get_mode_of_payment = 'epayment';
+                                        } elseif ($mode_of_payment == 'Bank') {
+                                            $get_mode_of_payment = 'bank';
+                                        }
 
-                                      $mop_details_sql = "SELECT * FROM upti_mod WHERE mod_country = '$country' AND mod_status = '$get_mode_of_payment'";
+                                        if ($customer_country == 'CANADA' && $office_state != 'ALBERTA') {
+                                          $office_state = 'ALL';
+                                        }
+
+                                      $mop_details_sql = "SELECT * FROM upti_mod WHERE mod_country = '$country' AND mod_status = '$get_mode_of_payment' AND mod_state = '$office_state'";
                                       $mod_details_qry = mysqli_query($connect, $mop_details_sql);
                                       while ($mod_details_fetch = mysqli_fetch_array($mod_details_qry)) {
                                   ?>

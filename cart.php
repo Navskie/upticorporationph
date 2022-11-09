@@ -538,7 +538,11 @@
                       </div>
                       <br><br>
                       <!-- <div class="cart__shipping">Shipping &amp; taxes calculated at checkout</div> -->
-                      <button name="checkout" id="cartCheckout" class="btn btn--small-wide checkout">CHECK OUT</button>
+                      <?php if (mysqli_num_rows($address_stmt) > 0 ) { ?>
+                        <button name="checkout" id="cartCheckout" class="btn btn--small-wide checkout">CHECK OUT</button>
+                      <?php } else { ?>
+                        <button name="checkout" id="cartCheckout" class="btn btn--small-wide checkout" disabled>CHECK OUT</button>
+                      <?php } ?>
                     </form>
                     </div>
 

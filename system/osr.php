@@ -275,8 +275,9 @@
                 <h2 class="text-center"><i class="uil uil-percentage"></i></h2>
               </div>
               <?php
-                $website_del = mysqli_query($connect, "SELECT SUM(cart_earn) AS website_sales FROM web_cart INNER JOIN upti_activities ON activities_poid = cart_ref WHERE cart_upper = '$osrID' AND cart_status = 'Delivered' AND activities_date BETWEEN '$date1' AND '$date2'");
-                $website_del_fetch = mysqli_fetch_array($website_del);
+                $website_del = "SELECT SUM(cart_earn) AS website_sales FROM web_cart INNER JOIN upti_activities ON activities_poid = cart_ref WHERE cart_upper = '$osrID' AND cart_status = 'Delivered' AND activities_date BETWEEN '$date1' AND '$date2'";
+                $website_test = mysqli_query($connect, $website_del);
+                $website_del_fetch = mysqli_fetch_array($website_test);
     
                 $website_sales4 = $website_del_fetch['website_sales'] + $sales;
               ?>
@@ -319,7 +320,7 @@
                   if ($sales22 == 0) {
                       echo '0';
                   } else {
-                      $sales1 = $get_sales_fetch1['php'];
+                      $sales1 = $get_sales_fetch1['php'] + $website_sales3;
                       echo '₱ '.number_format($sales1);
                   } 
                 ?>
@@ -450,3 +451,17 @@
   </div>
 
 <?php include 'include/footer.php'; ?>
+<script>
+function myFunction() {
+  // Get the text field
+  var copyText = document.getElementById("myInput");
+
+  // Select the text field
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+
+  // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText.value);
+  
+}
+</script>
