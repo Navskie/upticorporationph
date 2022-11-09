@@ -34,6 +34,10 @@
             $total = "SELECT COUNT(trans_my_reseller) AS total FROM upti_transaction WHERE trans_country = '$employee'";
             $total_sql = mysqli_query($connect, $total);
             $total_fetch = mysqli_fetch_array($total_sql);
+
+            $total1 = "SELECT COUNT(trans_ref) AS total FROM web_transaction WHERE trans_country = '$employee'";
+            $total1_sql = mysqli_query($connect, $total1);
+            $total1_fetch = mysqli_fetch_array($total1_sql);
           ?>
           <div class="col-lg-3 col-md-6 col-sm-12">
             <div class="course">
@@ -43,7 +47,7 @@
 
               <div class="info">
                 <h6><?php echo $employee ?> TOTAL ORDERS</h6>
-                <h2><b><?php echo $total_fetch['total'] ?></b></h2>
+                <h2><b><?php echo $total_sales = $total_fetch['total'] + $total1_fetch['total']?></b></h2>
                 <a href="branch-all-order.php" class="text-info">MORE INFO </a>
               </div>
             </div>
@@ -54,6 +58,10 @@
             $pending = "SELECT COUNT(trans_my_reseller) AS total FROM upti_transaction WHERE trans_status = 'Pending' AND  trans_country = '$employee'";
             $pending_sql = mysqli_query($connect, $pending);
             $pending_fetch = mysqli_fetch_array($pending_sql);
+
+            $pending1 = "SELECT COUNT(trans_ref) AS total FROM web_transaction WHERE trans_status = 'Pending' AND  trans_country = '$employee'";
+            $pending1_sql = mysqli_query($connect, $pending1);
+            $pending1_fetch = mysqli_fetch_array($pending1_sql);
           ?>
           <div class="col-lg-3 col-md-6 col-sm-12">
             <div class="course">
@@ -63,7 +71,7 @@
 
               <div class="info">
                 <h6><?php echo $employee ?> PENDING ORDERS</h6>
-                <h2><b><?php echo $pending_fetch['total'] ?></b></h2>
+                <h2><b><?php echo $total_pending = $pending_fetch['total'] + $pending1_fetch['total']?></b></h2>
                 <a href="branch-pending-order.php" class="text-info">MORE INFO </a>
               </div>
             </div>
@@ -74,6 +82,10 @@
             $process = "SELECT COUNT(trans_my_reseller) AS total FROM upti_transaction WHERE trans_status = 'On Process' AND  trans_country = '$employee'";
             $process_sql = mysqli_query($connect, $process);
             $process_fetch = mysqli_fetch_array($process_sql);
+
+            $process1 = "SELECT COUNT(trans_ref) AS total FROM web_transaction WHERE trans_status = 'On Process' AND  trans_country = '$employee'";
+            $process1_sql = mysqli_query($connect, $process1);
+            $process1_fetch = mysqli_fetch_array($process1_sql);
           ?>
           <div class="col-lg-3 col-md-6 col-sm-12">
             <div class="course">
@@ -83,7 +95,7 @@
 
               <div class="info">
                 <h6><?php echo $employee ?> ON PROCESS ORDERS</h6>
-                <h2><b><?php echo $process_fetch['total'] ?></b></h2>
+                <h2><b><?php echo $total_process = $process_fetch['total'] + $process1_fetch['total'] ?></b></h2>
                 <a href="branch-on-process-order.php" class="text-info">MORE INFO </a>
               </div>
             </div>
@@ -94,6 +106,10 @@
             $transit = "SELECT COUNT(trans_my_reseller) AS total FROM upti_transaction WHERE trans_status = 'In Transit' AND  trans_country = '$employee'";
             $transit_sql = mysqli_query($connect, $transit);
             $transit_fetch = mysqli_fetch_array($transit_sql);
+
+            $transit1 = "SELECT COUNT(trans_ref) AS total FROM upti_transaction WHERE trans_status = 'In Transit' AND  trans_country = '$employee'";
+            $transit1_sql = mysqli_query($connect, $transit1);
+            $transit1_fetch = mysqli_fetch_array($transit1_sql);
           ?>
           <div class="col-lg-3 col-md-6 col-sm-12">
             <div class="course">
@@ -103,7 +119,7 @@
 
               <div class="info">
                 <h6><?php echo $employee ?> IN TRANSIT ORDERS</h6>
-                <h2><b><?php echo $transit_fetch['total'] ?></b></h2>
+                <h2><b><?php echo $total_sales = $transit_fetch['total'] + $transit1_fetch['total']?></b></h2>
                 <a href="branch-in-transit-order.php" class="text-info">MORE INFO </a>
               </div>
             </div>
@@ -114,6 +130,10 @@
             $delivered = "SELECT COUNT(trans_my_reseller) AS total FROM upti_transaction WHERE trans_status = 'Delivered' AND  trans_country = '$employee'";
             $delivered_sql = mysqli_query($connect, $delivered);
             $delivered_fetch = mysqli_fetch_array($delivered_sql);
+
+            $delivered1 = "SELECT COUNT(trans_ref) AS total FROM upti_transaction WHERE trans_status = 'Delivered' AND  trans_country = '$employee'";
+            $delivered1_sql = mysqli_query($connect, $delivered1);
+            $delivered1_fetch = mysqli_fetch_array($delivered1_sql);
           ?>
           <div class="col-lg-3 col-md-6 col-sm-12">
             <div class="course">
@@ -123,7 +143,7 @@
 
               <div class="info">
                 <h6><?php echo $employee ?> DELIVERED ORDERS</h6>
-                <h2><b><?php echo $delivered_fetch['total'] ?></b></h2>
+                <h2><b><?php echo $total_delivered = $delivered_fetch['total'] + $delivered1_fetch['total']?></b></h2>
                 <a href="branch-delivered-order.php" class="text-info">MORE INFO </a>
               </div>
             </div>
@@ -134,6 +154,10 @@
             $canceled = "SELECT COUNT(trans_my_reseller) AS total FROM upti_transaction WHERE trans_status = 'Canceled' AND  trans_country = '$employee'";
             $canceled_sql = mysqli_query($connect, $canceled);
             $canceled_fetch = mysqli_fetch_array($canceled_sql);
+
+            $canceled1 = "SELECT COUNT(trans_ref) AS total FROM upti_transaction WHERE trans_status = 'Canceled' AND  trans_country = '$employee'";
+            $canceled1_sql = mysqli_query($connect, $canceled1);
+            $canceled1_fetch = mysqli_fetch_array($canceled1_sql);
           ?>
           <div class="col-lg-3 col-md-6 col-sm-12">
             <div class="course">
@@ -143,7 +167,7 @@
 
               <div class="info">
                 <h6><?php echo $employee ?> CANCELED ORDERS</h6>
-                <h2><b><?php echo $canceled_fetch['total'] ?></b></h2>
+                <h2><b><?php echo $total_cancel = $canceled_fetch['total'] + $canceled1_fetch['total']?></b></h2>
                 <a href="branch-cancel-order.php" class="text-info">MORE INFO </a>
               </div>
             </div>
@@ -154,6 +178,10 @@
             $rts = "SELECT COUNT(trans_my_reseller) AS total FROM upti_transaction WHERE trans_status = 'RTS' AND  trans_country = '$employee'";
             $rts_sql = mysqli_query($connect, $rts);
             $rts_fetch = mysqli_fetch_array($rts_sql);
+
+            $rts1 = "SELECT COUNT(trans_ref) AS total FROM upti_transaction WHERE trans_status = 'RTS' AND  trans_country = '$employee'";
+            $rts1_sql = mysqli_query($connect, $rts1);
+            $rts1_fetch = mysqli_fetch_array($rts1_sql);
           ?>
           <div class="col-lg-3 col-md-6 col-sm-12">
             <div class="course">
@@ -163,7 +191,7 @@
 
               <div class="info">
                 <h6><?php echo $employee ?> RTS ORDERS</h6>
-                <h2><b><?php echo $rts_fetch['total'] ?></b></h2>
+                <h2><b><?php echo $total_rts = $rts_fetch['total'] + $rts1_fetch['total']?></b></h2>
                 <a href="branch-rts-order.php" class="text-info">MORE INFO </a>
               </div>
             </div>

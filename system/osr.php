@@ -300,8 +300,9 @@
             $get_sales_qry1 = mysqli_query($connect, $get_sales1);
             $get_sales_fetch1 = mysqli_fetch_array($get_sales_qry1);
 
-            $website_transit = mysqli_query($connect, "SELECT SUM(cart_earn) AS website_sales FROM web_cart WHERE cart_upper = '$osrID' AND cart_status = 'In Transit'");
-            $website_transit_fetch = mysqli_fetch_array($website_transit);
+            $website_transit = "SELECT SUM(cart_earn) AS website_sales FROM web_cart WHERE cart_upper = '$osrID' AND cart_status = 'In Transit'";
+            $website_transit_qry = mysqli_query($connect, $website_transit);
+            $website_transit_fetch = mysqli_fetch_array($website_transit_qry);
 
             $website_sales3 = $website_transit_fetch['website_sales'];
 

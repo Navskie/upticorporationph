@@ -402,7 +402,7 @@
           }
         }
     ?>
-        <!-- <script>alert('Order Status has been changed to In Transit Successfully');window.location.href = '../poid-list2.php?id=<?php //echo $id ?>';</script> -->
+        <script>alert('Order Status has been changed to In Transit Successfully');window.location.href = '../poid-list2.php?id=<?php //echo $id ?>';</script>
     <?php
         }
     ?>
