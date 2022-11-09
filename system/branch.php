@@ -107,7 +107,7 @@
             $transit_sql = mysqli_query($connect, $transit);
             $transit_fetch = mysqli_fetch_array($transit_sql);
 
-            $transit1 = "SELECT COUNT(trans_ref) AS total FROM upti_transaction WHERE trans_status = 'In Transit' AND  trans_country = '$employee'";
+            $transit1 = "SELECT COUNT(trans_ref) AS total FROM web_transaction WHERE trans_status = 'In Transit' AND  trans_country = '$employee'";
             $transit1_sql = mysqli_query($connect, $transit1);
             $transit1_fetch = mysqli_fetch_array($transit1_sql);
           ?>
@@ -131,7 +131,7 @@
             $delivered_sql = mysqli_query($connect, $delivered);
             $delivered_fetch = mysqli_fetch_array($delivered_sql);
 
-            $delivered1 = "SELECT COUNT(trans_ref) AS total FROM upti_transaction WHERE trans_status = 'Delivered' AND  trans_country = '$employee'";
+            $delivered1 = "SELECT COUNT(trans_ref) AS total FROM web_transaction WHERE trans_status = 'Delivered' AND  trans_country = '$employee'";
             $delivered1_sql = mysqli_query($connect, $delivered1);
             $delivered1_fetch = mysqli_fetch_array($delivered1_sql);
           ?>
@@ -155,7 +155,7 @@
             $canceled_sql = mysqli_query($connect, $canceled);
             $canceled_fetch = mysqli_fetch_array($canceled_sql);
 
-            $canceled1 = "SELECT COUNT(trans_ref) AS total FROM upti_transaction WHERE trans_status = 'Canceled' AND  trans_country = '$employee'";
+            $canceled1 = "SELECT COUNT(trans_ref) AS total FROM web_transaction WHERE trans_status = 'Canceled' AND  trans_country = '$employee'";
             $canceled1_sql = mysqli_query($connect, $canceled1);
             $canceled1_fetch = mysqli_fetch_array($canceled1_sql);
           ?>
@@ -179,7 +179,7 @@
             $rts_sql = mysqli_query($connect, $rts);
             $rts_fetch = mysqli_fetch_array($rts_sql);
 
-            $rts1 = "SELECT COUNT(trans_ref) AS total FROM upti_transaction WHERE trans_status = 'RTS' AND  trans_country = '$employee'";
+            $rts1 = "SELECT COUNT(trans_ref) AS total FROM web_transaction WHERE trans_status = 'RTS' AND  trans_country = '$employee'";
             $rts1_sql = mysqli_query($connect, $rts1);
             $rts1_fetch = mysqli_fetch_array($rts1_sql);
           ?>
