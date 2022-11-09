@@ -28,7 +28,7 @@
                                 </thead>
                                 <?php
                                     
-                                    $order_sql = "SELECT * FROM web_transaction WHERE trans_status= 'On Process' AND trans_upline = 'NULL' OR trans_status= 'On Process' AND trans_upline = '' OR trans_status= 'In Transit' AND trans_upline = 'NULL' OR trans_status= 'In Transit' AND trans_upline = '' ORDER BY trans_date ASC";
+                                    $order_sql = "SELECT * FROM web_transaction WHERE trans_status= 'On Process' OR trans_status= 'In Transit' ORDER BY trans_date ASC";
                                     
                                     $order_qry = mysqli_query($connect, $order_sql);
                                     $number =1;
