@@ -5,7 +5,7 @@
 
     $id = $_GET['country'];
 
-    $update_country = "UPDATE upti_users SET users_employee = 'US' WHERE users_id = '$id'";
+    $update_country = "UPDATE upti_users SET users_employee = 'UNITED STATES' WHERE users_id = '$id'";
     $update_country_sql = mysqli_query($connect, $update_country);
 
     flash("country", "Welcome to USA Country");

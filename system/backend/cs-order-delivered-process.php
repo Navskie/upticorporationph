@@ -86,10 +86,10 @@
         $inv_history_qry = mysqli_query($connect, $inv_history);
         
         $epayment_process = "UPDATE web_transaction SET trans_status = 'Delivered' WHERE id = '$id'";
-        $epayment_process_qry = mysqli_query($connect, $epayment_process);
+        // $epayment_process_qry = mysqli_query($connect, $epayment_process);
 
         $epayment_process1 = "UPDATE web_cart SET cart_status = 'Delivered' WHERE cart_ref = '$poid'";
-        $epayment_process_qry1 = mysqli_query($connect, $epayment_process1);
+        // $epayment_process_qry1 = mysqli_query($connect, $epayment_process1);
 
         // earnings
 
@@ -206,7 +206,7 @@
         }
         // Level 3 % end
         
-        if ($country == 'Canada' && $state == 'ALBERTA') {
+        if ($country == 'Canada' && $state == 'ALBERTA' || $country == 'United States') {
             $order_list = mysqli_query($connect, "SELECT * FROM web_cart WHERE cart_ref = '$poid'");
           while ($order = mysqli_fetch_array($order_list)) {
             $item_code = $order['cart_code'];
@@ -402,7 +402,7 @@
           }
         }
     ?>
-        <script>alert('Order Status has been changed to In Transit Successfully');window.location.href = '../poid-list2.php?id=<?php //echo $id ?>';</script>
+        <script>alert('Order Status has been changed to Delivered Successfully');window.location.href = '../poid-list2.php?id=<?php echo $id ?>';</script>
     <?php
         }
     ?>

@@ -275,7 +275,7 @@
                 <h2 class="text-center"><i class="uil uil-percentage"></i></h2>
               </div>
               <?php
-                $website_del = "SELECT SUM(cart_earn) AS website_sales FROM web_cart INNER JOIN upti_activities ON activities_poid = cart_ref WHERE cart_upper = '$osrID' AND cart_status = 'Delivered' AND activities_date BETWEEN '$date1' AND '$date2'";
+                $website_del = "SELECT SUM(cart_earn) AS website_sales FROM web_cart INNER JOIN upti_activities ON activities_poid = cart_ref WHERE cart_upper = '$osrID' AND activities_caption = 'Delivered' AND activities_date BETWEEN '$date1' AND '$date2'";
                 $website_test = mysqli_query($connect, $website_del);
                 $website_del_fetch = mysqli_fetch_array($website_test);
     

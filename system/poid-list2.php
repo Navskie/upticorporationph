@@ -238,7 +238,6 @@
                                                 $get_pack_price = mysqli_fetch_array($get_country_sql);
                                                 
                                                 $presyo = $get_pack_price['country_price'];
-
                                             }
                                             
                                             

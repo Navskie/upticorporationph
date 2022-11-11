@@ -200,7 +200,7 @@
           <?php
             }
             
-            if ($_SESSION['uid'] == '1010') {
+            if ($_SESSION['uid'] == '1010' || $_SESSION['code'] == 'S7130') {
           ?>
           <li class="nav-item">
             <a href="#" class="nav-link">

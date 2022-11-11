@@ -774,7 +774,7 @@
         }
         // stockist commision
         
-        if ($country == 'CANADA' && $state == 'ALBERTA') {
+        if ($country == 'CANADA' && $state == 'ALBERTA' || $country == 'UNITED STATES') {
           $order_list = mysqli_query($connect, "SELECT * FROM upti_order_list WHERE ol_poid = '$poid'");
         while ($order = mysqli_fetch_array($order_list)) {
           $item_code = $order['ol_code'];
@@ -973,7 +973,7 @@
         // stockist end
         }
 ?>
-    <script>alert('Order Status has been changed to Delivered Successfully');window.location.href = '../poid-list.php?id=<?php echo $id ?>';</script>
+    <!-- <script>alert('Order Status has been changed to Delivered Successfully');window.location.href = '../poid-list.php?id=<?php //echo $id ?>';</script> -->
 <?php
     }
 ?>
