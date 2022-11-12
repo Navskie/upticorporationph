@@ -1115,9 +1115,9 @@
               // $excelData = implode('\t', array_values($fields)).'\n';
       
               // Fetch Records From Database
-              $item_sql = "SELECT upti_users.users_name, SUM(upti_order_list.ol_php) AS TOTAL FROM upti_users INNER JOIN upti_order_list ON upti_users.users_code = upti_order_list.ol_seller INNER JOIN upti_activities ON upti_order_list.ol_poid = upti_activities.activities_poid 
-              WHERE users_position = 'ELLAN' AND users_role = 'UPTIOSR' AND activities_caption = 'Order Delivered' AND activities_date BETWEEN '$date1' AND '$date2' OR
-              users_position = 'CHRIS' AND users_role = 'UPTIOSR'AND activities_caption = 'Order Delivered' AND activities_date BETWEEN '$date1' AND '$date2' GROUP BY users_code ORDER BY TOTAL DESC";
+            $item_sql = "SELECT upti_users.users_name, SUM(upti_order_list.ol_php) AS TOTAL FROM upti_users INNER JOIN upti_order_list ON upti_users.users_code = upti_order_list.ol_seller INNER JOIN upti_activities ON upti_order_list.ol_poid = upti_activities.activities_poid 
+            WHERE users_position = 'ELLAN' AND users_role = 'UPTIOSR' AND activities_caption = 'Order Delivered' AND activities_date BETWEEN '$date1' AND '$date2' OR
+            users_position = 'CHRIS' AND users_role = 'UPTIOSR'AND activities_caption = 'Order Delivered' AND activities_date BETWEEN '$date1' AND '$date2' GROUP BY users_code ORDER BY TOTAL DESC";
               $item_qry = mysqli_query($connect, $item_sql);
               $export_num = mysqli_num_rows($item_qry);
               if($export_num > 0) {

@@ -185,31 +185,25 @@
                                         <input type="date" name="date2" class="form-control" min="1997-01-01" max="2300-12-31">
                                     </div>
                                 </div>
-                                <div class="col-lg-4 col-md-4 col-sm-12">
+                                <!-- <div class="col-lg-4 col-md-4 col-sm-12">
                                     <div class="form-group">
                                         <label>Country</label>
                                         <select class="form-control select2bs4" style="width: 100%;" name="bansa">
                                             <option value="">All Country</option>
                                             <?php
-                                            $product_sql = "SELECT * FROM upti_country_currency";
-                                            $product_qry = mysqli_query($connect, $product_sql);
-                                            while ($product = mysqli_fetch_array($product_qry)) {
+                                            //$product_sql = "SELECT * FROM upti_country_currency";
+                                            //$product_qry = mysqli_query($connect, $product_sql);
+                                            //while ($product = mysqli_fetch_array($product_qry)) {
                                             ?>
-                                            <option value="<?php echo $product['cc_country'] ?>"><?php echo $product['cc_country'] ?></option>
-                                            <?php } ?>
+                                            <option value="<?php //echo $product['cc_country'] ?>"><?php //echo $product['cc_country'] ?></option>
+                                            <?php //} ?>
                                         </select>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="col-lg-4 col-md-4 col-sm-12">
                                     <div class="form-group">
                                         <label>Order Status</label>
                                         <select class="form-control select2bs4" style="width: 100%;" name="status">
-                                            <option value="">All Status</option>
-                                            <option value="Pending">Pending</option>
-                                            <option value="In Transit">In Transit</option>
-                                            <option value="On Process">On Process</option>
-                                            <option value="RTS">RTS</option>
-                                            <option value="Canceled">Canceled</option>
                                             <option value="Delivered">Delivered</option>
                                         </select>
                                     </div>

@@ -13,6 +13,7 @@
     $poid = $get_poid_fetch['trans_poid'];
     $customer_country = $get_poid_fetch['trans_country'];
     $mode_of_payment = $get_poid_fetch['trans_mop'];
+    $state = $get_poid_fetch['trans_state'];
 
     if ($customer_country == 'OMAN') {
         $customer_country = 'UNITED ARAB EMIRATES';
@@ -28,10 +29,10 @@
       if ($state != 'ALBERTA') {
         $c_state = 'ALL';
       } else {
-        $c_state = $get_country_fetch['trans_state'];
+        $c_state = $state;
       }
     } else {
-      $c_state = '';
+      $c_state = 'ALL';
     }
     
     $getnamex = "SELECT * FROM upti_users WHERE users_id = '$uid'";
@@ -95,6 +96,7 @@
                     $inv_stock_fetch = mysqli_fetch_array($inv_stock_qry);
 
                     $total_stock = $inv_stock_fetch['si_item_stock'];
+                    // echo '<br>';
 
                     if ($total_stock != 0) {
                         $new_total_stock = $total_stock - $q1;
@@ -113,6 +115,7 @@
                     $inv_stock_fetch2 = mysqli_fetch_array($inv_stock_qry2);
 
                     $total_stock2 = $inv_stock_fetch2['si_item_stock'];
+                    // echo '<br>';
 
                     if ($total_stock2 != 0) { 
                         $new_total_stock2 = $total_stock2 - $q2;
@@ -131,6 +134,7 @@
                     $inv_stock_fetch3 = mysqli_fetch_array($inv_stock_qry3);
 
                     $total_stock3 = $inv_stock_fetch3['si_item_stock'];
+                    // echo '<br>';
 
                     if ($total_stock3 != 0) {
                         $new_total_stock3 = $total_stock3 - $q3;
@@ -149,6 +153,7 @@
                     $inv_stock_fetch4 = mysqli_fetch_array($inv_stock_qry4);
 
                     $total_stock4 = $inv_stock_fetch4['si_item_stock'];
+                    // echo '<br>';
 
                     if ($total_stock4 != 0) {
                         $new_total_stock4 = $total_stock4 - $q4;
@@ -167,6 +172,7 @@
                     $inv_stock_fetch5 = mysqli_fetch_array($inv_stock_qry5);
 
                     $total_stock5 = $inv_stock_fetch5['si_item_stock'];
+                    // echo '<br>';
 
                     if($total_stock5 != 0) {
                         $new_total_stock5 = $total_stock5 - $q5;

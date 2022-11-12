@@ -13,21 +13,26 @@
     $poid = $get_poid_fetch['trans_poid'];
     $customer_country = $get_poid_fetch['trans_country'];
     $mode_of_payment = $get_poid_fetch['trans_mop'];
-    
-    $getnamex = "SELECT * FROM upti_users WHERE users_id = '$uid'";
-    $getnamex_qry = mysqli_query($connect, $getnamex);
-    $getnamex_fetch = mysqli_fetch_array($getnamex_qry);
-    
-    $namex = $getnamex_fetch['users_name'];
+    $state = $get_poid_fetch['trans_state'];
+
+    if ($customer_country == 'OMAN') {
+        $customer_country = 'UNITED ARAB EMIRATES';
+    } elseif ($customer_country == 'KUWAIT') {
+        $customer_country = 'UNITED ARAB EMIRATES';
+    } elseif ($customer_country == 'QATAR') {
+        $customer_country = 'UNITED ARAB EMIRATES';
+    } elseif ($customer_country == 'BAHRAIN') {
+        $customer_country = 'UNITED ARAB EMIRATES';
+    }
 
     if ($customer_country == 'CANADA') {
       if ($state != 'ALBERTA') {
         $c_state = 'ALL';
       } else {
-        $c_state = $get_country_fetch['trans_state'];
+        $c_state = $state;
       }
     } else {
-      $c_state = '';
+      $c_state = 'ALL';
     }
 
     if (isset($_POST['onprocess'])) {
@@ -47,7 +52,7 @@
         $inv_report = "UPDATE stockist_report SET rp_status = 'On Process' WHERE rp_poid = '$poid'";
         $inv_report_qry = mysqli_query($connect, $inv_report);
         
-        // INVENTORY HISTORY
+        INVENTORY HISTORY
         $inv_history = "UPDATE stockist_history SET history_status = 'On Process' WHERE history_poid = '$poid'";
         $inv_history_qry = mysqli_query($connect, $inv_history);
 
@@ -103,7 +108,7 @@
                     $inv_stock_fetch2 = mysqli_fetch_array($inv_stock_qry2);
 
                     $total_stock2 = $inv_stock_fetch2['si_item_stock'];
-
+                    // echo '<br>';
                     if ($total_stock2 != 0) { 
                         $new_total_stock2 = $total_stock2 - $q2;
 
@@ -121,7 +126,7 @@
                     $inv_stock_fetch3 = mysqli_fetch_array($inv_stock_qry3);
 
                     $total_stock3 = $inv_stock_fetch3['si_item_stock'];
-
+                    // echo '<br>';
                     if ($total_stock3 != 0) {
                         $new_total_stock3 = $total_stock3 - $q3;
 
@@ -139,7 +144,7 @@
                     $inv_stock_fetch4 = mysqli_fetch_array($inv_stock_qry4);
 
                     $total_stock4 = $inv_stock_fetch4['si_item_stock'];
-
+                    // echo '<br>';
                     if ($total_stock4 != 0) {
                         $new_total_stock4 = $total_stock4 - $q4;
 
@@ -157,7 +162,7 @@
                     $inv_stock_fetch5 = mysqli_fetch_array($inv_stock_qry5);
 
                     $total_stock5 = $inv_stock_fetch5['si_item_stock'];
-
+                    // echo '<br>';
                     if($total_stock5 != 0) {
                         $new_total_stock5 = $total_stock5 - $q5;
 
@@ -196,8 +201,8 @@
         }
         // Inventory Check Qty
         
-        // $remarks_sql2 = "INSERT INTO upti_remarks (remark_poid, remark_content, remark_name, remark_reseller) VALUES ('$poid', 'TRACKING NUMBER: $track', '$namex', 'Unread')";
-        // $remarks_qry2 = mysqli_query($connect, $remarks_sql2);
+        $remarks_sql2 = "INSERT INTO upti_remarks (remark_poid, remark_content, remark_name, remark_reseller) VALUES ('$poid', 'TRACKING NUMBER: $track', '$namex', 'Unread')";
+        $remarks_qry2 = mysqli_query($connect, $remarks_sql2);
 
         if($_SESSION['role'] == 'BRANCH') {
     ?>

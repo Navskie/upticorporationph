@@ -973,7 +973,7 @@
         // stockist end
         }
 ?>
-    <!-- <script>alert('Order Status has been changed to Delivered Successfully');window.location.href = '../poid-list.php?id=<?php //echo $id ?>';</script> -->
+    <script>alert('Order Status has been changed to Delivered Successfully');window.location.href = '../poid-list.php?id=<?php echo $id ?>';</script>
 <?php
     }
 ?>
