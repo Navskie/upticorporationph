@@ -86,10 +86,10 @@
         $inv_history_qry = mysqli_query($connect, $inv_history);
         
         $epayment_process = "UPDATE web_transaction SET trans_status = 'Delivered' WHERE id = '$id'";
-        // $epayment_process_qry = mysqli_query($connect, $epayment_process);
+        $epayment_process_qry = mysqli_query($connect, $epayment_process);
 
         $epayment_process1 = "UPDATE web_cart SET cart_status = 'Delivered' WHERE cart_ref = '$poid'";
-        // $epayment_process_qry1 = mysqli_query($connect, $epayment_process1);
+        $epayment_process_qry1 = mysqli_query($connect, $epayment_process1);
 
         // earnings
 

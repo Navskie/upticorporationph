@@ -126,6 +126,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                     <?php echo $transact['trans_mop'] ?><br>
+                                    <button class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#image<?php echo $id; ?>"><i class="fas fa-image"></i>&nbsp;&nbsp; Receipt</button>
                                     </div>
                                 </div>
                                 <hr>
@@ -385,6 +386,7 @@
   </div>
 <?php
     include 'backend/cs-cancel-modal.php';
+    include 'backend/admin-order-images2-modal.php';
     include 'backend/cs-order-rts-modal.php';
     include 'backend/cs-order-delivered-modal.php';
     include 'backend/cs-order-intransit-modal.php';
