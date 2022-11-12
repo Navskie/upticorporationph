@@ -19,6 +19,7 @@
 
                         $get_payment = mysqli_query($connect, "SELECT * FROM web_payment WHERE payment_ref = '$poid'");
                         $get_payment_fetch = mysqli_fetch_array($get_payment);
+                        // this is image receopt
                     ?>
                     <img src="../assets/images/payment/<?php echo $get_payment_fetch['payment_img'] ?>" alt="" width="100%" class="image-responsive">
                 </div>
